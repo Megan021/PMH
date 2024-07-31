@@ -24,7 +24,9 @@ const Navbar = () => {
         <div className='container bg-[#F5F3F2]'>
 
           {/* TOP HEADER */}
-          <div className='flex justify-between hidden lg:block '>
+          <div className='hidden lg:block'>
+
+          <div className='flex justify-between   '>
             <ul className='flex gap-4 text-xs sm:text-sm text-[#333333]'>
               <li>CONTACT</li>
               <li>ADDRESS</li>
@@ -42,6 +44,7 @@ const Navbar = () => {
               <li><FaYoutube /></li>
               <li className='cursor-pointer' onClick={toggleForm}><GiHamburgerMenu /></li>
             </ul>
+          </div>
           </div>
         </div>
         {offScreenDeals && (

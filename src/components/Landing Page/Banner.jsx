@@ -79,7 +79,7 @@ const Banner = () => {
                 </button>
             </div>
             <div>
-                <img src='images/banner-1.jpg' className='h-full  w-52 mx-auto md:mx  lg:w-[30rem] object-contain' />
+                <img src='images/LandingPage/banner-1.jpg' className='h-full  w-52 mx-auto md:mx  lg:w-[30rem] object-contain' />
             </div>
         </div>
 
@@ -88,7 +88,7 @@ const Banner = () => {
             <span className='bg-[red] rounded-r-md rounded-bl-md text-white px-4 text-center'>New Product</span>
             <h2 className='text-5xl text-center  w-[20rem] mx-auto my-8'>Controller like Never before</h2>
             <span className='text-blue-600 text-lg font-semibold'>RELEASE DATE & PRICE</span>
-            <img src='images/banner-1,2.jpg' className='mx-auto' />
+            <img src='images/LandingPage/banner-1,2.jpg' className='mx-auto' />
             </div>
 
 
@@ -118,7 +118,7 @@ const Banner = () => {
       </div>
 
       <div className='hidden md:block'>
-        <img src='images/slide1-iphone.png' className='mt-8 ' />
+        <img src='images/LandingPage/slide1-iphone.png' className='mt-8 ' />
       </div>
     </div>
   </div>
@@ -142,7 +142,7 @@ const Banner = () => {
       </div>
 
       <div  className='hidden md:block'>
-        <img src='images/slide1-ipad.png' className='mb-32' />
+        <img src='images/LandingPage/slide1-ipad.png' className='mb-32' />
       </div>
     </div>
   </div>
@@ -166,7 +166,7 @@ const Banner = () => {
       </div>
 
       <div className='hidden md:block'>
-        <img src='images/ProductHighlight.jpeg' className='mt-10 object-cover hidden lg:block' />
+        <img src='images/LandingPage/ProductHighlight.jpeg' className='mt-10 object-cover hidden lg:block' />
       </div>
     </div>
   </div>
@@ -196,7 +196,7 @@ const Banner = () => {
            </button>
            </div>
            <div className=''>
-          <img src='images/SummerSale.jpg' className=' mt-16 h-[20rem] rounded-lg hidden lg:block ' />
+          <img src='images/LandingPage/SummerSale.jpg' className=' mt-16 h-[20rem] rounded-lg hidden lg:block ' />
           </div>
         </div>
       </div>
@@ -204,7 +204,7 @@ const Banner = () => {
 {/* <div className='flex gap-12 px-16 '>
   <div className='bg-[#F7F1F1] flex justify  gap-16 px-8 items-center w-1/2    '>
     <div className=''>
-      <img src='/public/images/2ndBanner.png' className='w-full  h-full' />
+      <img src='images/LandingPage/2ndBanner.png' className='w-full  h-full' />
     </div>
     <div className=' text-4xl mt-44 text-right font-bold'>
       <h2>Get 30% Off</h2>
@@ -222,7 +222,7 @@ const Banner = () => {
       <button className=' text-base text-left font-normal  mt-4  underline '>SHOP NOW </button>
     </div>
     <div className=''>
-      <img src='images/slide1-iphone.png ' className='w-72 h-full' />
+      <img src='images/LandingPage/slide1-iphone.png ' className='w-72 h-full' />
     </div>
   </div>
 </div> */}

@@ -31,15 +31,15 @@ const LandingPage = () => {
                 </button>
               </div>
                   <div className='lg:w-[40rem]'>
-                <img src='images/landingPage-watches.png' className='w-full relative z-10' alt='iphones' />
+                <img src='images/LandingPage/landingPage-watches.png' className='w-full relative z-10' alt='iphones' />
               </div>
 
 
 
               <div className=''>
-                <img src='images/Ellipse 1.svg' className='absolute hidden lg:block  top-[18rem] right-[14rem] opacity-15 w-40 ' alt='Ellipse' />
-                <img src='images/Group 2.svg' className='absolute hidden lg:block right-[25rem] bottom-[5rem] w-40' alt='Group' />
-                <img src='images/Subtract.svg' className='absolute  hidden lg:block left-[20rem] top-[19rem]  w-40 ' alt='Subtract' />
+                <img src='images/LandingPage/Ellipse 1.svg' className='absolute hidden lg:block  top-[18rem] right-[14rem] opacity-15 w-40 ' alt='Ellipse' />
+                <img src='images/LandingPage/Group 2.svg' className='absolute hidden lg:block right-[25rem] bottom-[5rem] w-40' alt='Group' />
+                <img src='images/LandingPage/Subtract.svg' className='absolute  hidden lg:block left-[20rem] top-[19rem]  w-40 ' alt='Subtract' />
               </div>
             </div>
           </div>
@@ -114,7 +114,7 @@ const LandingPage = () => {
                     <HiArrowSmRight className="mt-[0.1rem]" /> SHOP NOW
                   </button>
                 </div>
-                <img src="images/sub-banner-01.jpg" className="-mt-8" title="SubBanner1" alt="SubBanner1" />
+                <img src="images/LandingPage//sub-banner-01.jpg" className="-mt-8" title="SubBanner1" alt="SubBanner1" />
               </div>
               <div className="col-span-1 row-span-1">
                 <div className="bg-[#EAEFF5] flex justify-between">
@@ -125,7 +125,7 @@ const LandingPage = () => {
                       <HiArrowSmRight className="mt-[0.1rem]" /> VIEW MORE
                     </button>
                   </div>
-                  <img src="images/sub-banner-02.jpg" className="md:hidden lg:block" title="SubBanner2" alt="SubBanner2" />
+                  <img src="images/LandingPage/sub-banner-02.jpg" className="md:hidden lg:block" title="SubBanner2" alt="SubBanner2" />
                 </div>
               </div>
               <div className="col-span-1 row-span-2 pt-8 bg-[#EEF4F4]">
@@ -136,11 +136,11 @@ const LandingPage = () => {
                     <HiArrowSmRight className="mt-[0.1rem]" /> SHOP NOW
                   </button>
                 </div>
-                <img src="images/sub-banner-03.jpg" className="" title="SubBanner3" alt="SubBanner3" />
+                <img src="images/LandingPage/sub-banner-03.jpg" className="" title="SubBanner3" alt="SubBanner3" />
               </div>
               <div
                 className="w-full h-full  bg-cover bg-center"
-                style={{ backgroundImage: 'url(images/sub-banner-04.jpg)' }}
+                style={{ backgroundImage: 'url(images/LandingPage/sub-banner-04.jpg)' }}
                 title="SubBanner4"
               >
                 <div className="p-8 lg:ml-48 ml-40 md:ml-14 w-full">

@@ -5,13 +5,21 @@ import "slick-carousel/slick/slick-theme.css";
 import { CiShoppingCart   } from "react-icons/ci";
 
 const BestSelling = () => {
-  const [productHighlight,setProductHighlight] = useState(false);
+  const [selectedProduct,setSelectedProduct] = useState(null)
+  const toggleProduct = (product)=> {
 
-  const toggleProduct = ()=> {
-    setProductHighlight(!productHighlight)
+    setSelectedProduct(product)
   }
+ 
+  const products = [
+    { id: 1, image: 'images/LandingPage/product1.webp', price: 'Rs 113,000.00', name: 'Samsung Z1', category: 'Mobile' },
+    { id: 2, image: ' images/LandingPage/product2.webp', price: 'Rs 63,000.00', name: 'Air Buds', category: 'Music' },
+    { id: 3, image: 'images/LandingPage/product3.webp', price: 'Rs 100,000.00', name: 'Samsung A4', category: 'Mobile' },
+    { id: 4, image: 'images/LandingPage/product4.webp', price: 'Rs 10,000.00', name: 'X-box controller', category: 'Video Games' },
+    { id: 5, image: 'images/LandingPage/product5.webp', price: 'Rs 10,000.00', name: 'G-Shock', category: 'Shoes' },
+    { id: 6, image: 'images/LandingPage/product6.webp', price: 'Rs 120,000.00', name: 'Acer Nitro', category: 'Laptop' },
+  ];
   
-
     const settings = {
         infinite: true,
         slidesToShow: 5,
@@ -73,21 +81,21 @@ const BestSelling = () => {
     
   return (
     <div>
-      {productHighlight && (
-         <div className='fixed inset-0 bg-black opacity-50 z-30' onClick={toggleProduct}></div>
+      {selectedProduct && (
+         <div className='fixed inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
 
       )}
-      {productHighlight && (
-                    <div className={`fixed container inset-x-0 md:w-[50%] md:h-[60%] top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${productHighlight ? 'translate-y-0' : '-translate-y-full'} duration-300 z-50`}>
+      {selectedProduct && (
+                    <div className={`fixed container inset-x-0 md:w-[50%] md:h-[70%] top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${selectedProduct ? 'translate-y-0' : '-translate-y-full'} duration-300 z-50`}>
                       <div className='lg:flex  p-4'>
                         <div className='md:w-1/2 w-[58%]  mx-auto'>
-                          <img src='images/ProductHighlight.jpeg' className='' />
+                          <img src={selectedProduct.image} className='' />
                         </div>
                         <div className='mx-auto'>
-                         <h1 className=''>Sound Wave. Audio Bliss.
+                         <h1 className=''>{selectedProduct.name}
                          </h1>
-                         <span className='text-gray-700 text-sm my-8'>Music</span>
-                         <h3 className='font-semibold text-2xl my-4'>Rs 12,000 </h3> 
+                         <span className='text-gray-700 text-sm my-8'>{selectedProduct.category}</span>
+                         <h3 className='font-semibold text-2xl my-4'>{selectedProduct.price} </h3> 
                          <hr className='border-gray-300 my-4' />
 
 
@@ -141,16 +149,18 @@ const BestSelling = () => {
       </div>
       <div className='mt-16  lg:w-full px-[0rem]'>
         <Slider {...settings}>
-          <div className='px-2'>
+          {products.map((product) => (
+            
+          <div key={product.id} className='px-2'>
             <div className='hover:border hover:border-black'>
-              <img src='images/product1.webp' alt='Product 1' />
+              <img src={product.image} alt='Product 1' />
               <div className='flex justify-between '>
 
              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>Rs 113,000.00</p>
-              <p className='px-5'>Samsung Z1 </p>
-              <p className='text-gray-400 px-5'>Mobile</p></div>
-              <div onClick={toggleProduct} className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
+              <p className=' mx-5 py-1  bg-white  '>{product.price}</p>
+              <p className='px-5'>{product.name} </p>
+              <p className='text-gray-400 px-5'>{product.category}</p></div>
+              <div onClick={()=> toggleProduct(product)} className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
               <CiShoppingCart   className='text-xl '/>
 
               </div>
@@ -158,9 +168,10 @@ const BestSelling = () => {
             </div>
        
           </div>
-          <div className='px-2 flex'>
+          ))}
+          {/* <div className='px-2 flex'>
             <div className='hover:border hover:border-black'>
-              <img src='images/product2.webp' alt='Product 2' />
+              <img src='images/LandingPage/product2.webp' alt='Product 2' />
               <div className='flex justify-between '>
               <div className='bg-white  py-4'>
               <p className=' mx-5 py-1  bg-white  '>Rs 63,000.00</p>
@@ -172,10 +183,10 @@ const BestSelling = () => {
               </div>
               </div>
             </div>
-          </div>
-          <div className='px-2'>
+          </div> */}
+          {/* <div className='px-2'>
             <div className='hover:border hover:border-black'>
-              <img src='images/product3.webp' alt='Product 3' />
+              <img src='images/LandingPage/product3.webp' alt='Product 3' />
               <div className='flex justify-between '>
 
               <div className='bg-white  py-4'>
@@ -188,10 +199,10 @@ const BestSelling = () => {
               </div>
               </div>
             </div>
-          </div>
-          <div className='px-2'>
+          </div> */}
+          {/* <div className='px-2'>
             <div className='hover:border hover:border-black'>
-              <img src='images/product4.webp' alt='Product 4' />
+              <img src='images/LandingPage/product4.webp' alt='Product 4' />
               <div className='flex justify-between '>
 
               <div className='bg-white  py-4'>
@@ -204,10 +215,10 @@ const BestSelling = () => {
               </div>
               </div>
             </div>
-          </div>
-          <div className='px-2'>
+          </div> */}
+          {/* <div className='px-2'>
             <div className='hover:border hover:border-black'>
-              <img src='images/product5.webp' alt='Product 5' />
+              <img src='images/LandingPage/product5.webp' alt='Product 5' />
               <div className='flex justify-between '>
 
               <div className='bg-white  py-4'>
@@ -220,10 +231,10 @@ const BestSelling = () => {
               </div>
               </div>
             </div>
-          </div>
-          <div className='px-2'>
+          </div> */}
+          {/* <div className='px-2'>
             <div className='hover:border hover:border-black'>
-                            <img src='images/product6.webp' alt='Product 6' />
+                            <img src='images/LandingPage/product6.webp' alt='Product 6' />
                             <div className='flex justify-between '>
 
               <div className='bg-white text-black py-4'>
@@ -237,7 +248,7 @@ const BestSelling = () => {
               </div>
               </div>
             </div>
-          </div>
+          </div> */}
         </Slider>
       </div>
     </div>
