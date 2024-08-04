@@ -6,7 +6,7 @@ import { CiShoppingCart   } from "react-icons/ci";
 const FeaturedProducts = () => {
 
   return (
-    <div className='container md:mx-auto mt-32 px-[2rem] '>
+    <div className='container md:mx-auto mt-32 px-32 '>
     <h1 className='font-bold text-center text-xl mt-16'>FEATURED PRODUCTS</h1>
     <div className='lg:block md:block hidden'>
     <ul className='flex justify-center py-9 mb-2 lg:gap-[8rem] md:gap-16 '>

@@ -16,7 +16,7 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        padding: '4rem',
+        padding: '0.1px',
       },
       spacing: {
         'custom-checkbox': '1rem',

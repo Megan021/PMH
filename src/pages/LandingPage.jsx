@@ -48,7 +48,7 @@ const LandingPage = () => {
         </div>
 
 
-        <div className='hidden lg:block   py-20'>
+        <div className='hidden lg:block px-32   py-20'>
         <div className='container mx-auto flex justify-around md:gap-2 '>
           <div className='lg:flex items-center gap-4'>
             <div className='border border-gray-300 rounded-full p-2'>
@@ -106,7 +106,7 @@ const LandingPage = () => {
        <hr/>
 
         <div>
-          <div className="container mt-32">
+          <div className=" px-32 mt-32">
             <div className="md:grid grid-cols-3 grid-rows-2 gap-4">
               <div className="col-span-1 row-span-2 pt-8 bg-[#F7F1F1]">
                 <div className="p-8">

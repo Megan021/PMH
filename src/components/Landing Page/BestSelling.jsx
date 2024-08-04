@@ -140,7 +140,7 @@ const BestSelling = () => {
 
       )}
       
-          <div className='container mt-32'>
+          <div className='container px-32 mt-32'>
           <div className="flex justify-center mt-32">
             <hr className="w-1/4 mt-3" />
             <span className="mx-2">BEST SELLING PRODUCTS</span>
