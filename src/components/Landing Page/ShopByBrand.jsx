@@ -3,7 +3,7 @@ const ShopByBrand = () => {
   return (
     <div>
             <div>
-          <div className="flex justify-center lg:-mt-44">
+          <div className="flex justify-center mt-32">
             <hr className="w-1/4 mt-3" />
             <span className="mx-2">SHOP BY BRAND</span>
             <hr className="w-1/4 mt-3" />

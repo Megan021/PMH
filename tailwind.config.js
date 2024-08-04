@@ -8,7 +8,7 @@ module.exports = {
     screens: {
       'sm': '640px',
       'md': '768px',
-      'lg': '1024px',
+      'lg': '1124px',
       'xl': '1280px',
       '2xl': '1536px',
       '3xl': '3600px',
@@ -16,7 +16,7 @@ module.exports = {
     extend: {
       container: {
         center: true,
-        padding: '0.1rem',
+        padding: '4rem',
       },
       spacing: {
         'custom-checkbox': '1rem',

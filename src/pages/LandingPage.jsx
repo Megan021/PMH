@@ -11,6 +11,8 @@ import ShopByBrand from "../components/Landing Page/ShopByBrand";
 import BestSelling from "../components/Landing Page/BestSelling";
 import Banner from "../components/Landing Page/Banner";
 import JoinUs from "../components/Landing Page/JoinUs";
+import FeaturedProducts from "../components/Landing Page/FeaturedProducts";
+import SecondBanner from "../components/Landing Page/SecondBanner";
 const LandingPage = () => {
 
   return (
@@ -104,8 +106,8 @@ const LandingPage = () => {
        <hr/>
 
         <div>
-          <div className="container mt-16">
-            <div className="md:grid grid-cols-3 grid-rows-3 gap-4">
+          <div className="container mt-32">
+            <div className="md:grid grid-cols-3 grid-rows-2 gap-4">
               <div className="col-span-1 row-span-2 pt-8 bg-[#F7F1F1]">
                 <div className="p-8">
                   <span className="text-[#4B1338] text-xl">20% Off on Sale!</span>
@@ -117,7 +119,7 @@ const LandingPage = () => {
                 <img src="images/LandingPage//sub-banner-01.jpg" className="-mt-8" title="SubBanner1" alt="SubBanner1" />
               </div>
               <div className="col-span-1 row-span-1">
-                <div className="bg-[#EAEFF5] flex justify-between">
+                <div className="bg-[#EAEFF5] py-8 flex justify-between">
                   <div className="p-8 w-full">
                     <span className="text-xl">Get 5% Discount</span>
                     <h2 className="font-bold text-[1.5rem] my-3 w-48">Wireless Airbuds</h2>
@@ -128,7 +130,7 @@ const LandingPage = () => {
                   <img src="images/LandingPage/sub-banner-02.jpg" className="md:hidden lg:block" title="SubBanner2" alt="SubBanner2" />
                 </div>
               </div>
-              <div className="col-span-1 row-span-2 pt-8 bg-[#EEF4F4]">
+              <div className="col-span-1 row-span-2  bg-[#EEF4F4]">
                 <div className="p-8 text-center ">
                   <span className="text-[#4B1338] text-xl">New Launches</span>
                   <h2 className="font-bold text-[#4B1338] text-[1.5rem] my-3">Pocket Camera</h2>
@@ -155,10 +157,11 @@ const LandingPage = () => {
           </div>
         </div>
 
-        <ShopByBrand/>
         <BestSelling/>
         <Banner/>
-        
+        <FeaturedProducts/>
+        <ShopByBrand/>
+        <SecondBanner/>
         <JoinUs/>
       </div>
   

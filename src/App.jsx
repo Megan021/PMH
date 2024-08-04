@@ -8,10 +8,14 @@ export default function App() {
   return (
 <>
 
+
+{/* 
+<ProductDetails/>
+*/
+}
 <Navbar/>
 <LandingPage/>
 <Footer/>
-{/* <ProductDetails/> */}
 </>
   )
 }

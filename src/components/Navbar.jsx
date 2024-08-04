@@ -53,7 +53,8 @@ const Navbar = () => {
             <div className={`fixed container inset-x-0 top-0 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${offScreenDeals ? 'translate-y-0' : '-translate-y-full'} duration-300 z-50`}>
               <div className="border border-gray-300"></div>
               <div className="px-4 sm:px-10">
-                <img src='/images/Summer.jpg' alt="Category Sale" className="w-full sm:w-[25rem] 3xl:w-[50rem] mx-auto mb-8" />
+
+                <img src='images/LandingPage/Summer.jpg' alt="Category Sale" className="w-full mt-4 sm:w-[25rem] 3xl:w-[50rem] mx-auto mb-8" />
                 <p className='text-[#747574] font-semibold'>READY TO GET STARTED?</p>
                 <div className="border border-t-1 w-full border-gray-300 my-4"></div>
                 <p className='font-semibold'>Daily Deals</p>
@@ -96,7 +97,7 @@ const Navbar = () => {
       <div className='bg-white mt-4 px-4 sm:px-6 lg:px-32'>
         <div className='container flex flex-col sm:flex-row py-4 justify-between items-center'>
           <div className='flex items-center mb-4 sm:mb-0'>
-            <span className='flex font-semibold text-xl'>
+            <span className='flex font-semibold text-xl cursor-pointer'>
               <div className='text-green-900'>P</div>
               <div className='text-blue-800'>M</div>
               <div className='text-green-900'>H</div>

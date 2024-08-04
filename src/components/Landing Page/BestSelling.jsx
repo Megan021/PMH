@@ -140,13 +140,12 @@ const BestSelling = () => {
 
       )}
       
-          <div className='container mt-40'>
-      <div className='flex gap-2 px-[2rem] lg:px-0'>
-
-        <button className='px-3 py-2 bg-black border text-white border-black font-semibold  text-center hover:text-black hover:bg-white'>
-          Top Trending
-        </button>
-      </div>
+          <div className='container mt-32'>
+          <div className="flex justify-center mt-32">
+            <hr className="w-1/4 mt-3" />
+            <span className="mx-2">BEST SELLING PRODUCTS</span>
+            <hr className="w-1/4 mt-3" />
+          </div>
       <div className='mt-16  lg:w-full px-[0rem]'>
         <Slider {...settings}>
           {products.map((product) => (

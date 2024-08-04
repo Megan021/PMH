@@ -5,11 +5,12 @@ import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
-    <div>
-              <hr className='border-spacing-0 border-gray-200 '/>
+    <>
+              <hr className='border-spacing-0 border-gray-200  '/>
+    <div className='container '>
 
        <div className='bg-[white]'>
-        <div className='lg:container  px-[2rem] '>
+        <div className='  '>
         <div className='flex justify-between pt-10 gap-12'>
             <div>
                 <h1 className='font-semibold text-xl'>Subscribe to our Newsletter </h1>
@@ -54,11 +55,13 @@ const Footer = () => {
 Privacy Policy | Terms & Conditions
 
 </div>
-<div className=''>Designed & Developed By <span className='font-semibold lg:font-normal'>SysQube Technologies</span>
+<div className=''>Designed & Developed By <span className='font-semibold lg:font-normal'>SysQube Technology</span>
     </div>
     </div>
     </div>
     </div>
+    </>
+
   )
 }
 
