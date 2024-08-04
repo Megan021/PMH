@@ -131,14 +131,14 @@ const LandingPage = () => {
                 </div>
               </div>
               <div className="col-span-1 row-span-2  bg-[#EEF4F4]">
-                <div className="p-8 text-center ">
+                <div className="p-8 text-center mt-5 ">
                   <span className="text-[#4B1338] text-xl">New Launches</span>
                   <h2 className="font-bold text-[#4B1338] text-[1.5rem] my-3">Pocket Camera</h2>
                   <button className="text-red-800 text-xs font-semibold flex justify-center mx-auto">
                     <HiArrowSmRight className="mt-[0.1rem]" /> SHOP NOW
                   </button>
                 </div>
-                <img src="images/LandingPage/sub-banner-03.jpg" className="" title="SubBanner3" alt="SubBanner3" />
+                <img src="images/LandingPage/sub-banner-03.jpg" className="mt-4" title="SubBanner3" alt="SubBanner3" />
               </div>
               <div
                 className="w-full h-full  bg-cover bg-center"

@@ -12,7 +12,7 @@ const JoinUs = () => {
                     <FaEnvelopeOpenText className='text-white text-6xl'/>
                 </div>
                 <div>
-                    <h2 className='font-semibold lg:text-3xl text-xl mt-3'>
+                    <h2 className='font-semibold lg:text-3xl text-xl mt-5'>
                      JOIN NOW AND GET 10% OFF YOUR NEXT PURCHASE    
                     </h2>
                 </div>

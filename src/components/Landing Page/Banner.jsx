@@ -8,28 +8,28 @@ const Banner = () => {
   return (
     <div className='lg:px-32 mt-32'>
       {/* FIRST BANNER */}
-       <div className='md:flex justify-between'>
+       <div className='md:flex gap-5'>
 
-        <div className=' bg-[#EFE3E3] lg:flex rounded-lg lg:w-[60%] w-full'>
-            <div className='lg:p-14 p-4 text-center md:text-left mt-28 '>
+        <div className=' bg-[#EFE3E3] relative lg:flex  rounded-lg lg:w-[65%] w-full'>
+            <div className='py-20 pl-12 flex-1 p-4 text-center md:text-left  '>
                 <p className='text-red-600 mb-4'>USE CODE: <span className='font-semibold'>SALE35%</span></p>
-                <h1 className='font-bold lg:text-5xl text-3xl   mb-4 lg:leading-[4rem] '>Heavy on Features Light on Prices</h1>
+                <h1 className='font-bold lg:text-4xl text-3xl   mb-4  '>Heavy on Features Light on Prices</h1>
                 <p className='mb-8 text-sm md:text-base'>AMAZING DISCOUNTS AND DEALS</p>
             <button className='px-5 py-3 font-semibold bg-[#0068C8] text-sm rounded-md text-white '>
                   SHOP NOW
                 </button>
             </div>
-            <div>
-                <img src='images/LandingPage/banner-1.jpg' className='h-full  w-52 mx-auto md:mx  lg:w-[30rem] object-contain' />
+            <div className='flex-1 '>
+                <img src='images/LandingPage/banner-1.jpg' className='h-[100%]  object-contain' />
             </div>
         </div>
 
         <div className='bg-[#D8D8EA] rounded-lg px-auto md:w-[35%] '>
             <div className='text-center mt-16 pt-8 md:pt-0'>
             <span className='bg-[red] rounded-r-md rounded-bl-md text-white px-4 text-center'>New Product</span>
-            <h2 className='text-5xl text-center  w-[20rem] mx-auto my-8'>Controller like Never before</h2>
+            <h2 className='text-3xl text-center  w-[20rem] mx-auto my-8'>Controller like Never before</h2>
             <span className='text-blue-600 text-lg font-semibold'>RELEASE DATE & PRICE</span>
-            <img src='images/LandingPage/banner-1,2.jpg' className='mx-auto' />
+            <img src='images/LandingPage/banner-1,2.jpg' className='mx-auto rounded-lg  lg:h-[10.5rem]' />
             </div>
 
 
