@@ -3,7 +3,7 @@ import { FaEnvelopeOpenText } from "react-icons/fa";
 
 const JoinUs = () => {
   return (
-    <div className='container border  px-32 border-gray-300 mt-32'>
+    <div className='lg:container  border   border-gray-300 mt-24'>
         <div className='lg:flex px-8   my-8  '>
             <div className='lg:flex justify-between'>
                 <div className='lg:flex gap-8 py-8 '>

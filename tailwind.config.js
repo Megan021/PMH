@@ -1,28 +1,26 @@
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   content: [
-    "./public/index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
-  theme: {
+  "./index.html",
+  "./src/**/*.{js,ts,jsx,tsx}",
+],
+theme: {
+  extend: {
     screens: {
-      'sm': '640px',
-      'md': '768px',
-      'lg': '1124px',
-      'xl': '1280px',
-      '2xl': '1536px',
-      '3xl': '3600px',
+      xs: "425px",
+      sm: "567px",
+      md: "768px",
+      lg: "904px",
+      xl: "1200px",
+      "2xl": "1100px",
+      "3xl": "1900px",
     },
-    extend: {
-      container: {
-        center: true,
-        padding: '0.1px',
-      },
-      spacing: {
-        'custom-checkbox': '1rem',
-      },
 
+    container: {
+      center: true,
+      padding: "0.1px",
     },
   },
-  plugins: [],
-};
+},
+plugins: [],
+}

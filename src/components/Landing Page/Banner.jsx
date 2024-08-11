@@ -6,12 +6,12 @@ const Banner = () => {
 
 
   return (
-    <div className='lg:px-32 mt-32'>
+    <div className='lg:container 3xl:px-32  mt-32'>
       {/* FIRST BANNER */}
        <div className='md:flex gap-5'>
 
         <div className=' bg-[#EFE3E3] relative lg:flex  rounded-lg lg:w-[65%] w-full'>
-            <div className='py-20 pl-12 flex-1 p-4 text-center md:text-left  '>
+            <div className='py-20 pl-12 flex-1 p-4 lg:text-center md:text-left  '>
                 <p className='text-red-600 mb-4'>USE CODE: <span className='font-semibold'>SALE35%</span></p>
                 <h1 className='font-bold lg:text-4xl text-3xl   mb-4  '>Heavy on Features Light on Prices</h1>
                 <p className='mb-8 text-sm md:text-base'>AMAZING DISCOUNTS AND DEALS</p>

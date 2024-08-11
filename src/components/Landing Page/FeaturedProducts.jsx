@@ -1,117 +1,81 @@
-import {useState} from 'react'
-import { CiStar } from "react-icons/ci";
+import { useState } from 'react';
+import { CiStar, CiShoppingCart, CiHeart } from "react-icons/ci";
 import { AiFillStar } from "react-icons/ai";
-import { CiShoppingCart   } from "react-icons/ci";
+import { Link } from 'react-router-dom';
 
-const FeaturedProducts = () => {
+const FeaturedProductsComponent = () => {
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
+  const toggleProduct = (product) => {
+    setSelectedProduct(product);
+  };
+
+  const featuredProducts = [
+    { id: 1, image1: 'images/LandingPage/featuredProduct-1.jpg', image2: 'images/LandingPage/featuredProduct-2.jpg', price: 'Rs 1,80000', name: 'IPhone 15', category: 'Mobile' },
+    { id: 2, image1: 'images/LandingPage/featuredProduct2-1.jpg', image2: 'images/LandingPage/featuredProduct2-2.jpg', price: 'Rs 28,000', newPrice:'Rs 16,000', name: 'Smart Band Carbon', category: 'Watch' },
+    { id: 3, image1: 'images/LandingPage/featuredProduct3-1.jpg', image2: 'images/LandingPage/featuredProduct3-2.jpg', price: 'Rs 40,000', name: 'Wireless Loud H7i', category: 'Music' },
+    { id: 4, image1: 'images/LandingPage/featuredProduct4-1.jpg', image2: 'images/LandingPage/featuredProduct4-2.jpg', price: 'Rs 8000', name: 'IPhone 15 case', category: 'Cover' },
+  ];
 
   return (
-    <div className='container md:mx-auto mt-32 px-32 '>
-    <h1 className='font-bold text-center text-xl mt-16'>FEATURED PRODUCTS</h1>
-    <div className='lg:block md:block hidden'>
-    <ul className='flex justify-center py-9 mb-2 lg:gap-[8rem] md:gap-16 '>
-      <li>All</li>
-      <li>PHONE CASE</li>
-      <li>SCREEN PROTECTOR</li>
-      <li>LENS PROTECTOR</li>
-    </ul>
-    </div>
-    <div className='sm:flex  gap-8 '>
-      <div className='lg:w-[21rem] md:w-[21rem] md:lg:w-[21rem] relative group mb-[2rem]   '   >
-        <img src='images/LandingPage/featuredProduct-2.jpg' className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt='Product1' />
-        <img src='images/LandingPage/featuredProduct-2.jpg' className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 lg:w-[21rem] md:w-[21rem]  group-hover:opacity-100' alt='Product1' />
-        <div className='flex justify-between mt-2'>
-          <div>
-        <p className='font-semibold '>IPhone 15</p>
-        <p className='font-semibold  my-2'>Rs 1,80000</p>
-        <div className='flex gap-1'>
-          <AiFillStar className='text-yellow-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-        </div>
+    <>
+      {selectedProduct && (
+        <>
+          <div className='fixed  inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
+          <div className="fixed top-0 container inset-x-0 md:w-[50%] md:h-[70%]  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
+            <div className='lg:flex p-4'>
+              <div className='md:w-1/2 w-[58%] mx-auto'>
+                <img src={selectedProduct.image1} alt={selectedProduct.name} />
+              </div>
+              <div className='mx-auto'>
+                <h1>{selectedProduct.name}</h1>
+                <span className='text-gray-700 text-sm lg:my-8'>{selectedProduct.category}</span>
+                <h3 className='font-semibold text-2xl my-4'>{selectedProduct.price}</h3>
+                <hr className='border-gray-300 my-4' />
+                <h3 className='font-semibold text-xl my-2 mb-4'>Color</h3>
+                <div className='flex gap-4 my-4'>
+                  <span className='my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-3 border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-cyan-400 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-red-300 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                </div>
+                <button type="submit" className="bg-black text-white my-4 w-[15.3rem] h-[4rem] text-[1.25rem] rounded-xl transition duration-300">Add to Cart</button>
+                <p className='text-gray-500 my-2 text-sm'>All terms and conditions available here.</p>
+                <Link to='/productDetails'>
+                  <span className='text-blue-700'>View Full Details</span>
+                </Link>
+              </div>
+            </div>
           </div>
-          <div className='mt-2 text-xl cursor-pointer border border-black p-2 rounded-full my-auto'>
-          <CiShoppingCart/>
+        </>
+      )}
+      <div className='container 3xl:px-32 md:mx-auto mt-24 '>
+        <h1 className='font-bold text-center text-xl my-16'>FEATURED PRODUCTS</h1>
+        <div className='lg:flex  gap-6 mt-4'>
+          {featuredProducts.map((product) => (
+            <div className='' key={product.id}>
+            <div  className='bg-white hover:shadow-xl shadow-md py-4 rounded-md relative group mb-[2rem]'>
+              <img src={product.image1} className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt='Product1' />
+              <img src={product.image2} className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 mt-4 group-hover:opacity-100' alt='Product1' />
+              <div className='flex justify-between px-4 mt-2'>
+                <div>
+                  <p className='font-semibold'>{product.name}</p>
+                  <p className='font-semibold my-2'>{product.price}</p>
+                </div>
 
-          </div>
-        </div>
-        
-      </div>
-      <div className='lg:w-[21rem] md:w-[21rem] relative group '  >
-        <img src='images/LandingPage/featuredProduct2-1.jpg' className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt="Product2" />
-        <img src='images/LandingPage/featuredProduct2-2.jpg' className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 lg:w-[21rem] md:w-[21rem] group-hover:opacity-100' alt="Product2" />
-        <div className='flex justify-between mt-2'>
-        <div>
-        <p className='font-semibold mt-2'> Smart Band Carbon</p>
-        <p className='font-semibold  my-2'>Rs 28,000</p>
-        <div className='flex gap-1'>
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
+                <div
+                onClick={()=> toggleProduct(product)}
+                className='mt-2 text-xl cursor-pointer border border-black p-2 rounded-full my-auto'>
+                  <CiShoppingCart />
+                </div>
+              </div>
+            </div>
+            </div>
+          ))}
         </div>
       </div>
-      <div className='mt-2 text-xl cursor-pointer border border-black p-2 rounded-full my-auto'>
-          <CiShoppingCart/>
-
-          </div>
-          </div>
-          </div>
-      
-      <div className='lg:w-[21rem] md:w-[21rem] relative group'  >
-        <img src='images/LandingPage/featuredProduct3-1.jpg' className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt='Product3' />
-        <img src='images/LandingPage/featuredProduct3-2.jpg' className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 lg:w-[21rem] md:w-[21rem] group-hover:opacity-100' alt='Product3' />
-        <div className='flex justify-between mt-2'>
-        <div>
-        <p className='font-semibold mt-2'>Wireless Loud H7i</p>
-        <div className='flex items-center gap-2  my-2'>
-          <p className='font-semibold text-gray-400 line-through'>Rs 40,000</p>
-          <p className='font-semibold text-red-500'>Rs 28,000</p>
-        </div>
-        <div className='flex gap-1 mt-2'>
-          <AiFillStar className='text-yellow-400' />
-          <AiFillStar className='text-yellow-400' />
-          <AiFillStar className='text-yellow-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-        </div>
-        </div>
-      <div className='mt-2 text-xl cursor-pointer border border-black p-2 rounded-full my-auto'>
-          <CiShoppingCart/>
-
-          </div>
-          </div>
-        {/* <p className='text-gray-400 mb-4'>0 reviews</p> */}
-      </div>
-      <div className='lg:w-[21rem] md:w-[21rem] relative group'  >
-        
-        <img src='images/LandingPage/featuredProduct4-1.jpg' className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt='In The Clouds Wrap Cardigans' />
-        <img src='images/LandingPage/featuredProduct4-2.jpg' className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 lg:w-[21rem] md:w-[21rem] group-hover:opacity-100' alt='In The Clouds Wrap Cardigans' />
-        <div className='flex justify-between mt-2'>
-        <div>
-        <p className='font-semibold mt-2'>Iphone 15 Case</p>
-        <p className='font-semibold my-3 '>Rs 8000</p>
-        <div className='flex gap-1'>
-          <AiFillStar className='text-yellow-400' />
-          <AiFillStar className='text-yellow-400' />
-          <AiFillStar className='text-yellow-400' />
-          <CiStar className='text-gray-400' />
-          <CiStar className='text-gray-400' />
-        </div>
-        </div>
-      <div className='mt-2 text-xl cursor-pointer border border-black p-2 rounded-full my-auto'>
-          <CiShoppingCart/>
-
-          </div>
-          </div>
-      </div>
-      
-    </div>
-  </div>
-);
+    </>
+  );
 };
 
-export default FeaturedProducts
+export default FeaturedProductsComponent;

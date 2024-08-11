@@ -3,7 +3,7 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiShoppingCart   } from "react-icons/ci";
-
+import {Link} from 'react-router-dom';
 const BestSelling = () => {
   const [selectedProduct,setSelectedProduct] = useState(null)
   const toggleProduct = (product)=> {
@@ -22,7 +22,7 @@ const BestSelling = () => {
   
     const settings = {
         infinite: true,
-        slidesToShow: 5,
+        slidesToShow: 4,
         slidesToScroll: 1,
         speed: 500,
         cssEase: "linear",
@@ -34,7 +34,7 @@ const BestSelling = () => {
           {
             breakpoint: 1535,
             settings: {
-              slidesToShow: 5,
+              slidesToShow: 4,
               slidesToScroll: 1,
               autoplay: true,
               autoplaySpeed: 2000,
@@ -132,16 +132,18 @@ const BestSelling = () => {
                   Add to Cart
                 </button>    
                 <p className='text-gray-500 my-2 text-sm'>All terms and conditions available here.</p>
+              <Link to='/productDetails'>
+                <span  className='text-blue-700'>View Full Details </span>
 
-                <a href='#' className='text-blue-700'>View Full Details </a>
+              </Link>
                                 </div>
                       </div>
                       </div>
 
       )}
       
-          <div className='container px-32 mt-32'>
-          <div className="flex justify-center mt-32">
+          <div className='lg:container 3xl:px-32 mt-24'>
+          <div className="flex justify-center mt-24">
             <hr className="w-1/4 mt-3" />
             <span className="mx-2">BEST SELLING PRODUCTS</span>
             <hr className="w-1/4 mt-3" />
@@ -151,9 +153,9 @@ const BestSelling = () => {
           {products.map((product) => (
             
           <div key={product.id} className='px-2'>
-            <div className='hover:border hover:border-black'>
-              <img src={product.image} alt='Product 1' />
-              <div className='flex justify-between '>
+            <div className='hover:border-gray-300 border-white  hover:shadow-lg'>
+              <img src={product.image} alt='Product 1' className='h-[20rem] py-8 mx-auto' />
+              <div className='flex px-4 justify-between '>
 
              <div className='bg-white  py-4'>
               <p className=' mx-5 py-1  bg-white  '>{product.price}</p>
