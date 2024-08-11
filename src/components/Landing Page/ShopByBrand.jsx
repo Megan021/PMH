@@ -3,10 +3,10 @@ const ShopByBrand = () => {
   return (
     <div>
             <div className="lg:container 3xl:px-32">
-          <div className="flex justify-center mt-24 ">
-            <hr className="w-1/4 mt-3" />
-            <span className="mx-2">SHOP BY BRAND</span>
-            <hr className="w-1/4 mt-3" />
+            <div className="lg:flex justify-center mt-24">
+            <hr className="w-1/4 mt-3 hidden md:block" />
+            <span className="mx-2 font-semibold md:font-normal">OUR BRANDS</span>
+            <hr className="w-1/4 mt-3 hidden md:block" />
           </div>
 
           <div className="container">

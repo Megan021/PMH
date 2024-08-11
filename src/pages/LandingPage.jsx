@@ -216,54 +216,54 @@ const LandingPage = () => {
         </Slider>
 
 
-        <div className='hidden lg:block px-20 py-14'>
-        <div className='container mx-auto flex justify-around md:gap-2 '>
-          <div className='lg:flex items-center gap-4'>
-            <div className='border border-gray-300 rounded-full p-2'>
-              <LiaShippingFastSolid className='text-3xl' />
+        <div className=' lg:px-20 md:px-4 px-4 py-14'>
+        <div className='container mx-auto grid grid-cols-2 gap-8 md:flex lg:justify-around md:justify-between '>
+          <div className='lg:flex  items-center text-center gap-4'>
+            <div className='lg:border border-gray-300 rounded-full p-2'>
+              <LiaShippingFastSolid className='text-3xl mx-auto' />
             </div>
             <div>
               <h1 className='text-xl font-semibold'>Free Shipping</h1>
               <p>Standard shipping for orders</p>
             </div>
           </div>
-          <div className='flex items-center gap-4'>
-            <div className='border border-gray-300 rounded-full p-2'>
-              <GoGift className='text-3xl' />
+          <div className='lg:flex text-center  items-center lg:text-left gap-4'>
+            <div className='lg:border border-gray-300    rounded-full p-2'>
+              <GoGift className='text-3xl mx-auto ' />
             </div>
             <div>
-              <h1 className='text-xl font-semibold'>Support Gifts</h1>
+              <h1 className='lg:text-xl text-lg font-semibold'>Support Gifts</h1>
               <p>
 
                The perfect gift idea
               </p>
             </div>
           </div>
-          <div className='flex items-center gap-4'>
-            <div className='border border-gray-300 rounded-full p-2'>
-              <IoWalletOutline className='text-3xl' />
+          <div className='lg:flex items-center text-center lg:text-left gap-4'>
+            <div className='lg:border  border-gray-300 rounded-full p-2'>
+              <IoWalletOutline className='text-3xl mx-auto' />
             </div>
             <div>
-              <h1 className='text-xl font-semibold'>Money Guarantee</h1>
+              <h1 className='lg:text-xl text-lg font-semibold'>Money Guarantee</h1>
               <p>Within 30 days</p>
             </div>
           </div>
           
-          <div className='flex items-center gap-4'>
-            <div className='border border-gray-300 rounded-full p-2'>
-              <MdOutlineSupportAgent className='text-3xl' />
+          {/* <div className='lg:flex text-center lg:text-left items-center gap-4'>
+            <div className='lg:border border-gray-300 rounded-full p-2'>
+              <MdOutlineSupportAgent className='text-3xl mx-auto' />
             </div>
             <div>
-              <h1 className='text-xl font-semibold'>Online Support</h1>
+              <h1 className='lg:text-xl text-lg font-semibold'>Online Support</h1>
               <p>24 hours a day, 7 days a week</p>
             </div>
-          </div>
-          <div className='flex items-center gap-4 md:hidden'>
-            <div className='border border-gray-300 rounded-full p-2'>
-              <RiMoneyRupeeCircleLine className='text-3xl' />
+          </div> */}
+          <div className='lg:flex text-center lg:text-left items-center gap-4'>
+            <div className='lg:border border-gray-300 rounded-full p-2'>
+              <RiMoneyRupeeCircleLine className='text-3xl mx-auto' />
             </div>
             <div>
-              <h1 className='text-xl font-semibold'>Flexible Payment</h1>
+              <h1 className='lg:text-xl text-lg font-semibold'>Flexible Payment</h1>
               <p>Multiple Credit Cards</p>
             </div>
           </div>
@@ -286,7 +286,7 @@ const LandingPage = () => {
                 </div>
                 <img src="images/LandingPage//sub-banner-01.jpg" className="-mt-8" title="SubBanner1" alt="SubBanner1" />
               </div>
-              <div className="col-span-1 row-span-1">
+              <div className="col-span-1 row-span-1 mt-5 md:mt-0">
                 <div className="bg-[#EAEFF5] py-8 flex justify-between">
                   <div className="p-8 w-full">
                     <span className="text-xl">Get 5% Discount</span>
@@ -295,7 +295,7 @@ const LandingPage = () => {
                       <HiArrowSmRight className="mt-[0.1rem]" /> VIEW MORE
                     </button>
                   </div>
-                  <img src="images/LandingPage/sub-banner-02.jpg" className="md:hidden lg:block" title="SubBanner2" alt="SubBanner2" />
+                  <img src="images/LandingPage/sub-banner-02.jpg" className="hidden lg:block" title="SubBanner2" alt="SubBanner2" />
                 </div>
               </div>
               <div className="col-span-1 row-span-2  bg-[#EEF4F4]">
@@ -309,16 +309,19 @@ const LandingPage = () => {
                 <img src="images/LandingPage/sub-banner-03.jpg" className="mt-4" title="SubBanner3" alt="SubBanner3" />
               </div>
               <div
-                className="w-full h-full  bg-cover bg-center"
+                className="w-full h-full mt-5 md:mt-0  bg-cover bg-center"
                 style={{ backgroundImage: 'url(images/LandingPage/sub-banner-04.jpg)' }}
                 title="SubBanner4"
               >
-                <div className="p-8 lg:ml-48 ml-40 md:ml-14 w-full">
+                <div className="p-8  text-right md:ml-3  w-full">
                   <span className="text-xl">Get 15% Discount</span>
-                  <h2 className="font-bold text-[1.5rem] my-3 w-48">Head Phones</h2>
-                  <button className="text-red-800 text-xs font-semibold flex text-right gap-1">
+                  <h2 className="font-bold text-[1.5rem] my-3">Head Phones</h2>
+                  <div className="flex justify-end text-right ">
+
+                  <button className="text-red-800 text-xs flex font-semibold gap-1">
                     <HiArrowSmRight className="mt-[0.1rem]" /> SHOP NOW
                   </button>
+                  </div>
                 </div>
               </div>
             </div>

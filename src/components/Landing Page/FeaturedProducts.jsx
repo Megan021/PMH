@@ -50,7 +50,7 @@ const FeaturedProductsComponent = () => {
         </>
       )}
       <div className='container 3xl:px-32 md:mx-auto mt-24 '>
-        <h1 className='font-bold text-center text-xl my-16'>FEATURED PRODUCTS</h1>
+        <h1 className='font-bold text-xl my-16'>FEATURED PRODUCTS</h1>
         <div className='lg:flex  gap-6 mt-4'>
           {featuredProducts.map((product) => (
             <div className='' key={product.id}>

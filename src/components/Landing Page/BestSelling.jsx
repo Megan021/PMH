@@ -70,7 +70,7 @@ const BestSelling = () => {
           {
             breakpoint: 450,
             settings: {
-              slidesToShow: 1,
+              slidesToShow: 2,
               slidesToScroll: 1,
               autoplay: true,
               autoplaySpeed: 2000,
@@ -143,10 +143,10 @@ const BestSelling = () => {
       )}
       
           <div className='lg:container 3xl:px-32 mt-24'>
-          <div className="flex justify-center mt-24">
-            <hr className="w-1/4 mt-3" />
-            <span className="mx-2">BEST SELLING PRODUCTS</span>
-            <hr className="w-1/4 mt-3" />
+          <div className="lg:flex justify-center mt-24">
+            <hr className="w-1/4 mt-3 hidden md:block" />
+            <span className="mx-2 font-semibold md:font-normal">BEST SELLING PRODUCTS</span>
+            <hr className="w-1/4 mt-3 hidden md:block" />
           </div>
       <div className='mt-16  lg:w-full px-[0rem]'>
         <Slider {...settings}>
@@ -154,18 +154,22 @@ const BestSelling = () => {
             
           <div key={product.id} className='px-2'>
             <div className='hover:border-gray-300 border-white  hover:shadow-lg'>
-              <img src={product.image} alt='Product 1' className='h-[20rem] py-8 mx-auto' />
-              <div className='flex px-4 justify-between '>
+              <img src={product.image} alt='Product 1' className='lg:h-[20rem] py-8 mx-auto' />
+              <div className='lg:flex px-4 justify-between '>
 
              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>{product.price}</p>
-              <p className='px-5'>{product.name} </p>
-              <p className='text-gray-400 px-5'>{product.category}</p></div>
-              <div onClick={()=> toggleProduct(product)} className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart   className='text-xl '/>
+              <p className=' lg:mx-5 py-1  bg-white  '>{product.price}</p>
+              <p className='lg:px-5'>{product.name} </p>
+              <p className='text-gray-400 hidden lg:block px-5'>{product.category}</p></div>
+              <div onClick={()=> toggleProduct(product)} className= 'cursor-pointer hidden md:block  border border-black p-2 rounded-full my-auto'>
+              <CiShoppingCart   className='text-xl mx-auto '/>
 
               </div>
-              </div>
+              <div onClick={()=> toggleProduct(product)}
+                      className='cursor-pointer border text-center md:hidden   text-sm border-blue-700 p-2 mt-2 rounded-3xl  '>
+                      VIEW DETAILS
+                    </div>
+                            </div>
             </div>
        
           </div>
