@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Shop from "./pages/Shop";
 import SignIn from "./pages/SignIn";
+import Contact from "./pages/Contact";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -31,6 +32,7 @@ export default function App() {
           <Route path="/productDetails" element={<ProductDetails />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/signin" element={<SignIn />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
         <Footer />
         <ScrollOnTop />

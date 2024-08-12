@@ -145,7 +145,7 @@ const Navbar = () => {
               </Link>
             </li>
             <li className="mb-6">
-              <Link onClick={toggleNav} className="flex gap-2" to="/">
+              <Link onClick={toggleNav} className="flex gap-2" to="/contact">
                 <BsTelephone />
                 Contact
               </Link>
@@ -262,9 +262,11 @@ const Navbar = () => {
           <Link to="/shop">
           <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-4 hover:bg-[#0D4C90] hover:text-white duration-300"><IoStorefrontOutline className="text-lg" />Shop</button>
           </Link>
+          <Link to="/contact">
           <button className="p-2 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
             Contact
           </button>
+          </Link>
         </div>
       </div>
     </>
