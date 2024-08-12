@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Shop from "./pages/Shop";
+import SignIn from "./pages/SignIn";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -29,6 +30,7 @@ export default function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/productDetails" element={<ProductDetails />} />
           <Route path="/shop" element={<Shop />} />
+          <Route path="/signin" element={<SignIn />} />
         </Routes>
         <Footer />
         <ScrollOnTop />

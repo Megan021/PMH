@@ -17,9 +17,14 @@ import { IoStorefrontOutline } from "react-icons/io5";
 const Navbar = () => {
   const [offScreenNav, setOffScreenNav] = useState(false);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
+  const [isCategoryVisible, setCategoryVisible] = useState(false);
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
+  };
+
+  const toggleDropCategory = () => {
+    setCategoryVisible(!isCategoryVisible);
   };
 
   const toggleNav = () => {
@@ -48,6 +53,35 @@ const Navbar = () => {
         </div>
 
         <div className="hidden lg:flex bg-transparent border-2 border-[#0D4C90] rounded-md rounded-r-2xl">
+        <button
+            className="border-r px-2 border-gray-400 capitalize flex items-center gap-1"
+            onClick={toggleDropCategory}
+          >
+            category
+            <IoIosArrowDown />
+          </button>
+          <AnimatePresence>
+          {isCategoryVisible && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="absolute mt-12 bg-white border border-gray-400 rounded-xl shadow-lg z-10"
+            >
+              <ul className="py-2">
+                {categories.map((category, index) => (
+                  <li
+                    key={index}
+                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                  >
+                    <Link to={category.path}>{category.name}</Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          )}
+        </AnimatePresence>
           <input
             type="text"
             placeholder="Search..."
@@ -147,7 +181,7 @@ const Navbar = () => {
           </div>
         </div>
 
-        <div className="lg:flex hidden gap-1 md:gap-5 text-xl">
+        <div className="lg:flex hidden gap-1 md:gap-4 text-2xl">
           <Link>
             <IoMdHeartEmpty />
           </Link>
@@ -226,9 +260,9 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/shop">
-          <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-6 hover:bg-[#0D4C90] hover:text-white duration-300"><IoStorefrontOutline className="text-lg" />Shop</button>
+          <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-4 hover:bg-[#0D4C90] hover:text-white duration-300"><IoStorefrontOutline className="text-lg" />Shop</button>
           </Link>
-          <button className="p-2 px-6 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
+          <button className="p-2 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
             Contact
           </button>
         </div>

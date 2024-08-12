@@ -4,10 +4,10 @@ import { BsArrowRightShort } from "react-icons/bs";
 const OurBrands = () => {
   return (
     <>
-      <div  className="container pt-24 ">
+      <div  className="container pt-24">
         <h2 className="uppercase font-medium text-2xl text-center">
           our famous brands
-        </h2>{" "}
+        </h2>
         <hr className="w-[10%] mt-1 border border-gray-400 mx-auto" />
         <div className="flex justify-between pt-10 overflow-scroll lg:overflow-hidden">
           <img
