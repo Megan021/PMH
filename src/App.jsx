@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom";
 import Shop from "./pages/Shop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
+import MaybeShowNavbar from "./components/MaybeShowNavbar";
 export default function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -25,7 +26,10 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop />
+      <MaybeShowNavbar>
+
       <Navbar />
+      </MaybeShowNavbar>
       <Routes>
         <Route path='/' element={<LandingPage />} />
         <Route path='/productDetails' element={<ProductDetails />} />
@@ -33,7 +37,11 @@ export default function App() {
         <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
         <Route path='/aboutUs' element={<AboutUs />} />
       </Routes>
+      <MaybeShowNavbar>
+
       <Footer />
+      </MaybeShowNavbar>
+
       <ScrollOnTop />
     </Router>
   );
