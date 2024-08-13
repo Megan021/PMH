@@ -30,8 +30,7 @@ const ScrollOnTop = () => {
             <button
                 onClick={scrollToTop}
                 className={`${isVisible ? 'opacity-100' : 'opacity-0'
-                    } fixed md:bottom-10 bottom-6 md:right-10 right-6 text-xl p-3 rounded-full bg-white  border border-gray-300 shadow-md transition-opacity duration-300`}
-            >
+                    } fixed md:bottom-10 bottom-6 md:right-10 right-6 text-xl p-3 rounded-full bg-white z-40  border border-gray-300 shadow-md transition-opacity duration-300`}>
                 <LiaAngleUpSolid className='stroke-2' />
             </button>
         </div>

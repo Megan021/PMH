@@ -72,8 +72,10 @@ const Header = () => {
           opacity: isPromoOpen ? 1 : 0,
         }} // Animate based on isPromoOpen state
         transition={{ duration: 0.3 }} // Animation duration
-        className="bg-gray-50 text-black p-4 fixed top-0 left-0 w-full z-40 border shadow"
+        className="bg-gray-50 text-black p-4 fixed top-0 left-0 w-full border shadow z-40"
       >
+        {/* <div className="fixed inset-0 bg-black opacity-50 " onClick={togglePromo}></div> */}
+
         <div className="container flex justify-between items-center relative">
           
           <div className="flex flex-col-reverse md:flex-row justify-between py-14 gap-10  lg:gap-40 items-center">
@@ -118,19 +120,19 @@ const Header = () => {
           </div>
           <hr className="border border-gray-200 my-4" />
           <li className="mb-4">
-            <Link onClick={toggleMenu} className="flex gap-2" to="/">
+            <Link onClick={toggleMenu} className="flex items-center gap-2" to="/">
               <IoHomeOutline />
               Home
             </Link>
           </li>
           <li className="mb-4">
-            <Link onClick={toggleMenu} className="flex gap-2" to="/shop">
+            <Link onClick={toggleMenu} className="flex items-center gap-2" to="/shop">
               <IoStorefrontOutline />
               Shop
             </Link>
           </li>
           <li className="mb-6">
-            <Link onClick={toggleMenu} className="flex gap-2" to="/">
+            <Link onClick={toggleMenu} className="flex items-center gap-2" to="/">
               <BsTelephone />
               Contact
             </Link>
@@ -141,10 +143,10 @@ const Header = () => {
         <div className="border-b border-gray-300 pb-4 mb-6">
           <h2 className="text-xl font-medium pb-3">More Links</h2>
           <ul className="leading-9 text-lg">
-            <li>Privacy Policy</li>
-            <li>Return Policy</li>
-            <li>Customer Support</li>
-            <li>Help Center</li>
+            <Link to="/privacy-policy"><li>Privacy Policy</li></Link>
+            <Link to="/"><li>Return Policy</li></Link>
+            <Link to="/"><li>Customer Support</li></Link>
+            <Link to="/"><li>Help Center</li></Link>
           </ul>
         </div>
 

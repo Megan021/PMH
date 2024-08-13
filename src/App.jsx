@@ -9,6 +9,11 @@ import { useLocation } from "react-router-dom";
 import Shop from "./pages/Shop";
 import SignIn from "./pages/SignIn";
 import Contact from "./pages/Contact";
+import PageNotFound from "./pages/PageNotFound";
+import ForErrorPage from "./Layouts/ForErrorPage";
+import Cart from "./pages/Cart";
+import Shipping from "./components/Cart Page/Shipping";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -23,7 +28,7 @@ export default function App() {
     return null;
   };
   return (
-    <div className="overflow-hidden">
+    <div>
       <Router>
         <ScrollToTop />
         <Navbar />
@@ -33,6 +38,10 @@ export default function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/shipping-info" element={<Shipping />} />
+          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path="*" element={<ForErrorPage noNavFooter> <PageNotFound /> </ForErrorPage>} />
         </Routes>
         <Footer />
         <ScrollOnTop />

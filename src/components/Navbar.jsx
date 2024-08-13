@@ -54,7 +54,7 @@ const Navbar = () => {
 
         <div className="hidden lg:flex bg-transparent border-2 border-[#0D4C90] rounded-md rounded-r-2xl">
         <button
-            className="border-r px-2 border-gray-400 capitalize flex items-center gap-1"
+            className="border-r px-3 border-gray-400 capitalize flex items-center gap-2"
             onClick={toggleDropCategory}
           >
             category
@@ -188,7 +188,7 @@ const Navbar = () => {
           <Link>
             <FiUser />
           </Link>
-          <Link>
+          <Link to="/cart">
             <IoCartOutline />
           </Link>
         </div>
@@ -248,13 +248,13 @@ const Navbar = () => {
 
         <div>
           <ul className="lg:flex gap-7 hidden">
+            <li className="cursor-pointer">Phone Case</li>
+            <li className="cursor-pointer">Screen Protector</li>
+            <li className="cursor-pointer">Accessories</li>
             <li className="cursor-pointer">Iphone</li>
-            <li className="cursor-pointer">Ipad</li>
             <li className="cursor-pointer">Mac</li>
             <li className="cursor-pointer">Watch</li>
-            <li className="cursor-pointer">Case</li>
-            <li className="cursor-pointer">Accessories</li>
-            <li className="cursor-pointer">Screen Protector</li>
+            <li className="cursor-pointer">Ipad</li>
           </ul>
         </div>
 

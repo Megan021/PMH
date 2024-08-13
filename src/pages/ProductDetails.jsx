@@ -9,12 +9,13 @@ import { IoIosArrowForward } from "react-icons/io";
 
 const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState("/images/ProductDetails/ProductDetails.jpg");
-  const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
+  // const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
   const [description, setDescription] = useState(false);
   const [systemSpecifications, setSystemSpecifications] = useState(false);
   const [selectedSize, setSelectedSize] = useState("64 GB");
   const [count , setCount] = useState(1)
   const [showFixedDiv, setShowFixedDiv] = useState(false);
+  const [currentColor, setCurrentColor] = useState("black");
 
 const positiveCount = ()=> {
   setCount(count+1)
@@ -52,11 +53,46 @@ const negativeCount = ()=> {
 
   const handleColorChange = (color) => {
     setCurrentImage(images[color]);
+    setCurrentColor(color);
   };
 
   const handleDescriptionClick = (index) => {
     setCurrentImage(imageDescriptions[index]);
   };
+
+  const addToCart = () => {
+    const productDetails = {
+      name: "Google Pixel 8 Pro", // Replace with your product name
+      size: selectedSize,
+      quantity: count,
+      color: currentColor,
+      price: 80000, // Replace with your product price
+      image: currentImage,
+    };
+
+    let cart = JSON.parse(localStorage.getItem("cartItem")) || [];
+
+    // Check if the product with the same size and color already exists in the cart
+    const existingProductIndex = cart.findIndex(
+      (item) =>
+        item.name === productDetails.name &&
+        item.size === productDetails.size &&
+        item.color === productDetails.color
+    );
+
+    if (existingProductIndex >= 0) {
+      // If the product exists, update the quantity
+      cart[existingProductIndex].quantity += productDetails.quantity;
+    } else {
+      // If the product doesn't exist, add it to the cart
+      cart.push(productDetails);
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    alert("Product added to cart!");
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 750) { // Adjust the scroll position as needed
@@ -157,7 +193,7 @@ const negativeCount = ()=> {
             </div>
             <div className="flex justify-between">
               <button
-                type="submit"
+              onClick={addToCart}
                 className="bg-black w-80 mb-4 text-white rounded-sm px-8 py-2 font-semibold text-lg"
               >
                 Add to Cart
