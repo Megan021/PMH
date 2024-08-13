@@ -14,6 +14,9 @@ import ForErrorPage from "./Layouts/ForErrorPage";
 import Cart from "./pages/Cart";
 import Shipping from "./components/Cart Page/Shipping";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import Payment from "./components/Cart Page/Payment";
+import OrderReview from "./components/Cart Page/OrderReview";
+import OrderSuccess from "./pages/OrderSuccess";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -40,7 +43,10 @@ export default function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/shipping-info" element={<Shipping />} />
-          <Route path='/privacy-policy' element={<PrivacyPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/payment-info" element={<Payment />} />
+          <Route path="/order-review" element={<OrderReview />} />
+          <Route path="/order-success" element={<OrderSuccess />} />
           <Route path="*" element={<ForErrorPage noNavFooter> <PageNotFound /> </ForErrorPage>} />
         </Routes>
         <Footer />

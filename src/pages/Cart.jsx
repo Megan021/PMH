@@ -154,7 +154,7 @@ const Cart = () => {
               <div className="mt-8">
                 <button
                   onClick={handleProceedToCheckout}
-                  className="p-3 bg-[#0D4C90] text-white rounded w-full"
+                  className="p-3 bg-[#0D4C90] text-white rounded w-full border hover:border-[#0D4C90] hover:bg-transparent hover:text-[#0D4C90] duration-300"
                 >
                   Proceed to Checkout
                 </button>

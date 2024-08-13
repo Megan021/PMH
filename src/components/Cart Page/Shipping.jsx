@@ -5,9 +5,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 
 const Shipping = () => {
-  const cartItem = JSON.parse(localStorage.getItem("cart"));
-  const { product, quantity } = cartItem;
-  const subtotal = product.price * quantity;
+  const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+  const { price, quantity } = cartItems[0];
+  const subtotal = price * quantity;
   const navigate = useNavigate();
 
   const formik = useFormik({
@@ -31,7 +31,7 @@ const Shipping = () => {
     }),
     onSubmit: (values) => {
       localStorage.setItem("shippingInfo", JSON.stringify(values));
-      navigate("/payment-info"); 
+      navigate("/payment-info");
     },
   });
 
@@ -52,7 +52,10 @@ const Shipping = () => {
         <h1 className="font-medium text-2xl mb-8">Shipping Information</h1>
         <div className="md:flex gap-12">
           <div className="md:w-[60%]">
-            <form onSubmit={formik.handleSubmit} className="grid grid-cols-2 gap-6">
+            <form
+              onSubmit={formik.handleSubmit}
+              className="grid grid-cols-2 gap-6"
+            >
               <div className="col-span-2">
                 <label>Enter Full Name</label>
                 <input
@@ -152,7 +155,10 @@ const Shipping = () => {
                 ) : null}
               </div>
               <div className="col-span-2 mt-5">
-                <button type="submit" className="p-3 bg-black text-white rounded w-full">
+                <button
+                  type="submit"
+                  className="p-3 bg-[#0D4C90] text-white rounded w-full border hover:border-[#0D4C90] hover:bg-transparent hover:text-[#0D4C90] duration-300"
+                >
                   Proceed to Payment
                 </button>
               </div>
@@ -160,10 +166,35 @@ const Shipping = () => {
           </div>
 
           <div className="md:w-[40%] mt-8 md:mt-0">
-            <div className="border border-gray-300 shadow rounded p-5 px-7">
+            <div className="border border-gray-300 shadow rounded p-5 px-7 sticky top-8">
               <h2 className="font-medium text-xl mb-5">Order Summary</h2>
               <div>
-                <div className="flex items-center justify-between border-b border-gray-300 pb-2">
+                {cartItems.map((item, index) => (
+                  <div key={index}>
+                    <div className="flex gap-5 items-center border rounded-xl">
+                      <div>
+                        <img src={item?.image} alt="" className="size-32 border-r p-3 rounded-xl" />
+                      </div>
+                      <div>
+                         <h2 className="font-semibold line-clamp-2">{item?.name}</h2>
+                         <h2 className="">Size: {item?.size}</h2>
+                         <h2 className="">Qty: {item?.quantity}</h2>
+                      </div>
+                    </div>
+
+                    <div>
+                         <div className="flex justify-between py-5 border-b">
+                              <p className="font-medium">Subtotal</p>
+                              <p>{subtotal}</p>
+                         </div>
+                         <div className="flex justify-between py-5 ">
+                              <p className="font-medium">Total</p>
+                              <p>{subtotal}</p>
+                         </div>
+                    </div>
+                  </div>
+                ))}
+                {/* <div className="flex items-center justify-between border-b border-gray-300 pb-2">
                   <div>
                     <p>SubTotal:</p>
                   </div>
@@ -178,7 +209,7 @@ const Shipping = () => {
                   <div>
                     <p>Rs. {subtotal}</p>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
