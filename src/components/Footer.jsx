@@ -6,7 +6,7 @@ import { FaXTwitter } from "react-icons/fa6";
 const Footer = () => {
   return (
     <>
-    <div className='mt-16 '>
+    <div className=' '>
 
        <div className=' bg-gradient-to-r px-0 from-[#131E24] to-[#2B201E] '>
         <div className='  text-white lg:container px-3 lg:px-0 3xl:px-32 '>

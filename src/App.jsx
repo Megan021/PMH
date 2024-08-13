@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Shop from "./pages/Shop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AboutUs from "./pages/AboutUs";
 export default function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -30,6 +31,7 @@ export default function App() {
         <Route path='/productDetails' element={<ProductDetails />} />
         <Route path='/shop' element={<Shop />} />
         <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
+        <Route path='/aboutUs' element={<AboutUs />} />
       </Routes>
       <Footer />
       <ScrollOnTop />
