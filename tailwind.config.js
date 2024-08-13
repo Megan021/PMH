@@ -10,10 +10,9 @@ theme: {
       xs: "425px",
       sm: "567px",
       md: "768px",
-      lg: "904px",
+      lg: "1100px",
       xl: "1200px",
-      "2xl": "1100px",
-      "3xl": "1900px",
+      "2xl": "1150px",
     },
 
     container: {

@@ -1,0 +1,9 @@
+[
+    { "id": 1, "image1": "images/Shop/Product1.jpg", "image2": "images/Shop/Product1-2.jpg", "price": "Rs 1,80000", "newPrice": "Rs 16,000", "name": "IPhone 15", "category": "Mobile", "tag": "Sale" },
+    { "id": 2, "image1": "images/Shop/Product2.jpg", "image2": "images/Shop/Product2-2.jpg", "price": "Rs 28,000", "newPrice": "Rs 16,000", "name": "Smart Band Carbon", "category": "Watch", "tag": "New Arrivals" },
+    { "id": 3, "image1": "images/Shop/Product3.jpg", "image2": "images/Shop/Product3-2.jpg", "price": "Rs 40,000", "newPrice": "Rs 16,000", "name": "Wireless Loud H7i", "category": "Music", },
+    { "id": 4, "image1": "images/Shop/Product4.jpg", "image2": "images/Shop/Product4-2.jpg", "price": "Rs 8000", "newPrice": "Rs 16,000", "name": "IPhone 15 case", "category": "Cover", "tag": "New Arrivals" },
+    { "id": 5, "image1": "images/Shop/Product5.jpg", "image2": "images/Shop/Product5.jpg", "price": "Rs 8000", "newPrice": "Rs 16,000", "name": "IPhone 15 case", "category": "Cover" },
+    { "id": 6, "image1": "images/Shop/Product6.jpg", "image2": "images/Shop/Product6.jpg", "price": "Rs 8000", "newPrice": "Rs 16,000", "name": "Mouse 15 ", "category": "Computer Hardware", "tag": "Sale" },
+    
+]

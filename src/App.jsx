@@ -25,8 +25,7 @@ export default function App() {
 <div className="overflow-hidden">
 <Router>
   <ScrollToTop/>
-<Navbar/>
-  
+  <Navbar/>
   <Routes>
   <Route path='/' element= {<LandingPage/>} />
   <Route path='/productDetails' element= {<ProductDetails/>} />

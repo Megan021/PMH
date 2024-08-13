@@ -13,7 +13,7 @@ const ProductDetails = () => {
   const [description, setDescription] = useState(false);
   const [systemSpecifications, setSystemSpecifications] = useState(false);
   const [selectedSize, setSelectedSize] = useState("64 GB");
-  const [count , setCount] = useState("1")
+  const [count , setCount] = useState(1)
   const [showFixedDiv, setShowFixedDiv] = useState(false);
 
 const positiveCount = ()=> {
