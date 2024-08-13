@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { CiStar, CiShoppingCart, CiHeart } from "react-icons/ci";
 import { AiFillStar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
+import { RxCross2 } from "react-icons/rx";
 
 const FeaturedProductsComponent = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -16,13 +17,20 @@ const FeaturedProductsComponent = () => {
     { id: 3, image1: 'images/LandingPage/featuredProduct3-1.jpg', image2: 'images/LandingPage/featuredProduct3-2.jpg', price: 'Rs 40,000', name: 'Wireless Loud H7i', category: 'Music' },
     { id: 4, image1: 'images/LandingPage/featuredProduct4-1.jpg', image2: 'images/LandingPage/featuredProduct4-2.jpg', price: 'Rs 8000', name: 'IPhone 15 case', category: 'Cover' },
   ];
+  const CloseProduct = ()=> {
 
+    setSelectedProduct(!selectedProduct)
+  }
   return (
     <>
+     {selectedProduct && (
+         <div className='fixed inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
+
+      )}
       {selectedProduct && (
         <>
-          <div className='fixed  inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
-          <div className="fixed top-0 container inset-x-0 md:w-[50%] md:h-[70%]  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
+          <div className="fixed top-0 container inset-x-0 md:w-[50%] h-full md:h-[70%]  md:top-36 bg-[#F2F2F2] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-[100]">
+            <div className="fixed top-5 cursor-pointer container" onClick={CloseProduct}><RxCross2/></div>
             <div className='lg:flex p-4'>
               <div className='md:w-1/2 w-[58%] mx-auto'>
                 <img src={selectedProduct.image1} alt={selectedProduct.name} />

@@ -81,9 +81,11 @@ const Navbar = () => {
               <RxCross2 className='cursor-pointer' onClick={toggleForm} />
             </div>
             <hr className='border border-gray-200 my-4' />
+            <Link to ='/privacyPolicy'>
             <li className='mb-6'>
               <a href='#'>Privacy Policy</a>
             </li>
+            </Link>
             <li className='mb-6'>
               <a href='#'>Customer Support</a>
             </li>

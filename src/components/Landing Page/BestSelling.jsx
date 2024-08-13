@@ -4,11 +4,17 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiShoppingCart   } from "react-icons/ci";
 import {Link} from 'react-router-dom';
+import { RxCross2 } from "react-icons/rx";
+
 const BestSelling = () => {
   const [selectedProduct,setSelectedProduct] = useState(null)
   const toggleProduct = (product)=> {
 
     setSelectedProduct(product)
+  }
+  const CloseProduct = ()=> {
+
+    setSelectedProduct(!selectedProduct)
   }
  
   const products = [
@@ -86,7 +92,9 @@ const BestSelling = () => {
 
       )}
       {selectedProduct && (
-                    <div className={`fixed container inset-x-0 md:w-[50%] md:h-[70%] top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${selectedProduct ? 'translate-y-0' : '-translate-y-full'} duration-300 z-50`}>
+                    <div className={`fixed container inset-x-0 md:w-[50%] md:h-[70%] top-0 h-full md:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${selectedProduct ? 'translate-y-0' : '-translate-y-full'} duration-300 z-[100]`}>
+                                <div className="fixed top-5 cursor-pointer container" onClick={CloseProduct}><RxCross2/></div>
+
                       <div className='lg:flex  p-4'>
                         <div className='md:w-1/2 w-[58%]  mx-auto'>
                           <img src={selectedProduct.image} className='' />
