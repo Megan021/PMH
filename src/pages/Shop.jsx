@@ -86,74 +86,37 @@ const Shop = () => {
     <>
       <div className="px-4 lg:px-0">
       {selectedProduct && (
-         <div className='fixed inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
-
-      )}
-      {selectedProduct && (
-                    <div className={`fixed container inset-x-0 md:w-[50%] top-0 h-full md:top-32 lg:top-10 md:h-[70%] lg:h-[90%] bg-[white] border-b border-gray-200 p-4 transition-transform transform ${selectedProduct ? 'translate-y-0' : '-translate-y-full'} duration-300 z-[100]`}>
-                      <div className=''>
-                      <div className="flex justify-end  p-4" onClick={CloseProduct} >
-
-                        <div className='md:w-1/2 lg:w-[45%] w-[58%]  mx-auto'>
-                          <img src={selectedProduct.image1} className='' />
-                        </div>
-                      <RxCross2 className="cursor-pointer" />
-                    </div>
-                        <div className='text-center'>
-                          <div className="flex justify-evenly">
-                          <div>
-                         <h1 className='text-xl font-semibold'>{selectedProduct.name}
-                         </h1>
-                         <span className='text-gray-700 text-sm my-2'>{selectedProduct.category}</span>
-                         <h3 className='font-semibold text-2xl my-2'>{selectedProduct.price} </h3> 
-                         </div>
+        <>
+          <div className='fixed  inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
+          <div className="fixed top-0 container inset-x-0 md:w-[50%] h-full md:h-[70%] lg:top-36 md:top-52 bg-[white] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-[100]">
+            <div className="fixed top-5 cursor-pointer container" onClick={CloseProduct}><RxCross2/></div>
+            <div className='lg:flex p-4'>
 
 
-                         <div>
-
-                         <h3 className='font-semibold text-xl  mb-4'>Color</h3>
-                         <div className='flex gap-4 my-4'>
-                          <span className='my-4  hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-3 border border-gray-100'></span>
-                          <span className='my-4 hover:border-black bg-cyan-400 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100'></span>
-                          <span className='my-4 hover:border-black bg-red-300 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100'></span>
-                          <span className='my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100'></span>
-
-                         </div>
-                         </div>
-                         </div>
-                         {/* <h3 className='font-semibold text-xl my-2'>Color</h3>
-                         <div className="flex pb-[3rem]">
-                {["XS", "S", "M", "L", "XL"].map((Color) => (
-                  <div
-                    key={Color}
-                    className={`border font-normal border-gray-300 px-[0.5rem] w-[3rem] text-center 
-                      ${selectedColor === Color ? "border-black bg-gray-800 text-white" : "hover:border-black hover:bg-gray-100 hover:text-black"}
-                      mr-2 transition duration-300`}
-                    onClick={() => handleColorClick(Color)}
-                  >
-                    {Color}
-                  </div>
-                ))}
-              </div> */}
-                                       <hr className='border-gray-300 my-1' />
-
-              <button
-                  type="submit"
-                  className={`bg-[black] text-[white] mt-4 px-8 py-2 text-[1.25rem] rounded-xl transition duration-300 
-                  }`}
-                 
-                >
-                  Add to Cart
-                </button>    
-                <p className='text-gray-500 my-2 text-xs'>All terms and conditions available here.</p>
-              <Link to='/productDetails'>
-                <span  className='text-blue-700'>View Full Details </span>
-
-              </Link>
-                                </div>
-                      </div>
-                      </div>
-
+              <div className='md:w-1/2 w-[58%] mx-auto flex justify-between'>
+                <img src={selectedProduct.image1} alt={selectedProduct.name} />
+              </div>
+              <div className='mx-auto'>
+                <h1>{selectedProduct.name}</h1>
+                <span className='text-gray-700 text-sm'>{selectedProduct.category}</span>
+                <h3 className='font-semibold text-2xl '>{selectedProduct.price}</h3>
+                <hr className='border-gray-300 my-4' />
+                <h3 className='font-semibold text-xl my-2 mb-4'>Color</h3>
+                <div className='flex gap-4 my-4'>
+                  <span className='my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-3 border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-cyan-400 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-red-300 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                  <span className='my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2'></span>
+                </div>
+                <button type="submit" className="bg-black text-white my-4 w-[15.3rem] h-[4rem] text-[1.25rem] rounded-xl transition duration-300">Add to Cart</button>
+                <p className='text-gray-500 my-2 text-sm'>All terms and conditions available here.</p>
+                <Link to='/productDetails'>
+                  <span className='text-blue-700'>View Full Details</span>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </>
       )}
         {FilterSelect && (
           <>
