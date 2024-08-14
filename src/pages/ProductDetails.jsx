@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
 import { FaStar } from "react-icons/fa";
 import { CiHeart, CiCirclePlus, CiDeliveryTruck } from "react-icons/ci";
@@ -8,23 +8,25 @@ import { SiTicktick } from "react-icons/si";
 import { IoIosArrowForward } from "react-icons/io";
 
 const ProductDetails = () => {
-  const [currentImage, setCurrentImage] = useState("/images/ProductDetails/ProductDetails.jpg");
+  const [currentImage, setCurrentImage] = useState(
+    "/images/ProductDetails/ProductDetails.jpg"
+  );
   // const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
   const [description, setDescription] = useState(false);
   const [systemSpecifications, setSystemSpecifications] = useState(false);
   const [selectedSize, setSelectedSize] = useState("64 GB");
-  const [count , setCount] = useState(1)
+  const [count, setCount] = useState(1);
   const [showFixedDiv, setShowFixedDiv] = useState(false);
   const [currentColor, setCurrentColor] = useState("black");
 
-const positiveCount = ()=> {
-  setCount(count+1)
-}
-const negativeCount = ()=> {
-  if (count >1 ){
-  setCount(count-1)
-  }}
-
+  const positiveCount = () => {
+    setCount(count + 1);
+  };
+  const negativeCount = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
+  };
 
   const handleSizeClick = (size) => {
     setSelectedSize(size);
@@ -91,11 +93,15 @@ const negativeCount = ()=> {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     alert("Product added to cart!");
+
+    // Reload the page to reflect the changes
+    window.location.reload();
   };
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 750) { // Adjust the scroll position as needed
+      if (window.scrollY > 750) {
+        // Adjust the scroll position as needed
         setShowFixedDiv(true);
       } else {
         setShowFixedDiv(false);
@@ -129,53 +135,70 @@ const negativeCount = ()=> {
                 alt="Product Display"
               />
             </div>
-
           </div>
           <div className=" md:pl-8 flex flex-col gap-2 lg:w-[30rem] px-4">
-            <h1 className=" text-2xl">Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto Lens and Super Actua Display - 24-Hour Battery - Porcelain </h1>
+            <h1 className=" text-2xl">
+              Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto
+              Lens and Super Actua Display - 24-Hour Battery - Porcelain{" "}
+            </h1>
             <span className="text-xs text-gray-400 pb-2">
               SKU: sm2112103773394955
             </span>
             <p className="text-2xl font-medium pb-[1.5rem] pt-2">Rs 80,399</p>
             <hr className="text-gray-400" />
             <div className="flex justify-between">
-            <div>
-
-            <h3 className="font-semibold text-xl mt-[0.85rem]">Color</h3>
-            <div className="flex gap-3 my-4">
-              <div
-                className={`w-8 h-8 rounded-full border hover:border-black bg-black cursor-pointer ${
-                  currentImage === images.black ? "ring-2 ring-blue-500 ring-offset-2" : ""
-                }`}
-                onClick={() => handleColorChange("black")}
-              />
-              <div
-                className={`w-8 h-8 rounded-full bg-blue-500 hover:border-blue-500 border cursor-pointer ${
-                  currentImage === images.blue ? "ring-2 ring-blue-500 ring-offset-2" : ""
-                }`}
-                onClick={() => handleColorChange("blue")}
-              />
-              <div
-                className={`w-8 h-8 rounded-full bg-yellow-400 hover:border-yellow-400 border cursor-pointer ${
-                  currentImage === images.yellow ? "ring-2 ring-blue-500 ring-offset-2" : ""
-                }`}
-                onClick={() => handleColorChange("yellow")}
-              />
+              <div>
+                <h3 className="font-semibold text-xl mt-[0.85rem]">Color</h3>
+                <div className="flex gap-3 my-4">
+                  <div
+                    className={`w-8 h-8 rounded-full border hover:border-black bg-black cursor-pointer ${
+                      currentImage === images.black
+                        ? "ring-2 ring-blue-500 ring-offset-2"
+                        : ""
+                    }`}
+                    onClick={() => handleColorChange("black")}
+                  />
+                  <div
+                    className={`w-8 h-8 rounded-full bg-blue-500 hover:border-blue-500 border cursor-pointer ${
+                      currentImage === images.blue
+                        ? "ring-2 ring-blue-500 ring-offset-2"
+                        : ""
+                    }`}
+                    onClick={() => handleColorChange("blue")}
+                  />
+                  <div
+                    className={`w-8 h-8 rounded-full bg-yellow-400 hover:border-yellow-400 border cursor-pointer ${
+                      currentImage === images.yellow
+                        ? "ring-2 ring-blue-500 ring-offset-2"
+                        : ""
+                    }`}
+                    onClick={() => handleColorChange("yellow")}
+                  />
+                </div>
+                <div></div>
+              </div>
+              <div>
+                <h3 className="font-semibold text-xl mt-4">Quantity</h3>
+                <div className="flex items-center gap-5 border mt-3 rounded-xl p-2">
+                  <div
+                    onClick={negativeCount}
+                    className=" text-2xl cursor-pointer rounded-md"
+                  >
+                    -
+                  </div>
+                  <span className="text-xl">{count}</span>
+                  <div
+                    onClick={positiveCount}
+                    className="text-2xl rounded-md  cursor-pointer"
+                  >
+                    +
+                  </div>
+                </div>
+              </div>
             </div>
-            <div>
-
-            </div>
-            </div>
-            <div>
-            <h3 className="font-semibold text-xl mt-4">Quantity</h3>
-            <div className="flex items-center gap-5 border mt-3 rounded-xl p-2">
-            <div onClick={ negativeCount }  className=" text-2xl cursor-pointer rounded-md" >-</div>
-            <span className="text-xl">{count}</span>
-            <div onClick={ positiveCount } className="text-2xl rounded-md  cursor-pointer" >+</div>
-            </div>
-            </div>
-            </div>
-            <span className="mr-[3rem] text-[1.2rem] font-semibold text-xl mt-[0.85rem]">SIZES</span>
+            <span className="mr-[3rem] text-[1.2rem] font-semibold text-xl mt-[0.85rem]">
+              SIZES
+            </span>
             <div className="flex pb-[3rem]">
               {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => (
                 <div
@@ -193,7 +216,7 @@ const negativeCount = ()=> {
             </div>
             <div className="flex justify-between">
               <button
-              onClick={addToCart}
+                onClick={addToCart}
                 className="bg-black w-80 mb-4 text-white rounded-sm px-8 py-2 font-semibold text-lg"
               >
                 Add to Cart
@@ -201,318 +224,386 @@ const negativeCount = ()=> {
               <CiHeart className="text-3xl mt-1 cursor-pointer" />
             </div>
             <hr />
-            
           </div>
         </div>
         <div className="lg:flex ml-16 lg:flex-row flex-col-reverse  gap-[3.5rem] 3xl:justify-between">
-        <div className="mt-8 ml-8">
-          <h2 className="font-semibold text-2xl mb-4">Customer Reviews</h2>
-          <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
-            <div className="flex gap-8">
-              <h2 className="text-3xl font-bold">4.92</h2>
-              <div className="flex text-xl gap-1 mt-2 text-yellow-500">
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-                <FaStar />
-              </div>
-            </div>
-            <div className="pt-6 flex gap-6">
-              <p className="text-sm">Small</p>
-              <div className="flex mt-1 w-full">
-                <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-8 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-52" />
-              </div>
-              <div>
-                <span>4%</span>
-              </div>
-            </div>
-            <div className="pt-3 flex gap-6">
-              <p className="text-sm  ">Fit</p>
-              <div className="flex mt-1">
-                <span className="bg-black rounded-l-full ml-32 lg:ml-14 lg:w-80 w-52 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 w-7" />
-              </div>
-              <div>
-                <span>94%</span>
-              </div>
-            </div>
-            <div className="pt-3 flex gap-6">
-              <p className="text-sm">Large</p>
-              <div className="flex mt-1">
-                <span className="bg-black rounded-l-full lg:ml-9 w-4 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-56" />
-              </div>
-              <div>
-                <span>2%</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="my-8 ">
-            <h3 className="text-lg font-semibold">All Reviews</h3>
-            <hr className="my-4" />
-            <div className="flex justify-between mb-8">
-              <div className="w-full">
-                <div className="flex gap-4">
-                  <h4 className="font-semibold text-sm">User1</h4>
-                  <span className="text-sm text-gray-500">29 Jun, 2024</span>
-                </div>
-                <div className="flex text-base gap-1 my-2 text-yellow-500">
+          <div className="mt-8 ml-8">
+            <h2 className="font-semibold text-2xl mb-4">Customer Reviews</h2>
+            <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
+              <div className="flex gap-8">
+                <h2 className="text-3xl font-bold">4.92</h2>
+                <div className="flex text-xl gap-1 mt-2 text-yellow-500">
                   <FaStar />
                   <FaStar />
                   <FaStar />
                   <FaStar />
                   <FaStar />
                 </div>
-                <div className="flex gap-8 my-4">
-                  <div className="flex gap-2">
-                    <span className="font-semibold text-gray-500">Overall Fit:</span>
-                    <span className="text-gray-500"> True to size</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <p className="font-semibold text-gray-500">Color:</p>
-                    <p className="text-gray-500"> Multicolor</p>
-                  </div>
-                  <div className="flex gap-2">
-                    <p className="font-semibold text-gray-500">Size:</p>
-                    <p className="text-gray-500"> M</p>
-                  </div>
+              </div>
+              <div className="pt-6 flex gap-6">
+                <p className="text-sm">Small</p>
+                <div className="flex mt-1 w-full">
+                  <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-8 h-2" />
+                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-52" />
                 </div>
-                <span className="my-8">The T-Shirt is very good quality, I am impressed by your product</span>
-              </div>
-              <div className="hidden md:block">
-                <img src="/images/LandingPage/productDetails.webp" className="w-24 h-24 object-cover mt-8" alt="User Review" />
-              </div>
-            </div>
-            <hr className="my-12" />
-            <div className="flex justify-between">
-              <div className="w-full">
-                <div className="flex gap-4">
-                  <h4 className="font-semibold text-sm">User2</h4>
-                  <span className="text-sm text-gray-500">29 Jun, 2024</span>
-                </div>
-                <div className="flex text-base gap-1 my-2 text-yellow-500">
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                  <FaStar />
-                </div>
-                <div className="flex gap-8 my-4">
-                  <div className="flex gap-2">
-                    <span className="font-semibold text-gray-500">Overall Fit:</span>
-                    <span className="text-gray-500"> True to size</span>
-                  </div>
-                  <div className="flex gap-2">
-                    <p className="font-semibold text-gray-500">Color:</p>
-                    <p className="text-gray-500"> Multicolor</p>
-                  </div>
-                  <div className="flex gap-2">
-                    <p className="font-semibold text-gray-500">Size:</p>
-                    <p className="text-gray-500"> M</p>
-                  </div>
-                </div>
-                <span className="my-8">The T-Shirt is very good quality, I am impressed by your product</span>
-              </div>
-              <div className="hidden md:block">
-                <img src="/images/LandingPage/productDetails.webp" className="w-24 h-24 object-cover mt-8" alt="User Review" />
-              </div>
-            </div>
-          </div>
-          <div className=" flex justify-center">
-              <button className="border my-8 px-4 py-2  border-black hover:ring-1 hover:ring-blue-600">View all Reviews</button>
-
-          </div>
-          </div>
-        <div>
-              
-              </div>
-              <div className="">
-
-              <div className="my-8 mt-8 flex gap-[18rem] cursor-pointer" onClick={descriptionToggle}>
-                <h2 className={`cursor-pointer text-lg `}>Description</h2>
-                <CiCirclePlus className="text-2xl" />
-              </div>
-              {description && (
                 <div>
+                  <span>4%</span>
+                </div>
+              </div>
+              <div className="pt-3 flex gap-6">
+                <p className="text-sm  ">Fit</p>
+                <div className="flex mt-1">
+                  <span className="bg-black rounded-l-full ml-32 lg:ml-14 lg:w-80 w-52 h-2" />
+                  <span className="bg-gray-300 rounded-r-full h-2 w-7" />
+                </div>
+                <div>
+                  <span>94%</span>
+                </div>
+              </div>
+              <div className="pt-3 flex gap-6">
+                <p className="text-sm">Large</p>
+                <div className="flex mt-1">
+                  <span className="bg-black rounded-l-full lg:ml-9 w-4 h-2" />
+                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-56" />
+                </div>
+                <div>
+                  <span>2%</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="my-8 ">
+              <h3 className="text-lg font-semibold">All Reviews</h3>
+              <hr className="my-4" />
+              <div className="flex justify-between mb-8">
+                <div className="w-full">
+                  <div className="flex gap-4">
+                    <h4 className="font-semibold text-sm">User1</h4>
+                    <span className="text-sm text-gray-500">29 Jun, 2024</span>
+                  </div>
+                  <div className="flex text-base gap-1 my-2 text-yellow-500">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </div>
+                  <div className="flex gap-8 my-4">
+                    <div className="flex gap-2">
+                      <span className="font-semibold text-gray-500">
+                        Overall Fit:
+                      </span>
+                      <span className="text-gray-500"> True to size</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="font-semibold text-gray-500">Color:</p>
+                      <p className="text-gray-500"> Multicolor</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="font-semibold text-gray-500">Size:</p>
+                      <p className="text-gray-500"> M</p>
+                    </div>
+                  </div>
+                  <span className="my-8">
+                    The T-Shirt is very good quality, I am impressed by your
+                    product
+                  </span>
+                </div>
+                <div className="hidden md:block">
+                  <img
+                    src="/images/LandingPage/productDetails.webp"
+                    className="w-24 h-24 object-cover mt-8"
+                    alt="User Review"
+                  />
+                </div>
+              </div>
+              <hr className="my-12" />
+              <div className="flex justify-between">
+                <div className="w-full">
+                  <div className="flex gap-4">
+                    <h4 className="font-semibold text-sm">User2</h4>
+                    <span className="text-sm text-gray-500">29 Jun, 2024</span>
+                  </div>
+                  <div className="flex text-base gap-1 my-2 text-yellow-500">
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                    <FaStar />
+                  </div>
+                  <div className="flex gap-8 my-4">
+                    <div className="flex gap-2">
+                      <span className="font-semibold text-gray-500">
+                        Overall Fit:
+                      </span>
+                      <span className="text-gray-500"> True to size</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="font-semibold text-gray-500">Color:</p>
+                      <p className="text-gray-500"> Multicolor</p>
+                    </div>
+                    <div className="flex gap-2">
+                      <p className="font-semibold text-gray-500">Size:</p>
+                      <p className="text-gray-500"> M</p>
+                    </div>
+                  </div>
+                  <span className="my-8">
+                    The T-Shirt is very good quality, I am impressed by your
+                    product
+                  </span>
+                </div>
+                <div className="hidden md:block">
+                  <img
+                    src="/images/LandingPage/productDetails.webp"
+                    className="w-24 h-24 object-cover mt-8"
+                    alt="User Review"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className=" flex justify-center">
+              <button className="border my-8 px-4 py-2  border-black hover:ring-1 hover:ring-blue-600">
+                View all Reviews
+              </button>
+            </div>
+          </div>
+          <div></div>
+          <div className="">
+            <div
+              className="my-8 mt-8 flex gap-[18rem] cursor-pointer"
+              onClick={descriptionToggle}
+            >
+              <h2 className={`cursor-pointer text-lg `}>Description</h2>
+              <CiCirclePlus className="text-2xl" />
+            </div>
+            {description && (
+              <div>
+                <div>
+                  <ol className="list-disc ml-6 w-[22rem] ">
+                    <li className="mb-4">
+                      7.7-inch vibrant and crisp display.
+                    </li>
+                    <li className="mb-4">
+                      12 GB RAM with Android 13.0 for seamless multitasking.
+                    </li>
+                    <li className="mb-4">
+                      Advanced AI-enhanced photography with Night Sight and
+                      Portrait Mode.
+                    </li>
+                    <li className="mb-4">
+                      Supports 5G for ultra-fast internet speeds.
+                    </li>
+                    <li className="mb-4">
+                      Latest security updates, Google Assistant, and intelligent
+                      features.
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            )}
+            <div
+              className="my-4 flex gap-[17rem] cursor-pointer"
+              onClick={specificationsToggle}
+            >
+              <h2 className={`cursor-pointer text-lg `}>Specifications</h2>
+              <CiCirclePlus className="text-2xl" />
+            </div>
+            {systemSpecifications && (
+              <div>
+                <div className="flex gap-32 my-4  ">
+                  <ul className="font-semibold">
+                    <li className="mb-4">Brand</li>
+                    <li className="mb-4">Operating System</li>
+                    <li className="mb-4">Memory</li>
+                    <li className="mb-4">Screen Size</li>
+                    <li className="mb-4">Resolution</li>
+                    <li className="mb-4">Cellular Technology</li>
+                  </ul>
+                  <ul>
+                    <li className="mb-4">Google</li>
+                    <li className="mb-4">Android 13.0</li>
+                    <li className="mb-4">12 GB</li>
+                    <li className="mb-4">7.7 inches</li>
+                    <li className="mb-4">1344 x 2992</li>
+                    <li className="mb-4">5G</li>
+                  </ul>
+                </div>
+              </div>
+            )}
+            <div className="bg-[#F7F9FB] w-[25rem]  p-9 ">
+              <div>
+                <div className="flex gap-3">
+                  <CiDeliveryTruck className="text-xl text-green-800 mt-1" />
                   <div>
-                    <ol className="list-disc ml-6 w-[22rem] ">
-                      <li className="mb-4">7.7-inch vibrant and crisp display.</li>
-                      <li className="mb-4">12 GB RAM with Android 13.0 for seamless multitasking.</li>
-                      <li className="mb-4">Advanced AI-enhanced photography with Night Sight and Portrait Mode.</li>
-                      <li className="mb-4">Supports 5G for ultra-fast internet speeds.</li>
-                      <li className="mb-4">Latest security updates, Google Assistant, and intelligent features.</li>
-                    </ol>
+                    <span className="font-semibold">Free Shipping</span>
+                    <p className="text-gray-600 text-xs">
+                      Free Express Shipping on orders over Rs 1200
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      Estimated to be delivered in 1 week
+                    </p>
                   </div>
                 </div>
-              )}
-              <div className="my-4 flex gap-[17rem] cursor-pointer" onClick={specificationsToggle}>
-                <h2 className={`cursor-pointer text-lg `}>Specifications</h2>
-                <CiCirclePlus className="text-2xl" />
+                <div className="flex my-4 gap-3">
+                  <PiKeyReturnLight className="text-xl text-green-800 mt-1" />
+                  <div>
+                    <span className="font-semibold">Returns</span>
+                    <p className="text-gray-600 text-xs">
+                      Items received within 30 days from the delivered date.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      Items received unused, undamaged, and in original package.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-3">
+                  <AiOutlineSecurityScan className="text-xl text-green-800 mt-1" />
+                  <div>
+                    <span className="font-semibold">Security Payment</span>
+                    <p className="text-gray-600 text-xs">
+                      Your payment information is processed securely.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      We do not store credit card details nor have access to
+                      your credit card information.
+                    </p>
+                  </div>
+                </div>
+                <div className="flex mt-4 ml-1 gap-3">
+                  <SiTicktick className="text-sm text-green-800 mt-1" />
+                  <div>
+                    <span className="font-semibold">Guarantee</span>
+                    <p className="text-gray-600 text-xs">
+                      One Year limited warranty.
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      One Year limited warranty.
+                    </p>
+                  </div>
+                </div>
               </div>
-              {systemSpecifications && (
-                <div>
-                  <div className="flex gap-32 my-4  ">
-                    <ul className="font-semibold">
-                      <li className="mb-4">Brand</li>
-                      <li className="mb-4">Operating System</li>
-                      <li className="mb-4">Memory</li>
-                      <li className="mb-4">Screen Size</li>
-                      <li className="mb-4">Resolution</li>
-                      <li className="mb-4">Cellular Technology</li>
-                    </ul>
-                    <ul>
-                      <li className="mb-4">Google</li>
-                      <li className="mb-4">Android 13.0</li>
-                      <li className="mb-4">12 GB</li>
-                      <li className="mb-4">7.7 inches</li>
-                      <li className="mb-4">1344 x 2992</li>
-                      <li className="mb-4">5G</li>
-                    </ul>
-                  </div>
+            </div>
+            <div className="relative h-[22rem] mt-4 w-[25rem] group">
+              <div className="h-full w-full overflow-hidden">
+                <img
+                  className="h-full w-full object-cover "
+                  src="/images/ProductDetails/banner_shop.jpg"
+                />
+              </div>
+              <div className="absolute top-0 left-0 w-full h-full px-8 py-5 z-20">
+                <div className="w-24 text-center mt-8 z-30 text-black">
+                  <h1 className="text-xs bg-gray-50 font-semibold transition-colors duration-300 group-hover:bg-red-500 group-hover:text-white">
+                    LIMITED STOCK
+                  </h1>
                 </div>
-              )}
-              <div className="bg-[#F7F9FB] w-[25rem]  p-9 ">
-                <div>
-                  <div className="flex gap-3">
-                    <CiDeliveryTruck className="text-xl text-green-800 mt-1" />
-                    <div>
-                      <span className="font-semibold">Free Shipping</span>
-                      <p className="text-gray-600 text-xs">
-                        Free Express Shipping on orders over Rs 1200
-                      </p>
-                      <p className="text-gray-600 text-xs">
-                        Estimated to be delivered in 1 week
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex my-4 gap-3">
-                    <PiKeyReturnLight className="text-xl text-green-800 mt-1" />
-                    <div>
-                      <span className="font-semibold">Returns</span>
-                      <p className="text-gray-600 text-xs">
-                        Items received within 30 days from the delivered date.
-                      </p>
-                      <p className="text-gray-600 text-xs">
-                        Items received unused, undamaged, and in original package.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex gap-3">
-                    <AiOutlineSecurityScan className="text-xl text-green-800 mt-1" />
-                    <div>
-                      <span className="font-semibold">Security Payment</span>
-                      <p className="text-gray-600 text-xs">
-                        Your payment information is processed securely.
-                      </p>
-                      <p className="text-gray-600 text-xs">
-                        We do not store credit card details nor have access to
-                        your credit card information.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex mt-4 ml-1 gap-3">
-                    <SiTicktick className="text-sm text-green-800 mt-1" />
-                    <div>
-                      <span className="font-semibold">Guarantee</span>
-                      <p className="text-gray-600 text-xs">
-                        One Year limited warranty.
-                      </p>
-                      <p className="text-gray-600 text-xs">
-                        One Year limited warranty.
-                      </p>
-                    </div>
-                    </div>
-                  </div>
+                <h1 className="text-2xl my-4 font-semibold">MACBOOK AIR</h1>
+                <p>
+                  starting from{" "}
+                  <span className="text-blue-500 text-lg">$900</span>
+                </p>
+                <div className="flex mt-20">
+                  <button className="font-semibold underline underline-offset-4 ">
+                    Shop Now
+                  </button>
+                  <span className="mt-[0.3rem] hover:-rotate-45 duration-300">
+                    <IoIosArrowForward />
+                  </span>
                 </div>
-                <div className="relative h-[22rem] mt-4 w-[25rem] group">
-  <div className="h-full w-full overflow-hidden">
-    <img 
-      className="h-full w-full object-cover " 
-      src="/images/ProductDetails/banner_shop.jpg" 
-    />
-  </div>
-  <div className="absolute top-0 left-0 w-full h-full px-8 py-5 z-20">
-    <div className="w-24 text-center mt-8 z-30 text-black">
-      <h1 className="text-xs bg-gray-50 font-semibold transition-colors duration-300 group-hover:bg-red-500 group-hover:text-white">LIMITED STOCK</h1>
-    </div>
-    <h1 className="text-2xl my-4 font-semibold">MACBOOK AIR</h1>
-    <p>starting from <span className="text-blue-500 text-lg">$900</span></p>
-    <div className="flex mt-20">
-      <button className="font-semibold underline underline-offset-4 ">Shop Now</button>
-      <span className="mt-[0.3rem] hover:-rotate-45 duration-300"><IoIosArrowForward /></span>
-    </div>
-  </div>
-</div>
-
-
-
-        </div>
-        </div>
-       
-<h1 className="text-center text-3xl mt-20 mb-8 font-semibold">Recomended Products</h1>
-<div className="lg:flex gap-8">
-  <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
-    <div>
-    <img src="images/ProductDetails/RecomenededProducts1.webp" className="lg:w-80 rounded-t-2xl "/>
-    </div>
-    <div className="p-4">
-    <h1 className="font-semibold my-3 text-xl">IPhone 12</h1>    
-     <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-    </div>
-    </div>
-  <div className="my-4 bg-white hover:shadow-xl shadow-md rounded-md relative">
-    <div>
-    <img src="images/ProductDetails/RecomenededProducts2.webp" className="lg:w-80 rounded-t-2xl"/>
-    </div>
-    <div className="p-4">
-    <h1 className="font-semibold my-3 text-xl">IdeaPad 3</h1>    
-     <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-     <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] left-[11rem] rounded-md">SALE</span>
-
-    </div>
-    </div>
-  <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
-    <div>
-    <img src="images/ProductDetails/RecomenededProducts3.webp" className="lg:w-80 rounded-t-2xl"/>
-    </div>
-    <div className="p-4">
-    <h1 className="font-semibold my-3 text-xl">IPhone 13</h1>    
-     <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-    </div>
-    </div>
-  <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
-    <div>
-    <img src="images/ProductDetails/RecomenededProducts4.webp" className="lg:w-80 rounded-t-2xl"/>
-    </div>
-    <div className="p-4 relative">
-    <h1 className="font-semibold my-3 text-xl">Xonic CC  Camera</h1>    
-     <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-    <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] rounded-md">SALE</span>
-    </div>
-    </div>
-    </div>
-    </div> {showFixedDiv && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 w-full bg-gray-100 shadow-lg p-4 flex  ">
-         <div className="container flex justify-between items-center">
-         <div className="flex items-center gap-4">
-            <img src={currentImage} className="w-16 h-16 border border-gray-200 p-2 object-cover " alt="Product Thumbnail" />
-            <div>
-              <span className="text-gray-500">Your Viewing:</span> <span>Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto Lens </span> <br/>
-              <span className="text-red-600 font-semibold mr-4">Rs 80,000</span>
-              <span className="text-gray-500 line-through">$199.99</span>
+              </div>
             </div>
           </div>
-          <button className="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
-            Add to Cart
-          </button>
-         </div>
+        </div>
+
+        <h1 className="text-center text-3xl mt-20 mb-8 font-semibold">
+          Recomended Products
+        </h1>
+        <div className="lg:flex gap-8">
+          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
+            <div>
+              <img
+                src="images/ProductDetails/RecomenededProducts1.webp"
+                className="lg:w-80 rounded-t-2xl "
+              />
+            </div>
+            <div className="p-4">
+              <h1 className="font-semibold my-3 text-xl">IPhone 12</h1>
+              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+            </div>
+          </div>
+          <div className="my-4 bg-white hover:shadow-xl shadow-md rounded-md relative">
+            <div>
+              <img
+                src="images/ProductDetails/RecomenededProducts2.webp"
+                className="lg:w-80 rounded-t-2xl"
+              />
+            </div>
+            <div className="p-4">
+              <h1 className="font-semibold my-3 text-xl">IdeaPad 3</h1>
+              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] left-[11rem] rounded-md">
+                SALE
+              </span>
+            </div>
+          </div>
+          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
+            <div>
+              <img
+                src="images/ProductDetails/RecomenededProducts3.webp"
+                className="lg:w-80 rounded-t-2xl"
+              />
+            </div>
+            <div className="p-4">
+              <h1 className="font-semibold my-3 text-xl">IPhone 13</h1>
+              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+            </div>
+          </div>
+          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
+            <div>
+              <img
+                src="images/ProductDetails/RecomenededProducts4.webp"
+                className="lg:w-80 rounded-t-2xl"
+              />
+            </div>
+            <div className="p-4 relative">
+              <h1 className="font-semibold my-3 text-xl">Xonic CC Camera</h1>
+              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] rounded-md">
+                SALE
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>{" "}
+      {showFixedDiv && (
+        <div className="fixed bottom-0 left-0 right-0 z-40 w-full bg-gray-100 shadow-lg p-4 flex  ">
+          <div className="container flex justify-between items-center">
+            <div className="flex items-center gap-4">
+              <img
+                src={currentImage}
+                className="w-16 h-16 border border-gray-200 p-2 object-cover "
+                alt="Product Thumbnail"
+              />
+              <div>
+                <span className="text-gray-500">Your Viewing:</span>{" "}
+                <span>
+                  Google Pixel 8 Pro - Unlocked Android Smartphone with
+                  Telephoto Lens{" "}
+                </span>{" "}
+                <br />
+                <span className="text-red-600 font-semibold mr-4">
+                  Rs 80,000
+                </span>
+                <span className="text-gray-500 line-through">$199.99</span>
+              </div>
+            </div>
+            <button className="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
+              Add to Cart
+            </button>
+          </div>
         </div>
       )}
     </div>
   );
 };
-  
+
 export default ProductDetails;

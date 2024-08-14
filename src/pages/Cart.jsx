@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { TbArrowBackUp } from "react-icons/tb";
+// import { TbArrowBackUp } from "react-icons/tb";
 import { MdDeleteOutline } from "react-icons/md";
 import { Link, useNavigate } from "react-router-dom";
 import { BsShop } from "react-icons/bs";
+import { VscClose } from "react-icons/vsc";
 
 const Cart = () => {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ const Cart = () => {
 
   if (cartItems.length === 0) {
     return (
-      <div className="text-center lg:py-20 py-44">
+      <div className="text-center lg:py-20 py-12">
         <img
           src="/images/emptycart.png"
           alt="empty cart"
@@ -20,7 +21,9 @@ const Cart = () => {
         />
         <h2 className="text-2xl py-5">No items in cart</h2>
         <Link to="/shop">
-          <button className="p-3 px-6 bg-[#0D4C90] text-white rounded-xl flex items-center mx-auto gap-3"><BsShop /> Go to Shop</button>
+          <button className="p-3 px-6 bg-[#0D4C90] text-white rounded-xl flex items-center mx-auto gap-3">
+            <BsShop /> Go to Shop
+          </button>
         </Link>
       </div>
     );
@@ -70,52 +73,93 @@ const Cart = () => {
       </button> */}
       <h1 className="font-medium text-2xl mb-4">Cart Overview</h1>
       <div className="md:flex gap-8">
-        <div className="lg:w-[70%]">
+        <div className="md:w-[70%]">
           {cartItems.map((item, index) => (
-           <table className="min-w-full bg-white">
-           <thead>
-             <tr className="text-left">
-               <th className="py-2 px-4 border-b">Product</th>
-               <th className="py-2 px-4 border-b">Price</th>
-               <th className="py-2 px-4 border-b">Quantity</th>
-               <th className="py-2 px-4 border-b">Subtotal</th>
-               <th className="py-2 px-4 border-b">Action</th>
-             </tr>
-           </thead>
-           <tbody>
-             {cartItems.map((item, index) => (
-               <tr key={index}>
-                 <td className="py-2 px-4 border-b">
-                   <img
-                     src={item?.image}
-                     alt={item?.name}
-                     className="inline-block w-20 mr-4"
-                   />
-                   <span>{item?.name}</span>
-                 </td>
-                 <td className="py-2 px-4 border-b">Rs. {item.price}</td>
-                 <td className="py-2 px-4 border-b">
-                  <div className="border p-2 flex justify-between rounded-lg">
-                  <button onClick={() => handleQuantityChange(index, false)}>-</button>
-                  {item.quantity}
-                  <button onClick={() => handleQuantityChange(index, true)}>+</button>
+            <div>
+              <table className="min-w-full bg-white hidden md:block">
+                <thead>
+                  <tr className="text-left">
+                    <th className="py-2 px-4 border-b">Product</th>
+                    <th className="py-2 px-4 border-b">Price</th>
+                    <th className="py-2 px-4 border-b">Quantity</th>
+                    <th className="py-2 px-4 border-b">Subtotal</th>
+                    <th className="py-2 px-4 border-b">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {cartItems.map((item, index) => (
+                    <tr key={index}>
+                      <td className="py-2 px-4 border-b">
+                        <img
+                          src={item?.image}
+                          alt={item?.name}
+                          className="inline-block w-20 mr-4"
+                        />
+                        <span>{item?.name}</span>
+                      </td>
+                      <td className="py-2 px-4 border-b">Rs. {item.price}</td>
+                      <td className="py-2 px-4 border-b">
+                        <div className="border p-2 flex justify-between rounded-lg">
+                          <button
+                            onClick={() => handleQuantityChange(index, false)}
+                          >
+                            -
+                          </button>
+                          {item.quantity}
+                          <button
+                            onClick={() => handleQuantityChange(index, true)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </td>
+                      <td className="py-2 px-5 border-b">
+                        Rs. {item.price * item.quantity}
+                      </td>
+                      <td className="py-2 px-6 border-b">
+                        <button
+                          onClick={() => handleDelete(index)}
+                          className="text-red-600 p-1 text-xl rounded"
+                        >
+                          <MdDeleteOutline />
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+
+              <div>
+                {cartItems.map((item, index) => (
+                  <div key={index} className="border rounded-xl p-3 flex gap-5 items-center border-gray-300 relative md:hidden">
+                    <div>
+                      <img src={item?.image} alt="" className="size-24" />
+                    </div>
+                    <div className="space-y-1">
+                      <h2 className="font-medium">{item?.name}</h2>
+                      <h2>Rs. {item?.price}</h2>
+                      <div className="flex gap-3 items-center">
+                          <button
+                          className="border px-2 rounded-md pb-1"
+                            onClick={() => handleQuantityChange(index, false)}
+                          >
+                            -
+                          </button>
+                          {item.quantity}
+                          <button
+                          className="border px-2 rounded-md pb-1"
+                            onClick={() => handleQuantityChange(index, true)}
+                          >
+                            +
+                          </button>
+                        </div>
+                        <button onClick={() => handleDelete(index)} className="absolute top-2 right-2 text-lg"><VscClose /></button>
+                    </div>
                   </div>
-                  </td>
-                 <td className="py-2 px-5 border-b">
-                   Rs. {item.price * item.quantity}
-                 </td>
-                 <td className="py-2 px-6 border-b">
-                   <button
-                     onClick={() => handleDelete(index)}
-                     className="text-red-600 p-1 text-xl rounded"
-                   >
-                     <MdDeleteOutline />
-                   </button>
-                 </td>
-               </tr>
-             ))}
-           </tbody>
-         </table>
+                ))}
+              </div>
+
+            </div>
           ))}
         </div>
 

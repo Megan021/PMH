@@ -19,6 +19,7 @@ import OrderReview from "./components/Cart Page/OrderReview";
 import OrderSuccess from "./pages/OrderSuccess";
 import AboutUs from "./pages/AboutUs";
 import For404Error from "./Layouts/For404Page";
+import Wishlist from "./pages/Wishlist";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -53,6 +54,7 @@ export default function App() {
           <Route path="/payment-info" element={<Payment />} />
           <Route path="/order-review" element={<OrderReview />} />
           <Route path="/order-success" element={<OrderSuccess />} />
+          <Route path="/wishlist" element={<Wishlist />} />
           <Route path="*" element={<PageNotFound />} />
         </Routes>
         <For404Error>

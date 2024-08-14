@@ -28,15 +28,15 @@ const Footer = () => {
             </div>
             <hr className="border border-gray-700" />
 
-            <div className="flex justify-between pt-10  pb-10">
-              <div className="hidden lg:block">
+            <div className="lg:flex justify-between pt-10  pb-10">
+              <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">Quick Links </h1>
                 <p className="text-white  mt-5 cursor-pointer">Search</p>
                 <p className="text-white  mt-2 cursor-pointer">Reviews</p>
                 <Link to="/aboutus"><p className="text-white  mt-2 cursor-pointer">About Us</p></Link>
                 <p className="text-white  mt-2 cursor-pointer">Privacy Policy</p>
               </div>
-              <div className="hidden lg:block">
+              <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">Info </h1>
                 <p className="text-white  mt-5 cursor-pointer">
                   Terms of Service
@@ -49,7 +49,7 @@ const Footer = () => {
                   Contact Information
                 </p>
               </div>
-              <div className="hidden lg:block">
+              <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">About Policies </h1>
                 <Link to="aboutus"><p className="text-white  mt-5 cursor-pointer">About Us</p></Link>
                 <p className="text-white  mt-2 cursor-pointer">FAQ</p>
@@ -64,7 +64,7 @@ const Footer = () => {
                   Private Policy
                 </p>
               </div>
-              <div className="hidden lg:block">
+              <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">New Arrivals </h1>
                 <p className="text-white  mt-5 cursor-pointer">Best Sellers</p>
                 <p className="text-white  mt-2 cursor-pointer">Sale Items</p>
@@ -90,10 +90,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="lg:flex lg:container px-[2rem]  text-white justify-between py-8">
-            <div className="hidden lg:block">
-              @2024 Ecommerce Collection. All Rights Reserved Privacy Policy |
-              Terms & Conditions
+          <div className="lg:flex lg:container px-[2rem]  text-white justify-between py-8 text-center">
+            <div className="pb-3 lg:pb-0">
+              @2024. All Rights Reserved Privacy Policy
             </div>
             <div className="">
               Designed & Developed By{" "}

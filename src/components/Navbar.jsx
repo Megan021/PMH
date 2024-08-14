@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./Header";
 import { IoIosSearch } from "react-icons/io";
 import { IoCartOutline, IoLocationOutline } from "react-icons/io5";
@@ -18,6 +18,31 @@ const Navbar = () => {
   const [offScreenNav, setOffScreenNav] = useState(false);
   const [isDropdownVisible, setDropdownVisible] = useState(false);
   const [isCategoryVisible, setCategoryVisible] = useState(false);
+  const [cart, setCart] = useState([]);
+
+  // Function to load cart items from localStorage
+  const loadCart = () => {
+    const cartItems = JSON.parse(localStorage.getItem("cart")) || [];
+    setCart(cartItems);
+  };
+
+  // Load cart items on component mount
+  useEffect(() => {
+    loadCart();
+  }, []);
+
+  // Optionally: Add an event listener to update cart when localStorage changes
+  // useEffect(() => {
+  //   const handleStorageChange = () => {
+  //     loadCart();
+  //   };
+
+  //   window.addEventListener("storage", handleStorageChange);
+
+  //   return () => {
+  //     window.removeEventListener("storage", handleStorageChange);
+  //   };
+  // }, []);
 
   const toggleDropdown = () => {
     setDropdownVisible(!isDropdownVisible);
@@ -47,13 +72,13 @@ const Navbar = () => {
 
       <div className="container py-3 flex justify-between items-center px-4 lg:px-0">
         <div>
-        <Link to="/">
-          <h2 className="uppercase font-semibold text-xl lg:text-2xl">Phm</h2>
+          <Link to="/">
+            <h2 className="uppercase font-semibold text-xl lg:text-2xl">Phm</h2>
           </Link>
         </div>
 
         <div className="hidden lg:flex bg-transparent border-2 border-[#0D4C90] rounded-md rounded-r-2xl">
-        <button
+          <button
             className="border-r px-3 border-gray-400 capitalize flex items-center gap-2"
             onClick={toggleDropCategory}
           >
@@ -61,27 +86,27 @@ const Navbar = () => {
             <IoIosArrowDown />
           </button>
           <AnimatePresence>
-          {isCategoryVisible && (
-            <motion.div
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.2 }}
-              className="absolute mt-12 bg-white border border-gray-400 rounded-xl shadow-lg z-10"
-            >
-              <ul className="py-2">
-                {categories.map((category, index) => (
-                  <li
-                    key={index}
-                    className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <Link to={category.path}>{category.name}</Link>
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            {isCategoryVisible && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.2 }}
+                className="absolute mt-12 bg-white border border-gray-400 rounded-xl shadow-lg z-10"
+              >
+                <ul className="py-2">
+                  {categories.map((category, index) => (
+                    <li
+                      key={index}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <Link to={category.path}>{category.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
           <input
             type="text"
             placeholder="Search..."
@@ -93,12 +118,19 @@ const Navbar = () => {
         </div>
 
         <div className="flex lg:hidden items-center gap-4 mb-1 text-xl">
-          <Link>
+          <Link to="/wishlist">
             <IoMdHeartEmpty />
           </Link>
-          <Link>
-            <IoCartOutline />
-          </Link>
+          <div className="relative">
+            <Link to="/cart">
+              <IoCartOutline />
+            </Link>
+            {cart?.length > 0 && (
+              <div className="text-sm bg-yellow-300 absolute -top-3 -right-2 border rounded-md px-1">
+                {cart.length}
+              </div>
+            )}
+          </div>
           <Link>
             <FiUser />
           </Link>
@@ -133,19 +165,19 @@ const Navbar = () => {
             </div>
             <hr className="border border-gray-200 my-4" />
             <li className="mb-4">
-              <Link onClick={toggleNav} className="flex gap-2" to="/">
+              <Link onClick={toggleNav} className="flex gap-2 items-center" to="/">
                 <IoHomeOutline />
                 Home
               </Link>
             </li>
             <li className="mb-4">
-              <Link onClick={toggleNav} className="flex gap-2" to="/shop">
+              <Link onClick={toggleNav} className="flex gap-2 items-center" to="/shop">
                 <IoStorefrontOutline />
                 Shop
               </Link>
             </li>
             <li className="mb-6">
-              <Link onClick={toggleNav} className="flex gap-2" to="/contact">
+              <Link onClick={toggleNav} className="flex gap-2 items-center" to="/contact">
                 <BsTelephone />
                 Contact
               </Link>
@@ -156,10 +188,10 @@ const Navbar = () => {
           <div className="border-b border-gray-300 pb-4 mb-6">
             <h2 className="text-xl font-medium pb-3">More Links</h2>
             <ul className="leading-9 text-lg">
-              <li>Privacy Policy</li>
-              <li>Return Policy</li>
-              <li>Customer Support</li>
-              <li>Help Center</li>
+            <Link onClick={toggleNav} to="/privacy-policy"><li>Privacy Policy</li></Link>
+            <Link onClick={toggleNav} to="/"><li>Return Policy</li></Link>
+            <Link onClick={toggleNav} to="/"><li>Customer Support</li></Link>
+            <Link onClick={toggleNav} to="/"><li>Help Center</li></Link>
             </ul>
           </div>
 
@@ -182,15 +214,22 @@ const Navbar = () => {
         </div>
 
         <div className="lg:flex hidden gap-1 md:gap-4 text-2xl">
-          <Link>
+          <Link to="/wishlist">
             <IoMdHeartEmpty />
           </Link>
           <Link>
             <FiUser />
           </Link>
-          <Link to="/cart">
-            <IoCartOutline />
-          </Link>
+          <div className="relative">
+            <Link to="/cart">
+              <IoCartOutline />
+            </Link>
+            {cart?.length > 0 && (
+              <div className="text-sm bg-yellow-300 absolute -top-3 -right-2 border rounded-md px-1">
+                {cart.length}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
@@ -248,24 +287,41 @@ const Navbar = () => {
 
         <div>
           <ul className="lg:flex gap-7 hidden">
-            <Link to="/shop"><li className="cursor-pointer">Phone Case</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Screen Protector</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Accessories</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Iphone</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Mac</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Watch</li></Link>
-            <Link to="/shop"><li className="cursor-pointer">Ipad</li></Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Phone Case</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Screen Protector</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Accessories</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Iphone</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Mac</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Watch</li>
+            </Link>
+            <Link to="/shop">
+              <li className="cursor-pointer">Ipad</li>
+            </Link>
           </ul>
         </div>
 
         <div className="flex items-center gap-3">
           <Link to="/shop">
-          <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-4 hover:bg-[#0D4C90] hover:text-white duration-300"><IoStorefrontOutline className="text-lg" />Shop</button>
+            <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-4 hover:bg-[#0D4C90] hover:text-white duration-300">
+              <IoStorefrontOutline className="text-lg" />
+              Shop
+            </button>
           </Link>
           <Link to="/contact">
-          <button className="p-2 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
-            Contact
-          </button>
+            <button className="p-2 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
+              Contact
+            </button>
           </Link>
         </div>
       </div>

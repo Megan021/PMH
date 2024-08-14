@@ -51,7 +51,7 @@ const Hero = () => {
     <div className="bg-[#FBF8F9]">
       <Carousel
         responsive={responsive}
-        autoPlay={true}
+        autoPlay={false}
         autoPlaySpeed={4000}
         infinite={true}
         showDots={true}
@@ -77,7 +77,7 @@ const Hero = () => {
               <img
                 src="/images/LandingPage/slide1-iphone.png"
                 alt="Hero Image"
-                className="bg-transparent object-top"
+                className="bg-transparent object-top size-72 lg:size-auto"
               />
             </div>
           </div>
@@ -102,7 +102,7 @@ const Hero = () => {
               <img
                 src="/images/LandingPage/slide1-ipad.png"
                 alt="Hero Image"
-                className="bg-transparent object-top"
+                className="bg-transparent object-top size-72 lg:size-auto"
               />
             </div>
           </div>
