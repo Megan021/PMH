@@ -3,6 +3,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <>
@@ -32,10 +33,8 @@ const Footer = () => {
                 <h1 className="font-semibold text-xl">Quick Links </h1>
                 <p className="text-white  mt-5 cursor-pointer">Search</p>
                 <p className="text-white  mt-2 cursor-pointer">Reviews</p>
-                <p className="text-white  mt-2 cursor-pointer">About Us</p>
-                <p className="text-white  mt-2 cursor-pointer">
-                  Privacy Policy
-                </p>
+                <Link to="/aboutus"><p className="text-white  mt-2 cursor-pointer">About Us</p></Link>
+                <p className="text-white  mt-2 cursor-pointer">Privacy Policy</p>
               </div>
               <div className="hidden lg:block">
                 <h1 className="font-semibold text-xl">Info </h1>
@@ -52,7 +51,7 @@ const Footer = () => {
               </div>
               <div className="hidden lg:block">
                 <h1 className="font-semibold text-xl">About Policies </h1>
-                <p className="text-white  mt-5 cursor-pointer">About Us</p>
+                <Link to="aboutus"><p className="text-white  mt-5 cursor-pointer">About Us</p></Link>
                 <p className="text-white  mt-2 cursor-pointer">FAQ</p>
                 <p className="text-white  mt-2 cursor-pointer">
                   Shipping Information

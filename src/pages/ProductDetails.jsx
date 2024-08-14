@@ -180,7 +180,7 @@ const negativeCount = ()=> {
               {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => (
                 <div
                   key={size}
-                  className={` font-semibold border-gray-300 border border-dashed rounded-lg px-5 py-2 bg-white text-center ${
+                  className={`cursor-pointer font-semibold border-gray-300 border border-dashed rounded-lg px-5 py-2 bg-white text-center ${
                     selectedSize === size
                       ? " border-2 border-double border-blue-600  text-black "
                       : "hover:border-double hover:bg-gray-100 text-gray-400 hover:text-black "

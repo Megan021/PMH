@@ -143,10 +143,10 @@ const Header = () => {
         <div className="border-b border-gray-300 pb-4 mb-6">
           <h2 className="text-xl font-medium pb-3">More Links</h2>
           <ul className="leading-9 text-lg">
-            <Link to="/privacy-policy"><li>Privacy Policy</li></Link>
-            <Link to="/"><li>Return Policy</li></Link>
-            <Link to="/"><li>Customer Support</li></Link>
-            <Link to="/"><li>Help Center</li></Link>
+            <Link onClick={toggleMenu} to="/privacy-policy"><li>Privacy Policy</li></Link>
+            <Link onClick={toggleMenu} to="/"><li>Return Policy</li></Link>
+            <Link onClick={toggleMenu} to="/"><li>Customer Support</li></Link>
+            <Link onClick={toggleMenu} to="/"><li>Help Center</li></Link>
           </ul>
         </div>
 

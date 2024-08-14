@@ -248,13 +248,13 @@ const Navbar = () => {
 
         <div>
           <ul className="lg:flex gap-7 hidden">
-            <li className="cursor-pointer">Phone Case</li>
-            <li className="cursor-pointer">Screen Protector</li>
-            <li className="cursor-pointer">Accessories</li>
-            <li className="cursor-pointer">Iphone</li>
-            <li className="cursor-pointer">Mac</li>
-            <li className="cursor-pointer">Watch</li>
-            <li className="cursor-pointer">Ipad</li>
+            <Link to="/shop"><li className="cursor-pointer">Phone Case</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Screen Protector</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Accessories</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Iphone</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Mac</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Watch</li></Link>
+            <Link to="/shop"><li className="cursor-pointer">Ipad</li></Link>
           </ul>
         </div>
 

@@ -10,13 +10,15 @@ import Shop from "./pages/Shop";
 import SignIn from "./pages/SignIn";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
-import ForErrorPage from "./Layouts/ForErrorPage";
+// import ForErrorPage from "./Layouts/ForErrorPage";
 import Cart from "./pages/Cart";
 import Shipping from "./components/Cart Page/Shipping";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import Payment from "./components/Cart Page/Payment";
 import OrderReview from "./components/Cart Page/OrderReview";
 import OrderSuccess from "./pages/OrderSuccess";
+import AboutUs from "./pages/AboutUs";
+import For404Error from "./Layouts/For404Page";
 
 export default function App() {
   const ScrollToTop = () => {
@@ -30,14 +32,18 @@ export default function App() {
 
     return null;
   };
+  
   return (
     <div>
       <Router>
         <ScrollToTop />
-        <Navbar />
+        <For404Error>
+          <Navbar />
+        </For404Error>
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/productDetails" element={<ProductDetails />} />
+          <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/shop" element={<Shop />} />
           <Route path="/signin" element={<SignIn />} />
           <Route path="/contact" element={<Contact />} />
@@ -47,9 +53,11 @@ export default function App() {
           <Route path="/payment-info" element={<Payment />} />
           <Route path="/order-review" element={<OrderReview />} />
           <Route path="/order-success" element={<OrderSuccess />} />
-          <Route path="*" element={<ForErrorPage noNavFooter> <PageNotFound /> </ForErrorPage>} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
-        <Footer />
+        <For404Error>
+          <Footer />
+        </For404Error>
         <ScrollOnTop />
       </Router>
     </div>

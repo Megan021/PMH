@@ -303,18 +303,16 @@ const Shop = () => {
         )}
 
         <div className='container'>
-
-
           <section className="md:flex">
             <div className="md:w-[70%]">
               <div className='flex justify-between my-4 mt-16 '>
                 <div className="flex items-center lg:gap-4 gap-1">
-                  <div className="text-gray-500 lg:text-lg">Show: </div>
+                  <div className="font-medium">Show: </div>
                   <div
-                    className='relative border cursor-pointer border-gray-400 rounded-lg items-center lg:px-4 lg:py-1 p-2 flex lg:gap-1'
+                    className='relative border cursor-pointer border-gray-400 rounded-lg items-center lg:px-3 lg:py-2 p-2 flex lg:gap-1'
                     onClick={() => setShow(!show)}
                   >
-                    <span className='lg:text-lg '>{selectedValue}</span>
+                    <span className=''>{selectedValue}</span>
                     <MdOutlineKeyboardArrowDown className="text-xl" />
 
                     {show && (
@@ -438,7 +436,7 @@ const Shop = () => {
 
                   <div className="lg:flex justify-center lg:mx-2 mt-16">
                     <hr className="w-16 mt-3 hidden lg:block" />
-                    <span className="mx-3  font-semibold  md:font-normal">FILTER BY PRICE </span>
+                    <span className="mx-3  font-semibold  md:font-normal">FILTER BY PRICE</span>
                     <hr className="w-16 mt-3 hidden lg:block" />
                   </div>
                   <div className="lg:mx-auto mt-4 flex-col justify-center">
