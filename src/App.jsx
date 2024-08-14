@@ -10,6 +10,7 @@ import Shop from "./pages/Shop";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AboutUs from "./pages/AboutUs";
 import MaybeShowNavbar from "./components/MaybeShowNavbar";
+import Wishlist from "./pages/Wishlist";
 export default function App() {
   const ScrollToTop = () => {
     const { pathname } = useLocation();
@@ -36,10 +37,11 @@ export default function App() {
         <Route path='/shop' element={<Shop />} />
         <Route path='/privacyPolicy' element={<PrivacyPolicy />} />
         <Route path='/aboutUs' element={<AboutUs />} />
+        <Route path='/wishList' element={<Wishlist />} />
       </Routes>
       <MaybeShowNavbar>
 
-      <Footer />
+      {/* <Footer /> */}
       </MaybeShowNavbar>
 
       <ScrollOnTop />
