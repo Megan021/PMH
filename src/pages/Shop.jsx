@@ -360,18 +360,7 @@ const Shop = () => {
                           >
                             Sort by Price : Low to high
                           </li>
-                          <li
-                            className='px-4 py-2 cursor-pointer hover:bg-gray-200'
-                            onClick={() => handleOptionClick('Sort by Category')}
-                          >
-                            Sort by Category
-                          </li>
-                          <li
-                            className='px-4 py-2 cursor-pointer hover:bg-gray-200'
-                            onClick={() => handleOptionClick('Sort by Brands')}
-                          >
-                            Sort by Brands
-                          </li>
+                         
                         </ul>
                       </div>
                     )}
@@ -381,8 +370,8 @@ const Shop = () => {
               </div>
               <div className='grid md:grid-cols-2 grid-cols-2 lg:grid-cols-3  gap-4   '>
                 {shop.map((product) => (
-                  <div className='  ' key={product.id}>
-                    <div className='md:block hidden  '>
+                  <div className='' key={product.id}>
+                    <div className='md:block hidden'>
                       <CiSearch className='text-gray-600 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
                       <CiHeart className='text-gray-600 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500' />
                     </div>
@@ -390,8 +379,8 @@ const Shop = () => {
                     <div className=' duration-300 hover:scale-105  lg:py-4 rounded-md relative group mb-[2rem]'>
                       <div className='bg-white  border border-gray-100'>
 
-                        <img src={product.image1} className='transition-opacity duration-500 bg-gray-400 ease-in-out opacity-100 group-hover:opacity-0' alt='Product1' />
-                        <img src={product.image2} className='transition-opacity duration-500 ease-in-out opacity-0 absolute top-0 left-0 mt-4 group-hover:opacity-100' alt='Product1' />
+                        <img src={product.image1} className='transition-opacity aspect-[4/4] duration-500 bg-gray-400 ease-in-out opacity-100 group-hover:opacity-0' alt='Product1' />
+                        <img src={product.image2} className='transition-opacity aspect-[4/4] duration-500 ease-in-out opacity-0 absolute top-0 left-0 mt-4 group-hover:opacity-100' alt='Product1' />
                         <span className={`absolute ${product.tag === 'Sale' ? 'bg-[red]  text-white left-5 hidden md:block  px-3 py-1 lg:top-8 md:top-3 rounded-md' :
                           product.tag === 'New Arrivals' ? 'bg-blue-700 text-white left-5  px-3 py-1 lg:top-8 md:top-3  hidden md:block rounded-md' : ''
                           }  `}>{product.tag}</span>
@@ -408,7 +397,7 @@ const Shop = () => {
                       </div>
 
 
-                      <div className='flex  justify-center mt-2 text-center'>
+                      <div className='flex justify-center mt-2 text-center'>
                         <div className="">
                           <span className="text-gray-400 text-sm line-clamp-1">{product.category}</span>
                           <h1 className='font-semibold my-2 md:text-xl line-clamp-1'>{product.name}</h1>

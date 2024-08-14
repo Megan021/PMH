@@ -3,18 +3,18 @@ import { CiShoppingCart } from "react-icons/ci";
 // import { AiFillStar } from "react-icons/ai";
 import { Link } from 'react-router-dom';
 
-const FeaturedProductsComponent = () => {
+const NewArrival = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   const toggleProduct = (product) => {
     setSelectedProduct(product);
   };
 
-  const featuredProducts = [
+  const newProducts = [
+       { id: 4, image1: 'images/LandingPage/featuredProduct4-1.jpg', image2: 'images/LandingPage/featuredProduct4-2.jpg', price: 'Rs 8000', name: 'IPhone 15 case', category: 'Cover' },
+       { id: 2, image1: 'images/LandingPage/featuredProduct2-1.jpg', image2: 'images/LandingPage/featuredProduct2-2.jpg', price: 'Rs 28,000', newPrice:'Rs 16,000', name: 'Smart Band Carbon', category: 'Watch' },
     { id: 1, image1: 'images/LandingPage/featuredProduct-1.jpg', image2: 'images/LandingPage/featuredProduct-2.jpg', price: 'Rs 1,80000', name: 'IPhone 15', category: 'Mobile' },
-    { id: 2, image1: 'images/LandingPage/featuredProduct2-1.jpg', image2: 'images/LandingPage/featuredProduct2-2.jpg', price: 'Rs 28,000', newPrice:'Rs 16,000', name: 'Smart Band Carbon', category: 'Watch' },
     { id: 3, image1: 'images/LandingPage/featuredProduct3-1.jpg', image2: 'images/LandingPage/featuredProduct3-2.jpg', price: 'Rs 40,000', name: 'Wireless Loud H7i', category: 'Music' },
-    { id: 4, image1: 'images/LandingPage/featuredProduct4-1.jpg', image2: 'images/LandingPage/featuredProduct4-2.jpg', price: 'Rs 8000', name: 'IPhone 15 case', category: 'Cover' },
   ];
 
   return (
@@ -50,9 +50,9 @@ const FeaturedProductsComponent = () => {
         </>
       )}
       <div className='container 3xl:px-32 md:mx-auto mt-24 '>
-        <h1 className='font-bold lg:text-center text-xl my-7'>FEATURED PRODUCTS</h1>
+        <h1 className='font-bold lg:text-center text-xl my-7'>New Arrival</h1>
         <div className='grid grid-cols-2 lg:grid-cols-4  gap-5'>
-          {featuredProducts.map((product) => (
+          {newProducts.map((product) => (
             <div className='' key={product.id}>
             <div  className='bg-white hover:shadow-xl shadow-md py-4 rounded-md relative group'>
               <img src={product.image1} className='transition-opacity duration-500 ease-in-out opacity-100 group-hover:opacity-0' alt='Product1' />
@@ -78,4 +78,4 @@ const FeaturedProductsComponent = () => {
   );
 };
 
-export default FeaturedProductsComponent;
+export default NewArrival;

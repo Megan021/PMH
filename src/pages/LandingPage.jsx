@@ -15,6 +15,7 @@ import { SlArrowLeft } from "react-icons/sl";
 import Hero from "../components/Hero";
 import Promotion from "../components/Landing Page/Promotion";
 import OurBrands from "../components/Landing Page/OurBrands";
+import NewArrival from "../components/Landing Page/NewArrival";
 
 const PrevArrow = (props) => {
   const { onClick } = props;
@@ -220,10 +221,11 @@ const LandingPage = () => {
         </div>
 
         <div className="px-4 lg:px-0">
-          <BestSelling />
+          <NewArrival />
           <Promotion />
-          <FeaturedProducts />
+          <BestSelling />
           <OurBrands />
+          <FeaturedProducts />
           {/* <SecondBanner /> */}
         </div>
       </div>

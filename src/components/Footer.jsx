@@ -52,7 +52,7 @@ const Footer = () => {
               <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">About Policies </h1>
                 <Link to="aboutus"><p className="text-white  mt-5 cursor-pointer">About Us</p></Link>
-                <p className="text-white  mt-2 cursor-pointer">FAQ</p>
+                <Link to="faq"><p className="text-white  mt-2 cursor-pointer">FAQ</p></Link>
                 <p className="text-white  mt-2 cursor-pointer">
                   Shipping Information
                 </p>
@@ -76,8 +76,8 @@ const Footer = () => {
 
                 <p className="text-sm mt-2">
                   {" "}
-                  70 Washington Square South, New <br /> York, NY 10012, United
-                  States{" "}
+                  70 Washington Square South, New <br /> Delhi 44600, United
+                  UK{" "}
                 </p>
                 <p className="mt-4">+12345 678 910</p>
                 <p>+12345 678 109</p>

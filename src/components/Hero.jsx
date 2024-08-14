@@ -51,7 +51,7 @@ const Hero = () => {
     <div className="bg-[#FBF8F9]">
       <Carousel
         responsive={responsive}
-        autoPlay={false}
+        autoPlay={true}
         autoPlaySpeed={4000}
         infinite={true}
         showDots={true}
