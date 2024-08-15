@@ -6,6 +6,7 @@ import { PiKeyReturnLight } from "react-icons/pi";
 import { AiOutlineSecurityScan } from "react-icons/ai";
 import { SiTicktick } from "react-icons/si";
 import { IoIosArrowForward } from "react-icons/io";
+import Magnifier from "react-magnifier";
 
 const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState(
@@ -112,10 +113,10 @@ const ProductDetails = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="page-container container transition-opacity mt-16 duration-500 px-4 lg:px-0">
-      <div className="container mt-[2rem] 3xl:px-32 ">
-        <div className="container lg:flex justify-between">
-          <div className="flex- hidden md:block flex-wrap gap-3">
+    <div className="page-container container transition-opacity mt-16 duration-500 px-4 lg:px-0 overflow-hidden md:overflow-auto">
+      <div className="container  ">
+        <div className="container md:flex justify-between">
+          <div className="lg:flex hidden flex-col gap-3">
             {imageDescriptions.map((description, index) => (
               <div key={index} className="description-container">
                 <img
@@ -127,16 +128,36 @@ const ProductDetails = () => {
               </div>
             ))}
           </div>
-          <div className="w-full md:w-1/2 flex-col justify-center mb-4 md:mb-0">
-            <div className="relative w-full max-w-[30rem]">
-              <img
+          <div className="flex-1 w-full md:w-1/2 flex-col justify-center mb-4 md:mb-0">
+            <div className="relative w-full aspect-[5/5]">
+              <Magnifier
                 src={currentImage}
+                // width="100%"
+                // zoomImgSrc={currentImage}
+                zoomFactor={1.2}
+                mgShape="square"
+                mgShowOverflow={true}
+                // mgBorderWidth={1}
+                // mgMouseOffsetX={0}
+                // mgMouseOffsetY={0}
                 className="w-full object-cover object-top mb-4 rounded-xl"
                 alt="Product Display"
               />
             </div>
+            <div className="flex lg:hidden gap-3">
+            {imageDescriptions.map((description, index) => (
+              <div key={index} className="description-container">
+                <img
+                  src={description}
+                  className="w-16 h-16 mt-6 cursor-pointer rounded-xl transition duration-300 transform hover:scale-105"
+                  onClick={() => handleDescriptionClick(index)}
+                  alt={`Description ${index}`}
+                />
+              </div>
+            ))}
           </div>
-          <div className=" md:pl-8 flex flex-col gap-2 lg:w-[30rem] px-4">
+          </div>
+          <div className="flex-1 md:pl-8 flex flex-col gap-2 lg:w-[30rem] px-4">
             <h1 className=" text-2xl">
               Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto
               Lens and Super Actua Display - 24-Hour Battery - Porcelain{" "}
@@ -203,10 +224,10 @@ const ProductDetails = () => {
               {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => (
                 <div
                   key={size}
-                  className={`cursor-pointer font-semibold border-gray-300 border border-dashed rounded-lg px-5 py-2 bg-white text-center ${
+                  className={`cursor-pointer font-semibold border-gray-300 border rounded-lg px-5 py-2 bg-white text-center ${
                     selectedSize === size
-                      ? " border-2 border-double border-blue-600  text-black "
-                      : "hover:border-double hover:bg-gray-100 text-gray-400 hover:text-black "
+                      ? "border-2 border-double border-blue-600 text-black"
+                      : "border hover:bg-gray-100 border-blue-600 text-gray-400 hover:text-black "
                   } mr-2 transition duration-300`}
                   onClick={() => handleSizeClick(size)}
                 >
@@ -226,10 +247,10 @@ const ProductDetails = () => {
             <hr />
           </div>
         </div>
-        <div className="lg:flex ml-16 lg:flex-row flex-col-reverse  gap-[3.5rem] 3xl:justify-between">
-          <div className="mt-8 ml-8">
+        <div className="lg:flex lg:ml-16  lg:flex-row flex-col-reverse lg:gap-[3.5rem] 3xl:justify-between">
+          <div className="mt-8 lg:ml-8">
             <h2 className="font-semibold text-2xl mb-4">Customer Reviews</h2>
-            <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
+            {/* <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
               <div className="flex gap-8">
                 <h2 className="text-3xl font-bold">4.92</h2>
                 <div className="flex text-xl gap-1 mt-2 text-yellow-500">
@@ -242,9 +263,9 @@ const ProductDetails = () => {
               </div>
               <div className="pt-6 flex gap-6">
                 <p className="text-sm">Small</p>
-                <div className="flex mt-1 w-full">
-                  <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-8 h-2" />
-                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-52" />
+                <div className="flex md:mt-1 mt-2  w-full ">
+                  <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-11 h-2" />
+                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-full" />
                 </div>
                 <div>
                   <span>4%</span>
@@ -253,24 +274,24 @@ const ProductDetails = () => {
               <div className="pt-3 flex gap-6">
                 <p className="text-sm  ">Fit</p>
                 <div className="flex mt-1">
-                  <span className="bg-black rounded-l-full ml-32 lg:ml-14 lg:w-80 w-52 h-2" />
-                  <span className="bg-gray-300 rounded-r-full h-2 w-7" />
+                  <p className="bg-black rounded-l-full ml-5 w-11" />
+                  <p className="bg-gray-300 rounded-r-full h-2 w-full " />
                 </div>
                 <div>
-                  <span>94%</span>
+                  <h3>94%</h3>
                 </div>
               </div>
               <div className="pt-3 flex gap-6">
                 <p className="text-sm">Large</p>
                 <div className="flex mt-1">
                   <span className="bg-black rounded-l-full lg:ml-9 w-4 h-2" />
-                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-56" />
+                  <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-[100%]" />
                 </div>
                 <div>
                   <span>2%</span>
                 </div>
               </div>
-            </div>
+            </div> */}
 
             <div className="my-8 ">
               <h3 className="text-lg font-semibold">All Reviews</h3>
@@ -288,7 +309,7 @@ const ProductDetails = () => {
                     <FaStar />
                     <FaStar />
                   </div>
-                  <div className="flex gap-8 my-4">
+                  <div className="lg:flex gap-8 my-4">
                     <div className="flex gap-2">
                       <span className="font-semibold text-gray-500">
                         Overall Fit:
@@ -331,7 +352,7 @@ const ProductDetails = () => {
                     <FaStar />
                     <FaStar />
                   </div>
-                  <div className="flex gap-8 my-4">
+                  <div className="lg:flex gap-8 my-4">
                     <div className="flex gap-2">
                       <span className="font-semibold text-gray-500">
                         Overall Fit:
@@ -370,16 +391,16 @@ const ProductDetails = () => {
           <div></div>
           <div className="">
             <div
-              className="my-8 mt-8 flex gap-[18rem] cursor-pointer"
+              className="my-8 mt-8 flex justify-between cursor-pointer"
               onClick={descriptionToggle}
             >
-              <h2 className={`cursor-pointer text-lg `}>Description</h2>
+              <h2 className={`cursor-pointer text-lg`}>Description</h2>
               <CiCirclePlus className="text-2xl" />
             </div>
             {description && (
               <div>
                 <div>
-                  <ol className="list-disc ml-6 w-[22rem] ">
+                  <ol className="list-disc ml-6">
                     <li className="mb-4">
                       7.7-inch vibrant and crisp display.
                     </li>
@@ -402,7 +423,7 @@ const ProductDetails = () => {
               </div>
             )}
             <div
-              className="my-4 flex gap-[17rem] cursor-pointer"
+              className="my-4 flex justify-between cursor-pointer mt-8"
               onClick={specificationsToggle}
             >
               <h2 className={`cursor-pointer text-lg `}>Specifications</h2>
@@ -430,8 +451,8 @@ const ProductDetails = () => {
                 </div>
               </div>
             )}
-            <div className="bg-[#F7F9FB] w-[25rem]  p-9 ">
-              <div>
+            <div className="bg-[#F7F9FB] lg:w-[25rem] lg:p-9 p-5">
+              <div className="grid md:grid-cols-2 lg:grid-cols-1">
                 <div className="flex gap-3">
                   <CiDeliveryTruck className="text-xl text-green-800 mt-1" />
                   <div>
@@ -483,7 +504,7 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="relative h-[22rem] mt-4 w-[25rem] group">
+            <div className="relative h-[22rem] mt-4 lg:w-[25rem] group">
               <div className="h-full w-full overflow-hidden">
                 <img
                   className="h-full w-full object-cover "
@@ -517,8 +538,8 @@ const ProductDetails = () => {
         <h1 className="text-center text-3xl mt-20 mb-8 font-semibold">
           Recomended Products
         </h1>
-        <div className="lg:flex gap-8">
-          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
+        <div className="grid grid-cols-4 md:grid-cols-2 gap-8">
+          <div className="my-4 cursor-pointer bg-white hover:shadow-xl shadow-md rounded-md">
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts1.webp"
@@ -540,7 +561,7 @@ const ProductDetails = () => {
             <div className="p-4">
               <h1 className="font-semibold my-3 text-xl">IdeaPad 3</h1>
               <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-              <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] left-[11rem] rounded-md">
+              <span className="absolute bg-[white] text-gray-700  px-3 py-1 top-5 right-5 rounded-md">
                 SALE
               </span>
             </div>
@@ -557,17 +578,17 @@ const ProductDetails = () => {
               <p className="text-gray-700 text-lg">From TK 3,900.00</p>
             </div>
           </div>
-          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md">
+          <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md relative">
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts4.webp"
                 className="lg:w-80 rounded-t-2xl"
               />
             </div>
-            <div className="p-4 relative">
+            <div className="p-4 ">
               <h1 className="font-semibold my-3 text-xl">Xonic CC Camera</h1>
               <p className="text-gray-700 text-lg">From TK 3,900.00</p>
-              <span className="absolute bg-[white] text-gray-700  px-3 py-1 bottom-[20rem] rounded-md">
+              <span className="absolute bg-[white] text-gray-700  px-3 py-1 top-5 right-5 rounded-md">
                 SALE
               </span>
             </div>
@@ -575,7 +596,7 @@ const ProductDetails = () => {
         </div>
       </div>{" "}
       {showFixedDiv && (
-        <div className="fixed bottom-0 left-0 right-0 z-40 w-full bg-gray-100 shadow-lg p-4 flex  ">
+        <div className="fixed bottom-0 left-0 right-0 z-40 md:w-full bg-gray-100 shadow-lg p-4 flex  ">
           <div className="container flex justify-between items-center">
             <div className="flex items-center gap-4">
               <img
@@ -584,19 +605,25 @@ const ProductDetails = () => {
                 alt="Product Thumbnail"
               />
               <div>
-                <span className="text-gray-500">Your Viewing:</span>{" "}
-                <span>
+                <span className="text-gray-500 md:block hidden">Your Viewing:</span>{" "}
+                <span className=" md:block hidden">
                   Google Pixel 8 Pro - Unlocked Android Smartphone with
                   Telephoto Lens{" "}
+                </span>{" "}
+                <span className="md:hidden" >
+                  Google Pixel 8 Pro 
                 </span>{" "}
                 <br />
                 <span className="text-red-600 font-semibold mr-4">
                   Rs 80,000
                 </span>
-                <span className="text-gray-500 line-through">$199.99</span>
+                <span className="text-gray-500 line-through hidden md:block">$199.99</span>
+                <p className="md:hidden underline underline-offset font-medium transition duration-300 transform hover:scale-105">
+              Add to Cart
+            </p>
               </div>
             </div>
-            <button className="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
+            <button className="bg-black hidden text-white md:px-6 md:py-3 p-2 rounded-xl md:flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
               Add to Cart
             </button>
           </div>
