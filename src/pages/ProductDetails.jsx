@@ -72,8 +72,9 @@ const negativeCount = ()=> {
   return (
     <div className="page-container container transition-opacity mt-16 duration-500 px-4 lg:px-0">
       <div className="container mt-[2rem] 3xl:px-32 ">
-        <div className="container lg:flex justify-between">
-          <div className="flex- hidden md:block flex-wrap gap-3">
+        <div className="container flex justify-between">
+          <div className="flex  flex-wrap gap-3">
+          <div className="flex-col justify-center ">
             {imageDescriptions.map((description, index) => (
               <div key={index} className="description-container">
                 <img
@@ -92,6 +93,7 @@ const negativeCount = ()=> {
                 className="w-full object-cover object-top mb-4 rounded-xl"
                 alt="Product Display"
               />
+            </div>
             </div>
 
           </div>
@@ -168,8 +170,8 @@ const negativeCount = ()=> {
             
           </div>
         </div>
-        <div className="lg:flex ml-16 lg:flex-row flex-col-reverse  gap-[3.5rem] 3xl:justify-between">
-        <div className="mt-8 ml-8">
+        <div className="lg:flex lg:ml-16 px-4 lg:px-0 lg:flex-row flex-col-reverse lg:gap-[3.5rem] 3xl:justify-between">
+        <div className="mt-8 lg:ml-8">
           <h2 className="font-semibold text-2xl mb-4">Customer Reviews</h2>
           <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
             <div className="flex gap-8">
@@ -184,9 +186,9 @@ const negativeCount = ()=> {
             </div>
             <div className="pt-6 flex gap-6">
               <p className="text-sm">Small</p>
-              <div className="flex mt-1 w-full">
-                <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-8 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-52" />
+              <div className="flex md:mt-1 mt-2  w-full ">
+                <span className="bg-black rounded-l-full ml-1 lg:ml-9 w-11 h-2" />
+                <span className="bg-gray-300 rounded-r-full h-2 lg:w-80 w-full" />
               </div>
               <div>
                 <span>4%</span>
@@ -195,8 +197,8 @@ const negativeCount = ()=> {
             <div className="pt-3 flex gap-6">
               <p className="text-sm  ">Fit</p>
               <div className="flex mt-1">
-                <span className="bg-black rounded-l-full ml-32 lg:ml-14 lg:w-80 w-52 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 w-7" />
+                <span className="bg-black rounded-l-full ml-5 lg:ml-14 lg:w-80 w-40 h-2" />
+                <span className="bg-gray-300 rounded-r-full h-2 w-3" />
               </div>
               <div>
                 <span>94%</span>
@@ -206,7 +208,7 @@ const negativeCount = ()=> {
               <p className="text-sm">Large</p>
               <div className="flex mt-1">
                 <span className="bg-black rounded-l-full lg:ml-9 w-4 h-2" />
-                <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-56" />
+                <span className="bg-gray-300 rounded-r-full h-2 lg:w-[20.9rem] w-40" />
               </div>
               <div>
                 <span>2%</span>
@@ -230,7 +232,7 @@ const negativeCount = ()=> {
                   <FaStar />
                   <FaStar />
                 </div>
-                <div className="flex gap-8 my-4">
+                <div className="lg:flex gap-8 my-4">
                   <div className="flex gap-2">
                     <span className="font-semibold text-gray-500">Overall Fit:</span>
                     <span className="text-gray-500"> True to size</span>
@@ -264,7 +266,7 @@ const negativeCount = ()=> {
                   <FaStar />
                   <FaStar />
                 </div>
-                <div className="flex gap-8 my-4">
+                <div className="lg:flex gap-8 my-4">
                   <div className="flex gap-2">
                     <span className="font-semibold text-gray-500">Overall Fit:</span>
                     <span className="text-gray-500"> True to size</span>
@@ -338,7 +340,7 @@ const negativeCount = ()=> {
                   </div>
                 </div>
               )}
-              <div className="bg-[#F7F9FB] w-[25rem]  p-9 ">
+              <div className="bg-[#F7F9FB] lg:w-[25rem]   lg:p-9 p-5 ">
                 <div>
                   <div className="flex gap-3">
                     <CiDeliveryTruck className="text-xl text-green-800 mt-1" />
@@ -391,7 +393,7 @@ const negativeCount = ()=> {
                     </div>
                   </div>
                 </div>
-                <div className="relative h-[22rem] mt-4 w-[25rem] group">
+                <div className="relative h-[22rem] mt-4 lg:w-[25rem] group">
   <div className="h-full w-full overflow-hidden">
     <img 
       className="h-full w-full object-cover " 
@@ -464,12 +466,12 @@ const negativeCount = ()=> {
          <div className="flex items-center gap-4">
             <img src={currentImage} className="w-16 h-16 border border-gray-200 p-2 object-cover " alt="Product Thumbnail" />
             <div>
-              <span className="text-gray-500">Your Viewing:</span> <span>Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto Lens </span> <br/>
+              <span className="text-gray-500">Your Viewing:</span> <span className="hidden md:block">Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto Lens </span>  <span className="md:hidden block ">Google Pixel 8 Pro </span> <br/>
               <span className="text-red-600 font-semibold mr-4">Rs 80,000</span>
               <span className="text-gray-500 line-through">$199.99</span>
             </div>
           </div>
-          <button className="bg-black text-white px-6 py-3 rounded-xl flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
+          <button className="bg-black text-white lg:px-6 lg:py-3 px-4 py-1 rounded-xl flex mb-20 md:mb-0 lg:items-center lg:justify-center lg:gap-3 transition duration-300 transform hover:scale-105">
             Add to Cart
           </button>
          </div>
