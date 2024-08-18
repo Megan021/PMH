@@ -8,6 +8,7 @@ import { SiTicktick } from "react-icons/si";
 import { IoIosArrowForward } from "react-icons/io";
 import Magnifier from "react-magnifier";
 
+
 const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState(
     "/images/ProductDetails/ProductDetails.jpg"
@@ -113,9 +114,9 @@ const ProductDetails = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
   return (
-    <div className="page-container container transition-opacity mt-16 duration-500 px-4 lg:px-0 overflow-hidden md:overflow-auto">
-      <div className="container  ">
-        <div className="container md:flex justify-between">
+    <div className="page-container container transition-opacity mt-16 duration-500 px-4 lg:px-0 ">
+      <div className="container">
+        <div className="container md:flex justify-between gap-12">
           <div className="lg:flex hidden flex-col gap-3">
             {imageDescriptions.map((description, index) => (
               <div key={index} className="description-container">
@@ -136,7 +137,7 @@ const ProductDetails = () => {
                 // zoomImgSrc={currentImage}
                 zoomFactor={1.2}
                 mgShape="square"
-                mgShowOverflow={true}
+                mgShow={true}
                 // mgBorderWidth={1}
                 // mgMouseOffsetX={0}
                 // mgMouseOffsetY={0}
@@ -145,26 +146,33 @@ const ProductDetails = () => {
               />
             </div>
             <div className="flex lg:hidden gap-3">
-            {imageDescriptions.map((description, index) => (
-              <div key={index} className="description-container">
-                <img
-                  src={description}
-                  className="w-16 h-16 mt-6 cursor-pointer rounded-xl transition duration-300 transform hover:scale-105"
-                  onClick={() => handleDescriptionClick(index)}
-                  alt={`Description ${index}`}
-                />
-              </div>
-            ))}
-          </div>
+              {imageDescriptions.map((description, index) => (
+                <div key={index} className="description-container">
+                  <img
+                    src={description}
+                    className="w-16 h-16 mt-6 cursor-pointer rounded-xl transition duration-300 transform hover:scale-105"
+                    onClick={() => handleDescriptionClick(index)}
+                    alt={`Description ${index}`}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
           <div className="flex-1 md:pl-8 flex flex-col gap-2 lg:w-[30rem] px-4">
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-xs text-gray-400 pb-2">
+                  SKU: sm2112103773394955
+                </p>
+              </div>
+              <div>
+                <button><CiHeart className="text-2xl" /></button>
+              </div>
+            </div>
             <h1 className=" text-2xl">
               Google Pixel 8 Pro - Unlocked Android Smartphone with Telephoto
-              Lens and Super Actua Display - 24-Hour Battery - Porcelain{" "}
+              Lens and Super Actua Display - 24-Hour Battery - Porcelain
             </h1>
-            <span className="text-xs text-gray-400 pb-2">
-              SKU: sm2112103773394955
-            </span>
             <p className="text-2xl font-medium pb-[1.5rem] pt-2">Rs 80,399</p>
             <hr className="text-gray-400" />
             <div className="flex justify-between">
@@ -196,25 +204,6 @@ const ProductDetails = () => {
                     onClick={() => handleColorChange("yellow")}
                   />
                 </div>
-                <div></div>
-              </div>
-              <div>
-                <h3 className="font-semibold text-xl mt-4">Quantity</h3>
-                <div className="flex items-center gap-5 border mt-3 rounded-xl p-2">
-                  <div
-                    onClick={negativeCount}
-                    className=" text-2xl cursor-pointer rounded-md"
-                  >
-                    -
-                  </div>
-                  <span className="text-xl">{count}</span>
-                  <div
-                    onClick={positiveCount}
-                    className="text-2xl rounded-md  cursor-pointer"
-                  >
-                    +
-                  </div>
-                </div>
               </div>
             </div>
             <span className="mr-[3rem] text-[1.2rem] font-semibold text-xl mt-[0.85rem]">
@@ -224,7 +213,7 @@ const ProductDetails = () => {
               {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => (
                 <div
                   key={size}
-                  className={`cursor-pointer font-semibold border-gray-300 border rounded-lg px-5 py-2 bg-white text-center ${
+                  className={`cursor-pointer font-semibold border-gray-300 border rounded-lg md:px-5 p-2 bg-white text-center ${
                     selectedSize === size
                       ? "border-2 border-double border-blue-600 text-black"
                       : "border hover:bg-gray-100 border-blue-600 text-gray-400 hover:text-black "
@@ -235,20 +224,50 @@ const ProductDetails = () => {
                 </div>
               ))}
             </div>
-            <div className="flex justify-between">
-              <button
-                onClick={addToCart}
-                className="bg-black w-80 mb-4 text-white rounded-sm px-8 py-2 font-semibold text-lg"
-              >
-                Add to Cart
-              </button>
-              <CiHeart className="text-3xl mt-1 cursor-pointer" />
+            <div className="flex mb-5 gap-5">
+              <div>
+                <button
+                  onClick={addToCart}
+                  className="bg-black md:w-80 text-white rounded px-8 py-2 font-semibold text-lg"
+                >
+                  Add to Cart
+                </button>
+              </div>
+
+              <div className="flex items-center border border-black gap-5 p-1 px-2 rounded">
+                <button onClick={negativeCount} className="text-xl">
+                  -
+                </button>
+                <p className="w-5 text-center">{count}</p>
+                <button onClick={positiveCount} className="text-xl">
+                  +
+                </button>
+              </div>
+
+              {/* <div className="flex items-center gap-5">
+                  <button
+                    onClick={negativeCount}
+                    className="text-2xl rounded-full bg-black text-white px-1"
+                  >
+                    -
+                  </button>
+                  <span className="text-xl">{count}</span>
+                  <button
+                    onClick={positiveCount}
+                    className="text-2xl rounded-full bg-black text-white px-1"
+                  >
+                    +
+                  </button>
+                </div> */}
+              {/* <CiHeart className="text-3xl mt-1 cursor-pointer" /> */}
             </div>
             <hr />
           </div>
         </div>
-        <div className="lg:flex lg:ml-16  lg:flex-row flex-col-reverse lg:gap-[3.5rem] 3xl:justify-between">
-          <div className="mt-8 lg:ml-8">
+
+
+        <div className="lg:flex lg:flex-row flex-col-reverse gap-12 justify-between">
+          <div className="flex-1 mt-8 lg:ml-8">
             <h2 className="font-semibold text-2xl mb-4">Customer Reviews</h2>
             {/* <div className="bg-[#F7F9FB] px-6 py-4 gap-4 rounded-xl">
               <div className="flex gap-8">
@@ -388,8 +407,7 @@ const ProductDetails = () => {
               </button>
             </div>
           </div>
-          <div></div>
-          <div className="">
+          <d iv className="flex-1 sticky top-0">
             <div
               className="my-8 mt-8 flex justify-between cursor-pointer"
               onClick={descriptionToggle}
@@ -451,8 +469,8 @@ const ProductDetails = () => {
                 </div>
               </div>
             )}
-            <div className="bg-[#F7F9FB] lg:w-[25rem] lg:p-9 p-5">
-              <div className="grid md:grid-cols-2 lg:grid-cols-1">
+            <div className="bg-[#F7F9FB] lg:p-9 p-5 border ">
+              <div className="grid md:grid-cols-2 lg:grid-cols-1 ">
                 <div className="flex gap-3">
                   <CiDeliveryTruck className="text-xl text-green-800 mt-1" />
                   <div>
@@ -504,8 +522,8 @@ const ProductDetails = () => {
                 </div>
               </div>
             </div>
-            <div className="relative h-[22rem] mt-4 lg:w-[25rem] group">
-              <div className="h-full w-full overflow-hidden">
+            {/* <div className="relative h-[22rem] mt-4 lg:w-[25rem] group">
+              <div className="h-full w-full -hidden">
                 <img
                   className="h-full w-full object-cover "
                   src="/images/ProductDetails/banner_shop.jpg"
@@ -531,36 +549,36 @@ const ProductDetails = () => {
                   </span>
                 </div>
               </div>
-            </div>
-          </div>
+            </div> */}
+          </d>
         </div>
 
         <h1 className="text-center text-3xl mt-20 mb-8 font-semibold">
           Recomended Products
         </h1>
-        <div className="grid grid-cols-4 md:grid-cols-2 gap-8">
+        <div className="grid lg:grid-cols-4 grid-cols-2 lg:gap-8 gap-x-5">
           <div className="my-4 cursor-pointer bg-white hover:shadow-xl shadow-md rounded-md">
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts1.webp"
-                className="lg:w-80 rounded-t-2xl "
+                className="w-full rounded-t-md"
               />
             </div>
             <div className="p-4">
-              <h1 className="font-semibold my-3 text-xl">IPhone 12</h1>
-              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <h1 className="font-semibold">IPhone 12</h1>
+              <p className="text-gray-700">Rs. 60000</p>
             </div>
           </div>
           <div className="my-4 bg-white hover:shadow-xl shadow-md rounded-md relative">
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts2.webp"
-                className="lg:w-80 rounded-t-2xl"
+                className="w-full rounded-t-md"
               />
             </div>
             <div className="p-4">
-              <h1 className="font-semibold my-3 text-xl">IdeaPad 3</h1>
-              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <h1 className="font-semibold">IdeaPad 3</h1>
+              <p className="text-gray-700">Rs. 90000</p>
               <span className="absolute bg-[white] text-gray-700  px-3 py-1 top-5 right-5 rounded-md">
                 SALE
               </span>
@@ -570,24 +588,24 @@ const ProductDetails = () => {
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts3.webp"
-                className="lg:w-80 rounded-t-2xl"
+                className="w-full rounded-t-md"
               />
             </div>
             <div className="p-4">
-              <h1 className="font-semibold my-3 text-xl">IPhone 13</h1>
-              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <h1 className="font-semibold">IPhone 13</h1>
+              <p className="text-gray-700">Rs. 85000</p>
             </div>
           </div>
           <div className="my-4 cursor-pointer  bg-white hover:shadow-xl shadow-md rounded-md relative">
             <div>
               <img
                 src="images/ProductDetails/RecomenededProducts4.webp"
-                className="lg:w-80 rounded-t-2xl"
+                className="w-full rounded-t-md"
               />
             </div>
             <div className="p-4 ">
-              <h1 className="font-semibold my-3 text-xl">Xonic CC Camera</h1>
-              <p className="text-gray-700 text-lg">From TK 3,900.00</p>
+              <h1 className="font-semibold">Xonic CC Camera</h1>
+              <p className="text-gray-700">Rs. 15000</p>
               <span className="absolute bg-[white] text-gray-700  px-3 py-1 top-5 right-5 rounded-md">
                 SALE
               </span>
@@ -597,22 +615,41 @@ const ProductDetails = () => {
       </div>{" "}
       {showFixedDiv && (
         <div className="fixed bottom-0 left-0 right-0 z-40 md:w-full bg-gray-100 shadow-lg p-4 flex  ">
-          <div className="container flex justify-between items-center">
+          <div className="container flex justify-between items-center gap-5">
             <div className="flex items-center gap-4">
-              <img
+              <div className="flex items-center gap-5">
+                <div>
+                  <img src={currentImage} alt="" className="size-24" />
+                </div>
+
+                <div>
+                  <h2 className="font-medium line-clamp-1 md:line-clamp-none">
+                    {" "}
+                    Google Pixel 8 Pro - Unlocked Android Smartphone with
+                    Telephoto Lens
+                  </h2>
+                  <div className="flex gap-8 pt-2">
+                    <p className="text-red-600">Rs 80,000</p>
+                    <button className="underline capitalize md:hidden">
+                      add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+              {/* <img
                 src={currentImage}
-                className="w-16 h-16 border border-gray-200 p-2 object-cover "
+                className="size-24 border border-gray-200 p-2 object-cover "
                 alt="Product Thumbnail"
               />
               <div>
-                <span className="text-gray-500 md:block hidden">Your Viewing:</span>{" "}
+                <span className="text-gray-500 md:block hidden">Your Viewing:</span>
                 <span className=" md:block hidden">
                   Google Pixel 8 Pro - Unlocked Android Smartphone with
-                  Telephoto Lens{" "}
-                </span>{" "}
+                  Telephoto Lens
+                </span>
                 <span className="md:hidden" >
                   Google Pixel 8 Pro 
-                </span>{" "}
+                </span>
                 <br />
                 <span className="text-red-600 font-semibold mr-4">
                   Rs 80,000
@@ -621,9 +658,9 @@ const ProductDetails = () => {
                 <p className="md:hidden underline underline-offset font-medium transition duration-300 transform hover:scale-105">
               Add to Cart
             </p>
-              </div>
+              </div> */}
             </div>
-            <button className="bg-black hidden text-white md:px-6 md:py-3 p-2 rounded-xl md:flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
+            <button className="bg-black hidden text-white p-3 px-5 rounded-xl md:flex items-center justify-center gap-3 transition duration-300 transform hover:scale-105">
               Add to Cart
             </button>
           </div>
