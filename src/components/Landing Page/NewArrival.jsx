@@ -120,7 +120,7 @@ const NewArrival = () => {
       )}
       <div className="container 3xl:px-32 md:mx-auto mt-24 ">
         <h1 className="font-bold lg:text-center text-xl my-7">New Arrival</h1>
-        <div className="grid grid-cols-2 lg:grid-cols-4  gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-4  gap-5">
           {newProducts.map((product) => (
             <div className="" key={product.id}>
               <div className="bg-white hover:shadow-xl shadow-md py-4 rounded-md relative group">

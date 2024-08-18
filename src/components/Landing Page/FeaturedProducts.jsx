@@ -22,7 +22,7 @@ const FeaturedProductsComponent = () => {
       {selectedProduct && (
         <>
           <div className='fixed  inset-0 bg-black opacity-50 z-30' onClick={() => setSelectedProduct(null)}></div>
-          <div className="fixed top-0 container inset-x-0 md:w-[50%] md:h-[70%]  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
+          <div className="fixed bottom-0 container inset-x-0 md:w-[50%]  md:h-[70%]  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
             <div className='lg:flex p-4'>
               <div className='md:w-1/2 w-[58%] mx-auto'>
                 <img src={selectedProduct.image1} alt={selectedProduct.name} />
@@ -51,7 +51,7 @@ const FeaturedProductsComponent = () => {
       )}
       <div className='container 3xl:px-32 md:mx-auto mt-24 '>
         <h1 className='font-bold lg:text-center text-xl my-7'>FEATURED PRODUCTS</h1>
-        <div className='grid grid-cols-2 lg:grid-cols-4  gap-5'>
+        <div className='grid grid-cols-2 md:grid-cols-4  gap-5'>
           {featuredProducts.map((product) => (
             <div className='' key={product.id}>
             <div  className='bg-white hover:shadow-xl shadow-md py-4 rounded-md relative group'>

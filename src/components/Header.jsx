@@ -202,14 +202,14 @@ const Header = () => {
 
         <div className="border-b border-gray-300 pb-4 mb-5">
           <h2 className="text-xl font-medium pb-3">More Links</h2>
-          <ul className="leading-9 text-lg">
+          <ul className="leading-9">
             <Link onClick={toggleMenu} to="/privacy-policy"><li>Privacy Policy</li></Link>
             <Link onClick={toggleMenu} to="/faq"><li>FAQ</li></Link>
             <Link onClick={toggleMenu} to="/"><li>Help Center</li></Link>
           </ul>
         </div>
 
-        <div className="text-lg border-b border-gray-300 pb-4 mb-6">
+        <div className="border-b border-gray-300 pb-4 mb-6">
           <ul className="leading-10">
             <li className="flex items-center gap-2">
               <BsTelephone />

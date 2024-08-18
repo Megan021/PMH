@@ -77,7 +77,7 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="hidden lg:flex bg-transparent border-2 border-[#0D4C90] rounded-md rounded-r-2xl">
+        <div className="hidden lg:flex bg-transparent border-2 border-[#0D4C90] rounded-md">
           <button
             className="border-r px-3 border-gray-400 capitalize flex items-center gap-2"
             onClick={toggleDropCategory}
@@ -112,7 +112,7 @@ const Navbar = () => {
             placeholder="Search..."
             className="p-1 lg:p-2 md:w-96 px-2 rounded-l-xl border-r border-[#0D4C90] focus:outline-none"
           />
-          <button className="bg-[#0D4C90] rounded-r-xl">
+          <button className="bg-[#0D4C90] rounded-r">
             <IoIosSearch className="text-2xl text-white mx-3 " />
           </button>
         </div>
@@ -313,13 +313,13 @@ const Navbar = () => {
 
         <div className="flex items-center gap-3">
           <Link to="/shop">
-            <button className="flex items-center gap-2 rounded-xl border border-[#0D4C90] text-[#0D4C90] p-2 px-4 hover:bg-[#0D4C90] hover:text-white duration-300">
+            <button className="flex items-center gap-2 rounded-md border border-[#0D4C90] text-[#0D4C90] p-1 px-4 hover:bg-[#0D4C90] hover:text-white duration-300">
               <IoStorefrontOutline className="text-lg" />
               Shop
             </button>
           </Link>
           <Link to="/contact">
-            <button className="p-2 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-xl">
+            <button className="p-1 px-5 bg-[#0D4C90] border border-[#0D4C90] text-white rounded-md">
               Contact
             </button>
           </Link>

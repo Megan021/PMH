@@ -9,7 +9,7 @@ const Footer = () => {
     <>
       <div className="mt-24">
         <div className=" bg-gradient-to-r px-0 from-[#131E24] to-[#2B201E] ">
-          <div className="  text-white lg:container px-3 lg:px-0 3xl:px-32 ">
+          <div className="text-white container px-4 lg:px-0">
             <div className="md:flex items-center gap-20 py-20">
               <div className="w-full">
                 <h1 className="font-bold lg:text-5xl text-3xl">
@@ -28,7 +28,7 @@ const Footer = () => {
             </div>
             <hr className="border border-gray-700" />
 
-            <div className="lg:flex justify-between pt-10  pb-10">
+            <div className="lg:flex md:flex md:flex-wrap justify-between pt-10 pb-10 md:gap-6">
               <div className="mb-9 lg:mb-0">
                 <h1 className="font-semibold text-xl">Quick Links </h1>
                 <p className="text-white  mt-5 cursor-pointer">Search</p>

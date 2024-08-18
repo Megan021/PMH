@@ -309,7 +309,7 @@ const Shop = () => {
                 <div className="flex items-center lg:gap-4 gap-1">
                   <div className="font-medium">Show: </div>
                   <div
-                    className='relative border cursor-pointer border-gray-400 rounded-lg items-center lg:px-3 lg:py-2 p-2 flex lg:gap-1'
+                    className='relative border cursor-pointer border-gray-400 rounded-lg items-center p-1 px-2 flex lg:gap-1'
                     onClick={() => setShow(!show)}
                   >
                     <span className=''>{selectedValue}</span>
@@ -340,7 +340,7 @@ const Shop = () => {
                   {/* <span className='text-gray-500 mt-3'>Showing the single result</span> */}
                   <div className='relative'>
                     <div
-                      className='border border-gray-400 flex lg:gap-2 gap-1 rounded-full lg:py-2 lg:px-4 lg:pr-2  px-3 py-2 lg:font-semibold cursor-pointer'
+                      className='border border-gray-400 flex lg:gap-2 gap-1 p-2 pl-3 rounded-full lg:font-semibold cursor-pointer '
                       onClick={toggleDropdown}
                     >
                       {selectedOption} <MdOutlineKeyboardArrowDown className='p-1 text-2xl rounded-full border border-gray-300' />
