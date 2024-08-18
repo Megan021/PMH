@@ -7,12 +7,21 @@ import { RxCross2 } from "react-icons/rx";
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import '../App.css'
+import ResponsivePagination from 'react-responsive-pagination';
+import 'react-responsive-pagination/themes/classic.css';
+import './pagination.css'; // see pagination.css example below
+
+
+
+
+
 
 const Shop = () => {
   const [FilterSelect, setFilterSelect] = useState(null);
   const [selectedProduct,setSelectedProduct] = useState(null)
 
-
+  const [currentPage, setCurrentPage] = useState(8);
+  const totalPages = 3;
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState('Sort By');
   const [selectedValue, setSelectedValue] = useState(12);
@@ -417,6 +426,14 @@ const Shop = () => {
                 ))}
 
               </div>
+                    <div className="container  w-full    mx-auto ">
+
+<ResponsivePagination
+  current={currentPage}
+  total={totalPages}
+  onPageChange={setCurrentPage}
+/>
+            </div>
             </div>
 
             <div className="mx-auto md:w-[30%] lg:px-0 px-4 md:block hidden  ">
