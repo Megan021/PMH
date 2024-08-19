@@ -70,10 +70,10 @@ const Navbar = () => {
     <>
       <Header />
 
-      <div className="container py-3 flex justify-between items-center px-4 lg:px-0">
+      <div className="container py-3 mt-2 flex justify-between items-center px-4 lg:px-0">
         <div>
           <Link to="/">
-            <h2 className="uppercase font-semibold text-xl lg:text-2xl">Phm</h2>
+            <h2 className="uppercase font-semibold text-xl lg:text-2xl">PMH</h2>
           </Link>
         </div>
 
@@ -156,7 +156,7 @@ const Navbar = () => {
           <ul>
             <div className="flex justify-between">
               <Link to="/">
-                <h1 className="text-xl font-semibold">PHM</h1>
+                <h1 className="text-xl font-semibold">PMH</h1>
               </Link>
               <RxCross2
                 className="cursor-pointer text-xl"
@@ -188,14 +188,24 @@ const Navbar = () => {
           <div className="border-b border-gray-300 pb-4 mb-6">
             <h2 className="text-xl font-medium pb-3">More Links</h2>
             <ul className="leading-9 text-lg">
-            <Link onClick={toggleNav} to="/privacy-policy"><li>Privacy Policy</li></Link>
+            {/* <Link onClick={toggleNav} to="/privacy-policy"><li>Privacy Policy</li></Link>
             <Link onClick={toggleNav} to="/"><li>Return Policy</li></Link>
             <Link onClick={toggleNav} to="/"><li>Customer Support</li></Link>
-            <Link onClick={toggleNav} to="/"><li>Help Center</li></Link>
-            </ul>
+            <Link onClick={toggleNav} to="/"><li>Help Center</li></Link> */}
+            {/* <ul className="py-2"> */}
+                  {categories.map((category, index) => (
+                    <li
+                      key={index}
+                      className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                    >
+                      <Link to={category.path}>{category.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+            {/* </ul> */}
           </div>
 
-          <div className="text-lg">
+          {/* <div className="text-lg">
             <ul className="leading-10">
               <li className="flex items-center gap-2">
                 <BsTelephone />
@@ -210,7 +220,7 @@ const Navbar = () => {
                 kathmandu, Nepal
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
 
         <div className="lg:flex hidden gap-1 md:gap-4 text-2xl">

@@ -2,6 +2,7 @@ import React from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
+import { Link } from "react-router-dom";
 
 const CustomLeftArrow = ({ onClick }) => {
   return (
@@ -69,9 +70,11 @@ const Hero = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Deserunt debitis totam vero fuga voluptates dolorum.
               </p>
+              <Link to="/shop">
               <button className="p-3 px-6 bg-orange-600 text-white rounded mb-8 lg:mb-0">
                 Explore More
               </button>
+              </Link>
             </div>
             <div className="flex-1">
               <img
@@ -94,9 +97,11 @@ const Hero = () => {
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 Deserunt debitis totam vero fuga voluptates dolorum.
               </p>
+              <Link to="/shop">
               <button className="p-3 px-6 bg-orange-600 text-white rounded mb-8 lg:mb-0">
                 Explore More
               </button>
+              </Link>
             </div>
             <div className="flex-1">
               <img
@@ -118,9 +123,11 @@ const Hero = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
               debitis totam vero fuga voluptates dolorum.
             </p>
+            <Link to="/shop">
             <button className="p-3 px-6 bg-[#0D4C90] text-white rounded mb-8 lg:mb-0">
               Explore More
             </button>
+            </Link>
           </div>
           <div className="flex-1">
             <img
@@ -141,9 +148,11 @@ const Hero = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt
               debitis totam vero fuga voluptates dolorum.
             </p>
+            <Link to="/shop">
             <button className="p-3 px-6 bg-[#0D4C90] text-white rounded mb-8 lg:mb-0">
               Explore More
             </button>
+            </Link>
           </div>
           <div className="flex-1">
             <img

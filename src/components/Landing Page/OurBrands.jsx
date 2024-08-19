@@ -1,5 +1,6 @@
 import React from "react";
 import { BsArrowRightShort } from "react-icons/bs";
+import { Link } from "react-router-dom";
 
 const OurBrands = () => {
   return (
@@ -41,6 +42,8 @@ const OurBrands = () => {
             className="w-44 border border-gray-300 rounded p-4"
           />
         </div>
+
+        <Link to="/shop">
         <div name="sale" className='uppercase bg-[url("/images/banner2.jpeg")]  bg-cover bg-center mt-5'>
           <div className="lg:flex justify-between">
             <div className="hidden lg:block"></div>
@@ -60,6 +63,8 @@ const OurBrands = () => {
             </div>
           </div>
         </div>
+        </Link>
+
       </div>
     </>
   );
