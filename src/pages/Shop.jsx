@@ -79,7 +79,7 @@ const Shop = () => {
       image1: "images/Shop/Product1.jpg",
       image2: "images/Shop/Product1-2.jpg",
       price: "Rs 1,80000",
-      newPrice: "Rs 16,000",
+      newPrice: "Rs 1,00,000",
       name: "IPhone 15",
       category: "Mobile",
       rams: ["8GB", "16GB", "32GB"],
@@ -90,7 +90,7 @@ const Shop = () => {
       image1: "images/Shop/Product2.jpg",
       image2: "images/Shop/Product2-2.jpg",
       price: "Rs 28,000",
-      newPrice: "Rs 16,000",
+      newPrice: "Rs 24,000",
       name: "Smart Band Carbon",
       category: "Watch",
       tag: "30%",
@@ -108,8 +108,8 @@ const Shop = () => {
       id: 4,
       image1: "images/Shop/Product4.jpg",
       image2: "images/Shop/Product4-2.jpg",
-      price: "Rs 8000",
-      newPrice: "Rs 16,000",
+      price: "Rs 5000",
+      newPrice: "Rs 4500",
       name: "IPhone 15 case",
       category: "Cover",
       tag: "50%",
@@ -119,7 +119,7 @@ const Shop = () => {
       image1: "images/Shop/Product5.jpg",
       image2: "images/Shop/Product5.jpg",
       price: "",
-      newPrice: "Rs 16,000",
+      newPrice: "Rs 1,00,000",
       name: "IPhone 15 case",
       category: "Cover",
     },
@@ -127,8 +127,8 @@ const Shop = () => {
       id: 6,
       image1: "images/Shop/Product6.jpg",
       image2: "images/Shop/Product6.jpg",
-      price: "Rs 8000",
-      newPrice: "Rs 16,000",
+      price: "Rs 4000",
+      newPrice: "Rs 1500",
       name: "Mouse 15 ",
       category: "Computer Hardware",
       tag: "30%",
@@ -441,10 +441,10 @@ const Shop = () => {
               <div className="grid md:grid-cols-2 grid-cols-2 lg:grid-cols-3  gap-4 ">
                 {shop.map((product) => (
                   <div className="" key={product.id}>
-                    <div className="md:block hidden">
+                    {/* <div className="md:block hidden">
                       <CiSearch className="text-gray-600 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       <CiHeart className="text-gray-600 text-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    </div>
+                    </div> */}
 
                     <div className=" duration-300 hover:scale-105  lg:py-4 rounded-md relative group mb-[2rem]">
                       <Link to="/productDetails">

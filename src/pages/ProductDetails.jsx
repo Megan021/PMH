@@ -7,6 +7,7 @@ import { AiOutlineSecurityScan } from "react-icons/ai";
 import { SiTicktick } from "react-icons/si";
 import { IoIosArrowForward } from "react-icons/io";
 import Magnifier from "react-magnifier";
+import { Link } from "react-router-dom";
 
 const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState(
@@ -256,12 +257,13 @@ const ProductDetails = () => {
                 </button>
               </div>
               <div>
+                <Link to="/cart">
                 <button
-                  onClick={addToCart}
                   className="bg-[#048754] w-full text-white rounded px-8 py-2 font-semibold text-lg"
                 >
                   Buy Now
                 </button>
+                </Link>
               </div>
 
               {/* <div className="flex items-center gap-5">

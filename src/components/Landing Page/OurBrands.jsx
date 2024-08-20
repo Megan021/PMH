@@ -1,6 +1,8 @@
 import React from "react";
 import { BsArrowRightShort } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import { FaApple } from "react-icons/fa6";
+import { SiSamsung, SiSony, SiXiaomi, SiPanasonic, SiOneplus } from "react-icons/si";
 
 const OurBrands = () => {
   return (
@@ -11,7 +13,15 @@ const OurBrands = () => {
         </h2>
         <hr className="w-[10%] mt-1 border border-gray-400 mx-auto" />
         <div className="flex justify-between pt-10 overflow-scroll lg:overflow-hidden">
-          <img
+          <ul className="flex justify-between gap-[18.4px]">
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-4xl flex items-center  text-slate-600"><FaApple className="mx-auto" /></li>
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-6xl flex items-center text-slate-600"><SiSamsung className="mx-auto" /></li>
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-6xl flex items-center text-slate-600"><SiSony className="mx-auto" /></li>
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-4xl flex items-center  text-slate-600"><SiXiaomi className="mx-auto" /></li>
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-6xl flex items-center text-slate-600"><SiPanasonic className="mx-auto" /></li>
+            <li className="w-44 border border-gray-300 rounded p-4 h-full text-4xl flex items-center  text-slate-600"><SiOneplus className="mx-auto" /></li>
+          </ul>
+          {/* <img
             src="/images/brand_img1.png"
             alt=""
             className="w-44 border border-gray-300 rounded p-4"
@@ -40,7 +50,7 @@ const OurBrands = () => {
             src="/images/brand_img6.png"
             alt=""
             className="w-44 border border-gray-300 rounded p-4"
-          />
+          /> */}
         </div>
 
         <Link to="/shop">
