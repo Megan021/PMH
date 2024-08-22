@@ -82,12 +82,21 @@ const NewArrival = () => {
             className="fixed inset-0 bg-black opacity-50 z-30"
             onClick={() => setSelectedProduct(null)}
           ></div>
+<<<<<<< HEAD
           <div className="fixed top-0 container inset-x-0 md:w-[65%] md:h-auto h-screen   lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
           <div className="lg:flex gap-12   p-4 relative">
+=======
+          <div className="fixed top-0 container inset-x-0 md:w-[65%] md:h-auto h-screen w  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
+            <div className="lg:flex gap-12   p-4 relative">
+>>>>>>> 78205a5232452d505da10ac1f27451a6cd7811a1
               <div className="md:w-1/2 w-[50%] mx-auto">
                 <img
                   src={selectedProduct[selectedColor]}
                   alt={selectedProduct.name}
+<<<<<<< HEAD
+=======
+                  className=" aspect-[4/4] "
+>>>>>>> 78205a5232452d505da10ac1f27451a6cd7811a1
                 />
               </div>
               <div className="lg:mx-auto lg:w-[50%]">

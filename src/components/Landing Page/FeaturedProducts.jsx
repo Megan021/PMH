@@ -3,7 +3,11 @@ import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 
+<<<<<<< HEAD
 const NewArrival = () => {
+=======
+const FeatureProduct = () => {
+>>>>>>> 78205a5232452d505da10ac1f27451a6cd7811a1
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [selectedSize, setSelectedSize] = useState("64 GB");
   const [selectedColor, setSelectedColor] = useState("image1");
@@ -211,4 +215,8 @@ const NewArrival = () => {
   );
 };
 
+<<<<<<< HEAD
 export default NewArrival;
+=======
+export default FeatureProduct;
+>>>>>>> 78205a5232452d505da10ac1f27451a6cd7811a1

@@ -133,9 +133,11 @@ const Header = () => {
                 Save on tons of crowd favorites just in time for the school year
                 and beyond. No code needed, ends 8/22.
               </p>
+              <Link onClick={togglePromo} to="/shop">
               <button className="uppercase underline underline-offset-4">
                 Shop now
               </button>
+              </Link>
             </div>
             <div className="flex-1 class">
               <img

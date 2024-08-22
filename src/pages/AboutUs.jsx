@@ -41,29 +41,29 @@ const AboutUs = () => {
           </div>
         </div>
 
-        <div className="mt-8 px-4 lg:px-4">
-          <div className="md:flex justify-between gap-12">
-            <div className="flex-1">
-              <h1 className="font-semibold text-3xl">Who we Are</h1>
-              <p className="text-gray-500 mt-3 text-[0.96rem] text-justify ">
+        <div className="mt-8 px-4 lg:px-0">
+          <div className="md:flex justify-between gap-5">
+            <div className="flex-1 border border-gray-200 shadow-lg hover:shadow duration-300 text-center rounded-md p-5">
+              <h1 className="font-semibold text-2xl">Who we Are</h1>
+              <p className="font-light mt-3 text-[15px] text-justify ">
                 From the first day of our start, our vision was to change the
                 mentality of our consumers. We had started this business when
                 there were clients who use to pay very less or almost nothing to
                 protect the device they own.{" "}
               </p>
             </div>
-            <div className="flex-1 my-8 md:my-0">
-              <h1 className="font-semibold text-3xl">Our History</h1>
-              <p className="text-gray-500 mt-3 text-[0.96rem]  text-justify  ">
+            <div className="flex-1 border border-gray-200 shadow-lg hover:shadow duration-300 text-center rounded-md p-5 my-8 md:my-0">
+              <h1 className="font-semibold text-2xl">Our History</h1>
+              <p className="font-light mt-3 text-[15px]  text-justify  ">
                 We beleive that we are just taking our baby steps in being one
                 of the tech giants in Nepal. Our mission is to establish
                 ourselves as the biggest onestop store in Nepal, where the tech
                 enthusiast and shoppers find everything they wish for.{" "}
               </p>
             </div>
-            <div className="flex-1">
-              <h1 className="font-semibold text-3xl">Our Mission</h1>
-              <p className="text-gray-500 mt-3 text-[0.96rem]  text-justify  ">
+            <div className="flex-1 border border-gray-200 shadow-lg hover:shadow duration-300 text-center rounded-md p-5">
+              <h1 className="font-semibold text-2xl">Our Mission</h1>
+              <p className="font-light mt-3 text-[15px]  text-justify  ">
                 Since the start of our journey, we have been able. to establish
                 ourseleves as a genuine and distinguished arena for the
                 Mid-range tech customers. From 2016, this mindset of always

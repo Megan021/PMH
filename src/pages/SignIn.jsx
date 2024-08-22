@@ -34,8 +34,12 @@ const SignIn = () => {
   });
 
   return (
-    <div className="px-4 lg:px-0">
-      <div className="container mt-16 border border-gray-200 rounded-xl shadow-sm md:w-[70%] lg:w-[40%] mx-auto px-6 lg:p-16 lg:py-12 py-8">
+    <div className="px-4 lg:px-0 flex items-center container border rounded-xl border-gray-300 shadow gap-12 mt-20">
+      <div className="flex-1 hidden md:block">
+        <img src="/images/login.jpg" alt="" className="rounded-xl" />
+      </div>
+
+      <div className="flex-1 rounded-xl  shadow-sm mx-auto md:px-12 py-14">
         <div className="flex justify-around gap-14 mb-8">
           <button
             className={`text-xl font-semibold pb-2 ${
@@ -79,7 +83,7 @@ const SignIn = () => {
                         name="email"
                         type="text"
                         placeholder="Enter Email"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.email && touched.email ? "border-red-500" : ""
                         }`}
                       />
@@ -95,7 +99,7 @@ const SignIn = () => {
                         name="password"
                         type="password"
                         placeholder="Enter Password"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.password && touched.password ? "border-red-500" : ""
                         }`}
                       />
@@ -108,7 +112,7 @@ const SignIn = () => {
                     <div className="flex items-center gap-5">
                       <button
                         type="submit"
-                        className="p-2 rounded-xl px-6 bg-[#0D4C90] text-white"
+                        className="p-2 rounded-md px-6 bg-[#0D4C90] text-white"
                       >
                         Login
                       </button>
@@ -148,7 +152,7 @@ const SignIn = () => {
                         name="fullName"
                         type="text"
                         placeholder="Enter Full Name"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.fullName && touched.fullName ? "border-red-500" : ""
                         }`}
                       />
@@ -164,7 +168,7 @@ const SignIn = () => {
                         name="email"
                         type="text"
                         placeholder="Enter Email"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.email && touched.email ? "border-red-500" : ""
                         }`}
                       />
@@ -180,7 +184,7 @@ const SignIn = () => {
                         name="password"
                         type="password"
                         placeholder="Enter Password"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.password && touched.password ? "border-red-500" : ""
                         }`}
                       />
@@ -198,7 +202,7 @@ const SignIn = () => {
                         name="confirmPassword"
                         type="password"
                         placeholder="Enter Confirm Password"
-                        className={`border rounded-xl border-gray-300 focus:outline-none p-3 ${
+                        className={`border rounded-xl bg-transparent border-gray-300 focus:outline-none p-3 ${
                           errors.confirmPassword && touched.confirmPassword ? "border-red-500" : ""
                         }`}
                       />
@@ -211,7 +215,7 @@ const SignIn = () => {
                     <div className="flex items-center gap-5">
                       <button
                         type="submit"
-                        className="p-2 rounded-xl px-6 bg-[#0D4C90] text-white"
+                        className="p-2 rounded-md px-6 bg-[#0D4C90] text-white"
                       >
                         Register
                       </button>

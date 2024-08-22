@@ -236,8 +236,7 @@ const BestSelling = () => {
   </div>
 )}
 
-                <button
-                  type="submit"
+                <button type="submit"
                   className="bg-[#0D4C90] text-white px-4 py-2 rounded-lg transition duration-300"
                 >
                   Add to Cart
