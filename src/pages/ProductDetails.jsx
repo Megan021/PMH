@@ -10,7 +10,7 @@ import Magnifier from "react-magnifier";
 
 const ProductDetails = () => {
   const [currentImage, setCurrentImage] = useState(
-    "/images/ProductDetails/ProductDetails.jpg"
+    "/images/ProductDetails/ProductDetails.jpg"  
   );
   // const [currentDescriptionIndex, setCurrentDescriptionIndex] = useState(0);
   const [description, setDescription] = useState(false);

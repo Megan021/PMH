@@ -4,10 +4,37 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { CiShoppingCart } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { IoCloseSharp } from "react-icons/io5";
+
 const BestSelling = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [selectedColor, setSelectedColor] = useState(null);
+  const [selectedRam, setSelectedRam] = useState(null);
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [count, setCount] = useState(1);
+
   const toggleProduct = (product) => {
     setSelectedProduct(product);
+    setSelectedColor(product.image); // Set the default color to the product image
+    setSelectedSize(null); // Reset the size selection when switching products
+  };
+
+  // const handleColorClick = (color) => {
+  //   setSelectedColor(color);
+  // };
+
+  const handleSizeClick = (size) => {
+    setSelectedSize(size);
+  };
+
+  const positiveCount = () => {
+    setCount(count + 1);
+  };
+
+  const negativeCount = () => {
+    if (count > 1) {
+      setCount(count - 1);
+    }
   };
 
   const products = [
@@ -20,7 +47,7 @@ const BestSelling = () => {
     },
     {
       id: 2,
-      image: " images/LandingPage/product2.webp",
+      image: "images/LandingPage/product2.webp",
       price: "Rs 63,000.00",
       name: "Air Buds",
       category: "Music",
@@ -116,104 +143,155 @@ const BestSelling = () => {
 
   return (
     <div>
-      {selectedProduct && (
-        <div
-          className="fixed inset-0 bg-black opacity-50 z-30"
-          onClick={() => setSelectedProduct(null)}
-        ></div>
-      )}
-      {selectedProduct && (
-        <div
-          className={`fixed container inset-x-0 md:w-[50%] md:h-[70%] top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform ${
-            selectedProduct ? "translate-y-0" : "-translate-y-full"
-          } duration-300 z-50`}
-        >
-          <div className="lg:flex  p-4">
-            <div className="md:w-1/2 w-[58%]  mx-auto">
-              <img src={selectedProduct.image} className="" />
-            </div>
-            <div className="mx-auto">
-              <h1 className="">{selectedProduct.name}</h1>
-              <span className="text-gray-700 text-sm my-8">
-                {selectedProduct.category}
-              </span>
-              <h3 className="font-semibold text-2xl my-4">
-                {selectedProduct.price}{" "}
-              </h3>
-              <hr className="border-gray-300 my-4" />
-
-              <h3 className="font-semibold text-xl my-2 mb-4">Color</h3>
-              <div className="flex gap-4 my-4">
-                <span className="my-4  hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-3 border border-gray-100"></span>
-                <span className="my-4 hover:border-black bg-cyan-400 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100"></span>
-                <span className="my-4 hover:border-black bg-red-300 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100"></span>
-                <span className="my-4 hover:border-black bg-green-500 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100"></span>
+     {selectedProduct && (
+        <>
+          <div
+            className="fixed inset-0 bg-black opacity-50 z-30"
+            onClick={() => setSelectedProduct(null)}
+          ></div>
+          <div className="fixed top-0 container inset-x-0 md:w-[65%] md:h-auto h-screen w  lg:top-36 bg-[#F1F1F0] border-b border-gray-200 p-4 transition-transform transform translate-y-0 duration-300 z-50">
+          <div className="lg:flex gap-12   p-4 relative">
+              <div className="md:w-1/2 w-[50%] mx-auto">
+                <img
+                  src={selectedProduct.image}
+                  alt={selectedProduct.name}
+                  className=" aspect-[4/4] "
+                />
               </div>
+              <div className="lg:mx-auto lg:w-[50%]">
+                <h1>{selectedProduct.name}</h1>
+                <span className="text-gray-700 text-sm lg:my-8">
+                  {selectedProduct.category}
+                </span>
+                <h3 className="font-semibold text-2xl my-4">
+                  {selectedProduct.price}
+                </h3>
+                <hr className="border-gray-300 my-4" />
 
-              {/* <h3 className='font-semibold text-xl my-2'>Color</h3>
-                         <div className="flex pb-[3rem]">
-                {["XS", "S", "M", "L", "XL"].map((Color) => (
-                  <div
-                    key={Color}
-                    className={`border font-normal border-gray-300 px-[0.5rem] w-[3rem] text-center 
-                      ${selectedColor === Color ? "border-black bg-gray-800 text-white" : "hover:border-black hover:bg-gray-100 hover:text-black"}
-                      mr-2 transition duration-300`}
-                    onClick={() => handleColorClick(Color)}
-                  >
-                    {Color}
-                  </div>
-                ))}
-              </div> */}
+                <h3 className="font-semibold text-xl">Color</h3>
+                <div className="flex gap-4 mb-4">
+                  <span
+                    className="my-4 hover:border-black bg-[RED] rounded-full cursor-pointer px-3 py-3 border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2"
+                    
+                  ></span>
+                  <span
+                    className="my-4 hover:border-black bg-yellow-400 rounded-full cursor-pointer px-3 py-[0.1rem] border border-gray-100 hover:ring-2 ring-blue-500 ring-offset-2"
+                  ></span>
+                </div>
+
+                {selectedProduct.category === "Mobile" ? (
+  <div className="mb-5">
+    <span className="mr-[3rem] text-[1.2rem] font-semibold text-xl mt-[0.85rem]">
+      SIZES
+    </span>
+    <div className="flex pb-5">
+      {["64 GB", "128 GB", "256 GB", "512 GB"].map((size) => (
+        <div
+          key={size}
+          className={`cursor-pointer font-semibold border rounded-lg px-2 mt-2 py-1 text-center ${
+            selectedSize === size
+              ? "border-2 border-blue-600"
+              : "hover:border hover:border-blue-500 border-gray-500 text-gray-600 hover:text-black"
+          } mr-2 transition duration-300`}
+          onClick={() => handleSizeClick(size)}
+        >
+          {size}
+        </div>
+      ))}
+    </div>
+  </div>
+) : selectedProduct.category === "Laptop" ? (
+  <div className="mb-5">
+    <span className="mr-[3rem] text-[1.2rem] font-semibold text-xl mt-[0.85rem]">
+      RAM
+    </span>
+    <div className="flex pb-5">
+      {["4 GB", "8 GB", "16 GB", "32 GB"].map((ram) => (
+        <div
+          key={ram}
+          className={`cursor-pointer font-semibold border rounded-lg px-2 mt-2 py-1 text-center ${
+            selectedRam === ram
+              ? "border-2 border-blue-600"
+              : "hover:border hover:border-blue-500 border-gray-500 text-gray-600 hover:text-black"
+          } mr-2 transition duration-300`}
+          onClick={() => handleRamClick(ram)}
+        >
+          {ram}
+        </div>
+      ))}
+    </div>
+  </div>
+) : (
+  <div className="mb-8">
+    <h2 className="font-semibold text-xl mb-4">Quantity:</h2>
+    <button className="flex items-center border border-black gap-5 p-1 px-2 rounded w-auto">
+      <button onClick={negativeCount} className="text-xl">
+        -
+      </button>
+      <p className="w-5 text-center">{count}</p>
+      <button onClick={positiveCount} className="text-xl">
+        +
+      </button>
+    </button>
+  </div>
+)}
+
+                <button
+                  type="submit"
+                  className="bg-[#0D4C90] text-white px-4 py-2 rounded-lg transition duration-300"
+                >
+                  Add to Cart
+                </button>
+                  <Link to="/productDetails">
+                    <button
+                      type="submit"
+                      className=" border border-gray-600 px-4 py-2 ml-4 hover:bg-black hover:text-white rounded-lg transition duration-300"
+                    >
+                      View full details
+                    </button>
+                  </Link>
+              </div>
               <button
-                type="submit"
-                className={`bg-[black] text-[white] my-4 w-[15.3rem] h-[4rem] text-[1.25rem] rounded-xl transition duration-300 
-                  }`}
+                onClick={() => setSelectedProduct(null)}
+                className="absolute top-3 right-3 text-xl"
               >
-                Add to Cart
+                <IoCloseSharp />
               </button>
-              <p className="text-gray-500 my-2 text-sm">
-                All terms and conditions available here.
-              </p>
-              <Link to="/productDetails">
-                <span className="text-blue-700">View Full Details </span>
-              </Link>
             </div>
           </div>
-        </div>
+        </>
       )}
 
       <div className="lg:container 3xl:px-32 mt-24">
-        <h2 className="uppercase text-2xl text-center">best selling product</h2>
+        <h2 className="uppercase text-2xl text-center">Best Selling Product</h2>
         <hr className="w-[30%] lg:w-[10%] mt-1 border border-gray-400 mx-auto" />
-        <div className="mt-16  lg:w-full px-[0rem]">
+        <div className="mt-16 lg:w-full px-[0rem]">
           <Slider {...settings}>
             {products.map((product) => (
               <div key={product.id} className="px-2">
-                <div className="hover:border-gray-300 border-white  hover:shadow-lg">
+                <div className="hover:border-gray-300 border-white hover:shadow-lg">
                   <img
                     src={product.image}
-                    alt="Product 1"
+                    alt={product.name}
                     className="lg:h-[20rem] py-8 mx-auto"
                   />
-                  <div className="lg:flex px-4 justify-between ">
-                    <div className="bg-white  py-4">
-                      <p className=" lg:mx-5 py-1  bg-white  ">
-                        {product.price}
-                      </p>
-                      <p className="lg:px-5">{product.name} </p>
+                  <div className="lg:flex px-4 justify-between">
+                    <div className="bg-white py-4">
+                      <p className="lg:mx-5 py-1 bg-white">{product.price}</p>
+                      <p className="lg:px-5">{product.name}</p>
                       <p className="text-gray-400 hidden lg:block px-5">
                         {product.category}
                       </p>
                     </div>
                     <div
                       onClick={() => toggleProduct(product)}
-                      className="cursor-pointer hidden md:block  border border-black p-2 rounded-full my-auto"
+                      className="cursor-pointer hidden md:block border border-black p-2 rounded-full my-auto"
                     >
-                      <CiShoppingCart className="text-xl mx-auto " />
+                      <CiShoppingCart className="text-xl mx-auto" />
                     </div>
                     <div
                       onClick={() => toggleProduct(product)}
-                      className="cursor-pointer border text-center md:hidden   text-sm border-blue-700 p-2 mt-2 rounded-3xl  "
+                      className="cursor-pointer border text-center md:hidden text-sm border-blue-700 p-2 mt-2 rounded-3xl"
                     >
                       VIEW DETAILS
                     </div>
@@ -221,86 +299,6 @@ const BestSelling = () => {
                 </div>
               </div>
             ))}
-            {/* <div className='px-2 flex'>
-            <div className='hover:border hover:border-black'>
-              <img src='images/LandingPage/product2.webp' alt='Product 2' />
-              <div className='flex justify-between '>
-              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>Rs 63,000.00</p>
-              <p className='px-5'>Airs Buds </p>
-              <p className='text-gray-400 px-5'>Music</p></div>
-              <div onClick={toggleProduct}  className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart  className='text-xl '/>
-
-              </div>
-              </div>
-            </div>
-          </div> */}
-            {/* <div className='px-2'>
-            <div className='hover:border hover:border-black'>
-              <img src='images/LandingPage/product3.webp' alt='Product 3' />
-              <div className='flex justify-between '>
-
-              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>Rs 100,000.00</p>
-              <p className='px-5'>Samsung A4</p>
-              <p className='text-gray-400 px-5'>Mobile</p></div>
-              <div onClick={toggleProduct} className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart   className='text-xl '/>
-
-              </div>
-              </div>
-            </div>
-          </div> */}
-            {/* <div className='px-2'>
-            <div className='hover:border hover:border-black'>
-              <img src='images/LandingPage/product4.webp' alt='Product 4' />
-              <div className='flex justify-between '>
-
-              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>Rs 10,000.00</p>
-              <p className='px-5'>X-box controller</p>
-              <p className='text-gray-400 px-5'>Video Games</p></div>
-              <div  onClick={toggleProduct} className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart  className='text-xl '/>
-
-              </div>
-              </div>
-            </div>
-          </div> */}
-            {/* <div className='px-2'>
-            <div className='hover:border hover:border-black'>
-              <img src='images/LandingPage/product5.webp' alt='Product 5' />
-              <div className='flex justify-between '>
-
-              <div className='bg-white  py-4'>
-              <p className=' mx-5 py-1  bg-white  '>Rs 10,000.00</p>
-              <p className='px-5'>G-Shock</p>
-              <p className='text-gray-400 px-5'>Shoes</p></div>
-              <div onClick={toggleProduct}  className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart  className='text-xl '/>
-
-              </div>
-              </div>
-            </div>
-          </div> */}
-            {/* <div className='px-2'>
-            <div className='hover:border hover:border-black'>
-                            <img src='images/LandingPage/product6.webp' alt='Product 6' />
-                            <div className='flex justify-between '>
-
-              <div className='bg-white text-black py-4'>
-              <p className=' mx-5 py-1  bg-white text-black '>Rs 120,000.00</p>
-              <p className='px-5'>Acer Nitro</p>
-              <p className='text-gray-400 px-5'>Laptop</p>              </div>
-
-              <div onClick={toggleProduct}  className= 'cursor-pointer border border-black p-2 rounded-full my-auto'>
-              <CiShoppingCart  className='text-xl '/>
-
-              </div>
-              </div>
-            </div>
-          </div> */}
           </Slider>
         </div>
       </div>
